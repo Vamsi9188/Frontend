@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM getElementsByTagName() Method</title>
+    <style>
+        body
+        {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+    <script>
+        function changeColor()
+        {
+            var result=document.getElementsByTagName("h1")[1];
+            result.style.color="red";
+            result.style.background="yellow";
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to DOM getElementsByTagName() Method</h1>
+    <h1>getElementsByTagName() Method</h1>
+    <p>Hello! Vamsi :) Have a great day....</p>
+    <input type="button" onclick="changeColor()" value="Click Here">
+</body>
+</html>

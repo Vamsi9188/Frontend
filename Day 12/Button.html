@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Example</title>
+    <style>
+        #newButton {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Create a new button element
+        var button = document.createElement('button');
+        // Set the text content
+        button.textContent = 'Click Me';
+        // Apply the styles
+        button.style.backgroundColor = 'red';
+        button.style.color = 'white';
+        // Set an ID for the button
+        button.id = 'newButton';
+        // Append the button to the beginning of the body tag
+        document.body.insertBefore(button, document.body.firstChild);
+    </script>
+    <form>
+        <label for="required">Required*</label>
+        <input type="text" required>
+    </form>
+</body>
+</html>

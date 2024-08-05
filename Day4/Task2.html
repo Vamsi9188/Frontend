@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 8px;
+        }
+        .frontend {
+            background-color: #f0f8ff;
+        }
+        .backend {
+            background-color: #e6e6fa;
+        }
+        .fullstack {
+            background-color: #f5f5dc;
+        }
+    </style>
+</head>
+<body>
+    <table>
+       
+        <tr>
+            <th>PERIOD (am/pm)</th>
+            <th>MONDAY</th>
+            <th>TUESDAY</th>
+            <th>WEDNESDAY</th>
+            <th>THURSDAY</th>
+            <th>FRIDAY</th>
+            <th>SATURDAY</th>
+            <th>Backend</th>
+            <th>Frontend</th>
+            <th>FullStack</th>
+        </tr>
+        <tr>
+            <td>09:00 - 11:00</td>
+            <td class="frontend" colspan="6">HTML/CSS</td>
+            <td class="frontend">HTML/CSS</td>
+            <td class="frontend" rowspan="6">JavaScript</td>
+            <td rowspan="6">Practice</td>
+        </tr>
+        <tr>
+            <td>11:10 - 12:40</td>
+            <td class="frontend" colspan="6">JavaScript</td>
+            <td class="frontend">JavaScript</td>
+        </tr>
+        <tr>
+            <td>12:40 - 13:20</td>
+            <td colspan="6">Lunch</td>
+            <td>Lunch</td>
+        </tr>
+        <tr>
+            <td>13:20 - 14:50</td>
+            <td class="backend" colspan="6">NodeJS</td>
+            <td class="backend">NodeJS</td>
+        </tr>
+        <tr>
+            <td>15:00 - 16:30</td>
+            <td class="backend" colspan="6">MongoDB</td>
+            <td class="backend">MongoDB</td>
+        </tr>
+        <tr>
+            <td>17:00 - 19:00</td>
+            <td colspan="6">Practice</td>
+            <td>Practice</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav's bio</title>
+    <style>
+        * {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+header {
+  padding: 16px;
+}
+.links .link {
+  margin: auto 16px;
+}
+
+#intro {
+  background-color: slategray;
+  text-align: center;
+  padding: 16px;
+}
+
+#intro .tagline {
+  color: whitesmoke;
+}
+
+#dynamic-text {
+  color: yellowgreen;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  /* border-radius: 8px; */
+  border-top-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+}
+
+ul,
+ol {
+  padding: 16px;
+}
+
+section {
+  padding: 16px;
+}
+
+section > h2 {
+  text-align: center;
+}
+
+footer {
+  padding: 8px 16px;
+  border-top: 2px solid;
+  text-align: center;
+}
+
+.nav-header {
+  position: sticky;
+  border: 1px solid;
+  background: whitesmoke;
+  top: 0;
+}
+#mobile-view {
+  display: none;
+}
+
+@media screen and (width <= 575px) {
+  #mobile-view {
+    display: revert;
+    height: 56px;
+  }
+  #main-header {
+    display: none;
+  }
+  #open-menu {
+    background-color: transparent;
+    border-radius: 8px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+  }
+  #mobile-nav {
+    position: absolute;
+    background-color: #fff;
+    inset: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: 99;
+  }
+
+  #mobile-nav a {
+    display: block;
+    margin-bottom: 16px;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  #mobile-nav a:first-child {
+    margin-top: 32px;
+  }
+
+  #close-menu {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    background: transparent;
+    border: none;
+  }
+}
+
+@media screen and (width < 250px) {
+  .profile-image {
+    height: 100%;
+    width: 100%;
+  }
+}
+    </style>
+</head>
+
+<body>
+    <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+const phrases = ["web developer...", "mentor...", "software consultant..", "youtuber.."];
+const dynamicTextElement = document.querySelector("#dynamic-text")
+
+let phraseIndex = 0;
+let letterIndex = 0;
+
+let writingSpeed = 150;
+let erasingSpeed = 50;
+
+function clearLetter() {
+    let content = dynamicTextElement.textContent.split("");
+    content.pop();
+    dynamicTextElement.textContent = content.join("");
+    if (dynamicTextElement.textContent != "") {
+        setTimeout(function () {
+            clearLetter();
+        }, erasingSpeed)
+    } else {
+        phraseIndex++;
+        phraseIndex = phraseIndex % phrases.length;
+        letterIndex = 0;
+        writeLetter();
+    }
+
+}
+function writeLetter() {
+    dynamicTextElement.textContent += phrases[phraseIndex].charAt(letterIndex);
+    if (letterIndex < phrases[phraseIndex].length) {
+        setTimeout(function () {
+            letterIndex++;
+            writeLetter()
+        }, writingSpeed)
+
+    } else {
+        clearLetter();
+    }
+
+}
+
+writeLetter();
+
+function openMenu() {
+    const menu = document.getElementById("mobile-nav");
+    menu.style.height = "100%"
+}
+function closeMenu() {
+    const menu = document.getElementById("mobile-nav");
+    menu.style.height = "0"
+
+}
+const menuButton = document.querySelector("#open-menu");
+
+menuButton.addEventListener("click", openMenu);
+
+const closeButton = document.getElementById("close-menu");
+closeButton.addEventListener("click", closeMenu)
+
+const allMobileNavigationLinks = document.querySelectorAll("#mobile-nav a.link");
+allMobileNavigationLinks.forEach(link => {
+    link.addEventListener("click", closeMenu)
+})
+
+})
+
+    </script>
+    <main>
+        <header id="mobile-view">
+
+            <button id="open-menu">Menu</button>
+            <nav id="mobile-nav" class="links">
+                <a class="link" href="#about-me">About me</a>
+                <a class="link" href="#education">Educational Qualification</a>
+                <a class="link" href="#hobbies">Hobbies</a>
+                <a class="link" href="#technologies">Technologies</a>
+                <button id="close-menu">X</button>
+            </nav>
+        </header>
+        <header id="main-header" class="nav-header">
+            <nav class="links">
+                <a class="link" href="#about-me">About me</a>
+                <a class="link" href="#education">Educational Qualification</a>
+                <a class="link" href="#hobbies">Hobbies</a>
+                <a class="link" href="#technologies">Technologies</a>
+            </nav>
+        </header>
+        <article id="intro">
+            <img class="profile-image" src="gaurav-bio.jpeg" alt="profile image">
+            <h2>Hi! I'm Gaurav</h2>
+            <p class="tagline">I'm a <span id="dynamic-text"></span></p>
+            <section>
+
+                <a target="_blank" href="https://www.linkedin.com/in/gauravs3n">
+                    <img height=" 30" width="30" src="
+                https://www.iconpacks.net/icons/1/free-icon-linkedin-130.png" alt="Linkedin Icon"></a>
+                <a target="_blank" href="https://twitter.com/gaurav_sen_">
+                    <img height=" 30" width="30" src="https://www.iconpacks.net/icons/1/free-icon-twitter-135.png"
+                        alt="Twitter Icon"></a>
+                <a target="_blank" href="https://www.instagram.com/gaurav.sen_/">
+                    <img height=" 30" width="30"
+                        src="https://www.iconpacks.net/icons/3/free-icon-instagram-logo-8869.png"
+                        alt="Instagram Icon"></a>
+            </section>
+        </article>
+        <section id="about-me">
+            <h2>
+                About me
+            </h2>
+            <p>A Software Engineer by profession with 1o years of industry experience.</p>
+            <p>In 2020 I started tutoring as a hobby. A way to earn a passive side income.
+
+            <p>
+                After receiving positive feedback from a large number of students, I took it up more actively. It gives
+                me
+                immense joy
+                to see my students succeed and grow with the skills that I've taught them.</p>
+            </p>After receiving positive feedback from a large number of students, I took it up more actively. It gives
+            me
+            immense joy
+            to see my students succeed and grow with the skills that I've taught them.</p>
+        </section>
+
+        <section id="education">
+            <h2>Educational Qualifications</h2>
+            <ol>
+                <li>BE Computer Science</li>
+                <li>CDAC Wireless and mobile computing</li>
+            </ol>
+        </section>
+
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Programming</li>
+                <li>Teach</li>
+                <li>Listening to music</li>
+            </ul>
+        </section>
+
+        <section id="technologies">
+            <h2>Technologies known to me</h2>
+            <table>
+                <tr>
+                    <th>Frontend</th>
+                    <th>Backend</th>
+                </tr>
+                <tr>
+                    <td>HTML</td>
+                    <td>Nodejs</td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>MongoDB</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+
+    <footer>
+        Created by Gaurav ©2024
+    </footer>
+
+</body>
+
+</html>

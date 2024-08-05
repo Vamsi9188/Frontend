@@ -1,0 +1,53 @@
+#vamsi
+{
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+    height:200px;
+    width:200px;
+    object-fit:cover;
+    
+}
+.linkedin,.instagram,.facebook
+{
+    height:45px;
+    width:45px;
+    padding:5px;
+}
+#image
+{
+    text-align:center;
+    margin-top:10px;
+    background-color:slategray;
+    padding:16px;
+}
+#about,#education,#hobbies,#languages
+{
+    margin-left:150px;
+    margin-right:100px;
+    background-color: rgb(202, 202, 143);
+}
+#navbar
+{
+    border:2px solid;
+    margin-left:150px;
+    margin-right:150px;
+    background-color: #f1bdcf;
+}
+.about,.education,.hobbies,.languages
+{
+    text-align:center;
+    padding:15px;
+    font-size:larger;
+    text-decoration:none;
+}
+section > h2,h1
+{
+    text-align:center;
+}
+footer
+{
+    border-top:2px solid;
+    text-align:center;
+}

@@ -1,0 +1,929 @@
+num2=5
+5
+num1=4
+4
+num1>num2
+false
+num1!=num2
+true
+num2+=2
+7
+num2-=2
+5
+num2*=2
+10
+num2/2=2
+VM189:1 Uncaught SyntaxError: Invalid left-hand side in assignmentUnderstand this error
+num2/=2
+5
+//type conversion
+undefined
+num1=4
+4
+num1.toString()
+'4'
+var num3=num1.toString()
+undefined
+num3
+'4'
+parseInt(num3)
+4
+parseFloat(num2)
+5
+Number(num2)
+5
+num1+num2
+9
+"my age is"+num1+num2+13
+'my age is4513'
+"my age is" ,num1+num2+13 
+22
+"my name is"+" vamsi"
+'my name is vamsi'
+'hello'.'vamsi'
+VM788:1 Uncaught SyntaxError: Unexpected stringUnderstand this error
+'hello'+' vamsi'
+'hello vamsi'
+"hello"."vamsi"
+VM838:1 Uncaught SyntaxError: Unexpected stringUnderstand this error
+var name="vamsi"
+undefined
+"hello "+name
+'hello vamsi'
+//concatenation
+undefined
+1+1
+2
+"1"+1
+'11'
+"1"-1
+0
+"1">=1
+true
+"my name is"-"vamsi"
+NaN
+12+21
+33
+"12"+"21"
+'1221'
+'12'+'21'
+'1221'
+12+'APR'
+'12APR'
+12+APR
+VM1306:1 Uncaught ReferenceError: APR is not defined
+    at <anonymous>:1:4
+(anonymous) @ VM1306:1Understand this error
+"12"+"APR"
+'12APR'
+'12'+'apr'
+'12apr'
+12+'a'
+'12a'
+12+12.4
+24.4
+parseInt(24.4)
+24
+12.4+21.5
+33.9
+21.5+2
+23.5
+21.5+"may"
+'21.5may'
+parseInt('21.5may')
+21
+parseInt('May21')
+NaN
+parseFloat(12.546)
+12.546
+var n=12.4
+undefined
+n.toString()
+'12.4'
+parseInt("vamsi")
+NaN
+num1
+4
+num2
+5
+console.log("print something on the console")
+VM2380:1 print something on the console
+undefined
+// conditional operators
+undefined
+/*
+VM2460:1 Uncaught SyntaxError: Invalid or unexpected tokenUnderstand this error
+*/
+VM2466:1 Uncaught SyntaxError: Unexpected token '*'Understand this error
+// If else statement
+undefined
+/* if(condition)
+VM2592:1 Uncaught SyntaxError: Invalid or unexpected tokenUnderstand this error
+/* if(condition) {code to be extecuted when condition gets true} else {code to be executed when condition gets false}*/
+undefined
+if(num1>num2)
+{
+    console.log("num1 is greater than num2);
+VM2878:3 Uncaught SyntaxError: Invalid or unexpected tokenUnderstand this error
+if(num1>num2)
+{
+    console.log("num1 is greater than num2);}
+VM2885:3 Uncaught SyntaxError: Invalid or unexpected tokenUnderstand this error
+if(num1>num2){}
+undefined
+if(num1>num2){}
+undefined
+if(num1>num2)
+{
+    console.log("num1 is greater than num2);
+VM3018:3 Uncaught SyntaxError: Invalid or unexpected tokenUnderstand this error
+if(num1>num2)
+{
+    console.log("num1 is greater than num2");
+}
+undefined
+else
+VM3057:1 Uncaught SyntaxError: Unexpected token 'else'Understand this error
+if(num1>num2)
+{
+    console.log("num1 is greater than num2");
+}else{
+    console.log("num2 is greater than num1");
+}
+VM3199:5 num2 is greater than num1
+undefined
+age=int(input())
+VM3252:1 Uncaught ReferenceError: int is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM3252:1Understand this error
+a=5
+5
+b=10
+10
+if(a<b)
+{
+    console.log(" a is smaller than b")
+} else {
+    console.log("b is smaller than a")
+}
+VM3631:3  a is smaller than b
+undefined
+//if else if
+undefined
+c=15
+15
+if(a>b)
+{
+    console.log("a is greater than b")
+} else if(a>c)
+{
+    console.log("a is greater than c")
+}
+undefined
+if(a>b)
+{
+    console.log("a is greater than b")
+} else if(a>c)
+{
+    console.log("a is greater than c")
+} else {
+    console.log("b is greater than a")
+}
+VM4133:8 b is greater than a
+undefined
+if(a>c)
+{
+    console.log("a is greater than c")
+} else if(b>c)
+{
+    console.log("b is greater than c")
+} else {
+    console.log("c is greater than a")
+}
+VM4157:8 c is greater than a
+undefined
+if(c>a)
+{
+    console.log("a is greater than c")
+} else if(b>c)
+{
+    console.log("b is greater than c")
+} else {
+    console.log("c is greater than a")
+}
+VM4167:3 a is greater than c
+undefined
+if(c>a)
+{
+    console.log("c is greater than a")
+} else if(b>c)
+{
+    console.log("b is greater than c")
+} else {
+    console.log("c is greater than a")
+}
+VM4173:3 c is greater than a
+undefined
+if(c>a)
+{ else if(b>c)
+{
+    console.log("b is greater than c")
+} else {
+    console.log("c is greater than a")
+}
+VM4188:2 Uncaught SyntaxError: Unexpected token 'else'Understand this error
+if(c>a)
+{ else if(b>c)
+{
+    console.log("b is greater than c")
+} else {
+    console.log("c is greater than a")
+}
+VM4190:2 Uncaught SyntaxError: Unexpected token 'else'Understand this error
+if(c>a)
+{
+    else if(b>c)
+{
+    console.log("b is greater than c")
+} else {
+    console.log("c is greater than a")
+} else {
+VM4260:3 Uncaught SyntaxError: Unexpected token 'else'Understand this error
+a=5;b=5
+5
+a=b=5
+5
+a
+5
+b
+5
+if(a>b)
+{
+    console.log("a is greater than b")
+} else if(b>a)
+{
+    console.log("b is greater than a")
+} else {
+    console.log("both are equal")
+}
+VM4733:8 both are equal
+undefined
+//Switch statement
+undefined
+var color="blue";
+undefined
+switch(color)
+    {
+        case 'violet':
+            console.log("Violet Color");
+            break;
+        case 'indigo':    
+VM5023:6 Uncaught SyntaxError: Unexpected end of inputUnderstand this error
+switch(color)
+    {
+        case 'violet':
+            console.log("Violet Color");    
+VM5040:4 Uncaught SyntaxError: Unexpected end of inputUnderstand this error
+let day;
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case  6:
+    day = "Saturday";
+}
+'Thursday'
+let day='Monday'
+switch (day) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case  6:
+    day = "Saturday";
+}
+undefined
+day
+'Monday'
+let day="Monday"
+switch (day) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case  6:
+    day = "Saturday";
+}
+undefined
+let day=4
+switch (day) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case  6:
+    day = "Saturday";
+}
+'Thursday'
+let day=1
+switch (day) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case  6:
+    day = "Saturday";
+}
+'Monday'
+let day="sun"
+switch (day) {
+  case "sun":
+    day = "Sunday";
+    break;
+  case "mon":
+    day = "Monday";
+    break;
+  case "tue":
+    day = "Tuesday";
+    break;
+  case "wed":
+    day = "Wednesday";
+    break;
+  case "thu":
+    day = "Thursday";
+    break;
+  case "fri":
+    day = "Friday";
+    break;
+  case  "sat":
+    day = "Saturday";
+}
+'Sunday'
+let day="fri"
+switch (day) {
+  case "sun":
+    day = "Sunday";
+    break;
+  case "mon":
+    day = "Monday";
+    break;
+  case "tue":
+    day = "Tuesday";
+    break;
+  case "wed":
+    day = "Wednesday";
+    break;
+  case "thu":
+    day = "Thursday";
+    break;
+  case "fri":
+    day = "Friday";
+    break;
+  case  "sat":
+    day = "Saturday";
+}
+'Friday'
+let color='v'
+VM5222:1 Uncaught SyntaxError: Identifier 'color' has already been declaredUnderstand this error
+color
+'blue'
+color='v'
+'v'
+color
+'v'
+let color='v'
+VM5296:1 Uncaught SyntaxError: Identifier 'color' has already been declaredUnderstand this error
+switch(color)
+    {
+        case 'v':console.log("violet")
+            break;
+        case 'i':console.log("indigo")
+            break;
+        case 'b':console.log("blue")
+            break;
+        case 'g':console.log("green")
+            break;
+        case 'y':consoloe.log("yellow")
+            break;
+        case 'o':console.log("orange")
+            break;
+        case 'r':console.log("red")
+            break;
+        default:
+            console.log("No color found")
+    }
+VM6163:3 violet
+undefined
+color='n'
+'n'
+switch(color)
+    {
+        case 'v':console.log("violet")
+            break;
+        case 'i':console.log("indigo")
+            break;
+        case 'b':console.log("blue")
+            break;
+        case 'g':console.log("green")
+            break;
+        case 'y':consoloe.log("yellow")
+            break;
+        case 'o':console.log("orange")
+            break;
+        case 'r':console.log("red")
+            break;
+        default:
+            console.log("No color found")
+    }
+VM6198:18 No color found
+undefined
+// Ternary Operator(?)
+undefined
+a
+5
+x=12
+12
+y=4
+4
+x>y?console.log("x is big"):console.log("y is big");
+VM6494:1 x is big
+undefined
+age=18
+18
+age>=18?console.log("you are eligible for vote"):console.log("You are not eligible for vote");
+VM6735:1 you are eligible for vote
+undefined
+age>=13?console.log("you are eligible for vote"):console.log("You are not eligible for vote");
+VM6742:1 you are eligible for vote
+undefined
+var js="JavaScript"
+undefined
+js=="JavaScript"?console.log("This is JavaScript"):console.log("This is not Java Script");
+VM7069:1 This is JavaScript
+undefined
+js=="Java Script"?console.log("This is JavaScript"):console.log("This is not Java Script");
+VM7073:1 This is not Java Script
+undefined
+var tp="(condition)?exp1:exp2;";
+undefined
+tp=="(condition)?exp1:exp2;"?console.log("Ternary Operator"):console.log("Not a Ternary Operator");
+VM7420:1 Ternary Operator
+undefined
+tp=="(condition)?exp1:exp2;"?console.log("Ternary Operator"):console.log("Not a Ternary Operator");
+VM7423:1 Ternary Operator
+undefined
+tp=="(condition)?exp1:exp2"?console.log("Ternary Operator"):console.log("Not a Ternary Operator");
+VM7427:1 Not a Ternary Operator
+undefined
+// Loops
+undefined
+//While Loop
+undefined
+var num=1
+undefined
+// Syntax
+undefined
+/* initialization; while(condition)
+VM7658:1 Uncaught SyntaxError: Invalid or unexpected tokenUnderstand this error
+/* initialization; while(condition)-->statements executed until the condition gets false.-->increment or decrement a variable */
+undefined
+while(num>=10)
+    {
+        console.log("while loop")
+        num=num+1
+    }
+undefined
+while(num>=10)
+    {
+        console.log("while loop");
+        num=num+1;
+    }
+undefined
+num=1
+1
+while(num>=10)
+    {
+        console.log("while loop");
+        num=num+1;
+    }
+undefined
+while(num<=10)
+    {
+        console.log("while loop");
+        num=num+1;
+    }
+10VM8140:3 while loop
+11
+while(num<=10)
+    {
+        console.log(num);
+        num=num+1;
+    }
+undefined
+i=1
+1
+while(i<=10)
+    {
+        console.log(i);
+        i=i+1;
+    }
+VM8290:3 1
+VM8290:3 2
+VM8290:3 3
+VM8290:3 4
+VM8290:3 5
+VM8290:3 6
+VM8290:3 7
+VM8290:3 8
+VM8290:3 9
+VM8290:3 10
+11
+i=10
+10
+while(i>=1)
+    {
+        console.log(i);
+        i=i-1;
+    }
+VM8317:3 10
+VM8317:3 9
+VM8317:3 8
+VM8317:3 7
+VM8317:3 6
+VM8317:3 5
+VM8317:3 4
+VM8317:3 3
+VM8317:3 2
+VM8317:3 1
+0
+while(i>=1)
+    {
+        console.log(i);
+        i=i-1;
+    }
+undefined
+while(i>=1)
+    {
+       if(i%2==0)
+        i=i-1;
+    }
+undefined
+while(i>=1)
+    {
+       if(i%2==0){
+        i=i-1;
+    }
+VM8339:5 Uncaught SyntaxError: Unexpected end of inputUnderstand this error
+while(i>=1)
+    {
+       if(i%2==0){ console.log(i)}
+        i=i-1;
+    }
+undefined
+var counter=1
+undefined
+while (counter<=100)
+    {
+        console.log(conter);
+        counter+=10;
+    }
+VM8600:3 Uncaught ReferenceError: conter is not defined
+    at <anonymous>:3:21
+(anonymous) @ VM8600:3Understand this error
+while (counter<=100)
+    {
+        console.log(counter);
+        counter+=10;
+    }
+VM8606:3 1
+VM8606:3 11
+VM8606:3 21
+VM8606:3 31
+VM8606:3 41
+VM8606:3 51
+VM8606:3 61
+VM8606:3 71
+VM8606:3 81
+VM8606:3 91
+101
+var counter=10
+undefined
+while (counter<=100)
+    {
+        console.log(counter);
+        counter+=10;
+    }
+VM8646:3 10
+VM8646:3 20
+VM8646:3 30
+VM8646:3 40
+VM8646:3 50
+VM8646:3 60
+VM8646:3 70
+VM8646:3 80
+VM8646:3 90
+VM8646:3 100
+110
+var name="Devsnest";
+undefined
+i=0
+0
+while(i<name.length)
+    {
+        console.log(name.charAt(i));
+        i++;
+    }
+VM8962:3 D
+VM8962:3 e
+VM8962:3 v
+VM8962:3 s
+VM8962:3 n
+VM8962:3 e
+VM8962:3 s
+VM8962:3 t
+7
+name.length;
+8
+i=8
+8
+while(i>name.length)
+    {
+        console.log(name.charAt(i));
+        i--;
+    }
+undefined
+while(i>0)
+    {
+        console.log(name.charAt(i));
+        i--;
+    }
+VM9078:3 
+VM9078:3 t
+VM9078:3 s
+VM9078:3 e
+VM9078:3 n
+VM9078:3 s
+VM9078:3 v
+VM9078:3 e
+1
+while(i>=0)
+    {
+        console.log(name.charAt(i));
+        i--;
+    }
+VM9081:3 D
+0
+while(i>1)
+    {
+        console.log(name.charAt(i));
+        i--;
+    }
+undefined
+i=7
+7
+while(i>=0)
+    {
+        console.log(name.charAt(i));
+        i--;
+    }
+VM9119:3 t
+VM9119:3 s
+VM9119:3 e
+VM9119:3 n
+VM9119:3 s
+VM9119:3 v
+VM9119:3 e
+VM9119:3 D
+0
+// for loop
+undefined
+for(var a=1;a<=10;a++)
+    {
+        console.log(a);
+    }
+VM9260:3 1
+VM9260:3 2
+VM9260:3 3
+VM9260:3 4
+VM9260:3 5
+VM9260:3 6
+VM9260:3 7
+VM9260:3 8
+VM9260:3 9
+VM9260:3 10
+undefined
+for(var a=1;a<=10;a++)
+    {
+        if(a%2==0)
+        {
+            console.log("even",a);
+        } else {
+            console.log("odd",a)
+        }
+        a++;
+    }
+VM9535:7 odd 1
+VM9535:7 odd 3
+VM9535:7 odd 5
+VM9535:7 odd 7
+VM9535:7 odd 9
+9
+for(var a=1;a<=10;a++)
+    {
+        if(a%2==0)
+        {
+            console.log("even",a);
+        // } else {
+        //     console.log("odd",a)
+        // }
+        a++;
+    }
+VM9538:10 Uncaught SyntaxError: Unexpected end of inputUnderstand this error
+for(var a=1;a<=10;a++)
+    {
+        if(a%2==0)
+        {
+            console.log("even",a);
+        }/* else {
+        //     console.log("odd",a)
+        // } */
+        a++;
+    }
+9
+for(var a=1;a<=10;a++)
+    {
+        if(a%2==0)
+        {
+            console.log("even",a)
+        }
+        a++;
+    }
+9
+for(var b=1;b<=10;b++)
+    {
+        if(b%2==0)
+        {
+            console.log("even",b)
+        }
+        b++;
+    }
+9
+for(var b=1;b<=10;b++)
+    {
+        if(b%2===0)
+        {
+            console.log("even",b)
+        }
+        b++;
+    }
+9
+for(var b=1;b<=10;b++)
+    {
+        if(b%2===0)
+        {
+            console.log("even",b)
+        }
+    }
+VM9937:5 even 2
+VM9937:5 even 4
+VM9937:5 even 6
+VM9937:5 even 8
+VM9937:5 even 10
+undefined
+// displaying 10th table using for loop in javascript
+undefined
+var t=10;
+undefined
+for(var i=1;i<=t;i++)
+    {
+        console.log(t*i=(t*i));
+VM10264:3 Uncaught SyntaxError: Invalid left-hand side in assignmentUnderstand this error
+for(var i=1;i<=t;i++)
+    {
+        console.log(t"*",i,"=",(t*i));
+VM10313:3 Uncaught SyntaxError: missing ) after argument listUnderstand this error
+for(var i=1;i<=t;i++)
+    {
+        console.log(t,"*",i,"=",(t*i));
+    }
+VM10327:3 10 '*' 1 '=' 10
+VM10327:3 10 '*' 2 '=' 20
+VM10327:3 10 '*' 3 '=' 30
+VM10327:3 10 '*' 4 '=' 40
+VM10327:3 10 '*' 5 '=' 50
+VM10327:3 10 '*' 6 '=' 60
+VM10327:3 10 '*' 7 '=' 70
+VM10327:3 10 '*' 8 '=' 80
+VM10327:3 10 '*' 9 '=' 90
+VM10327:3 10 '*' 10 '=' 100
+undefined
+for(var i=1;i<=t;i++)
+    {
+        console.log(t,'*',i,'=',(t*i));
+    }
+VM10359:3 10 '*' 1 '=' 10
+VM10359:3 10 '*' 2 '=' 20
+VM10359:3 10 '*' 3 '=' 30
+VM10359:3 10 '*' 4 '=' 40
+VM10359:3 10 '*' 5 '=' 50
+VM10359:3 10 '*' 6 '=' 60
+VM10359:3 10 '*' 7 '=' 70
+VM10359:3 10 '*' 8 '=' 80
+VM10359:3 10 '*' 9 '=' 90
+VM10359:3 10 '*' 10 '=' 100
+undefined
+for(var i=1;i<=t;i++)
+    {
+        console.log(t,*,i,=,(t*i));
+    }
+VM10385:3 Uncaught SyntaxError: Unexpected token '*'Understand this error
+for(var i=1;i<=t;i++)
+    {
+        console.log(`10 * ${i} = ${10 * i}`);
+    }
+VM10391:3 10 * 1 = 10
+VM10391:3 10 * 2 = 20
+VM10391:3 10 * 3 = 30
+VM10391:3 10 * 4 = 40
+VM10391:3 10 * 5 = 50
+VM10391:3 10 * 6 = 60
+VM10391:3 10 * 7 = 70
+VM10391:3 10 * 8 = 80
+VM10391:3 10 * 9 = 90
+VM10391:3 10 * 10 = 100
+undefined
+// Arrays
+undefined
+arr=[1,2,3,4,5,6,7,8,9,10]
+(10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

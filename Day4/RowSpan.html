@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RowSpan Tables</title>
+    <style>
+        .table2,.table3,tr,th,td
+        {
+            border:2px solid black;
+            border-collapse:collapse;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th colspan="2">Language and Frameworks</th>
+        </tr>
+        <tr>
+            <td>Python</td>
+            <td>Django</td>
+          
+        </tr>
+        <tr>
+            <td rowspan="2">Javascript</td>
+            <td>React.js</td>
+            <tr>
+                <td>Vue.js</td>
+            </tr>
+            <!-- <td>Vue.js</td> -->
+        </tr>
+        <tr>
+            <td>Ruby</td>
+            <td>Ruby on Rails</td>
+        </tr>
+    </table>
+    <br>
+    <table class="table2" border="2">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Marks</th>
+        </tr>
+        <tr>
+            <td rowspan="4">1</td>
+            <td rowspan="4">David</td>
+            <tr><td>Maths</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>Computers</td>
+                <td>70</td>
+            </tr>
+        </tr>
+        <tr>
+            <td rowspan="4">2</td>
+            <td rowspan="4">Alex</td>
+            <tr><td>Maths</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>Computers</td>
+                <td>90</td>
+            </tr>
+        </tr>
+    </table>
+    <br>
+    <table class="table3">
+        <tr>
+            <th colspan="6">Time Table</th>
+        </tr>
+        <tr>
+            <th rowspan="6">Hours</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Arts</td>
+        </tr>
+        <tr>
+            <td>Social</td>
+            <td>History</td>
+            <td>English</td>
+            <td>Social</td>
+            <td>Sports</td>
+        </tr>
+        <tr>
+            <th colspan="5">Lunch</th>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td rowspan="2">Project</td>
+        </tr>
+        <tr>
+            <td>Social</td>
+            <td>History</td>
+            <td>English</td>
+            <td>Social</td>
+        </tr>
+    </table>
+</body>
+</html>

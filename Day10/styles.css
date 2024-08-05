@@ -1,0 +1,55 @@
+/* precidence 100 */
+#id-level
+{
+    color:royalblue;
+}
+
+/* precidence 001 */
+p
+{
+    color:aqua;
+}
+
+/* precidence 010 */
+.class-level
+{
+    color:coral;
+}
+
+/* precidence 011 */
+p.class-level
+{
+    color:green;
+}
+
+/* precidence 011 */
+p.red-color
+{
+    color:red;
+}
+
+/* Inline stylesheet has highest precidence*/
+.box
+{
+    height:400px;
+    width:400px;
+}
+.box.red
+{
+ background-color: red;   
+}
+.parent
+{
+    box-sizing: border-box;
+    padding:16px;
+}
+.child
+{
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+}
+.box.blue
+{
+    background-color:royalblue;
+}

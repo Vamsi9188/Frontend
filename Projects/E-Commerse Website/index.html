@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - E-Commerce</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our E-Commerce Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+             <a href="orders.html">Orders</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="product1.jpeg" alt="Product 1">
+                    <h3>Product 1</h3>
+                    <p>$10.00</p>
+                    <button onclick="addProductToCart(1)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="product2.jpeg" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p>$15.00</p>
+                    <button onclick="addProductToCart(2)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="product3.jpeg" alt="Product 3">
+                    <h3>Product 3</h3>
+                    <p>$20.00</p>
+                    <button onclick="addProductToCart(3)">Add to Cart</button>
+                </div>
+                <!-- Add more products as needed -->
+            </div>
+            <div id="cart-message" style="display:none;">
+                Product added to cart!
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        function showCartMessage() {
+            const cartMessage = document.getElementById('cart-message');
+            cartMessage.style.display = 'block';
+            setTimeout(() => {
+                cartMessage.style.display = 'none';
+            }, 2000);
+        }
+
+        function addProductToCart(productId) {
+            // Call the original function
+            addProductToCartOriginal(productId);
+            // Show the cart message
+            showCartMessage();
+        }
+
+        // Store the original function in a new variable
+        const addProductToCartOriginal = window.addProductToCart;
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+          DOM getElementByClassName() Method
+      </title>
+    <style>
+       body
+       {
+            text-align: center;
+       }
+       .one,.two,.three,.four
+       {
+        border:1px solid;
+        margin:10px;
+        padding:5px;
+        width:100px;
+        height:90px;
+        float:left;
+       }
+       input
+       {
+        margin-top:130px;
+        margin-right:200px;
+       }
+    </style>
+</head>
+ <script>
+    function changeColor()
+    {
+        var result=document.getElementsByClassName("two")[0];
+        result.style.border="10px solid blue";
+        result.style.backgroundColor="yellow";
+        result.style.color="red";
+        result.style.borderRadius="10px";
+        var result=document.getElementsByClassName("three")[0];
+        result.style.border="10px solid cyan";
+        result.style.backgroundColor="orange";
+        result.style.color="white";
+        result.style.borderRadius="20px";
+        var result=document.getElementsByClassName("one")[0];
+        result.style.border="10px solid grey";
+        result.style.backgroundColor="lightblue";
+        result.style.color="red";
+        result.style.borderRadius="30px";
+        var result=document.getElementsByClassName("four")[0];
+        result.style.border="10px solid maroon";
+        result.style.backgroundColor="lightgreen";
+        result.style.color="blue";
+        result.style.borderRadius="40px";
+    }
+ </script>
+<body>
+    <h1>Welcome to DOM getElementsByClassName() Method</h1>
+    <h2>DOM getElementByClassName() Method</h2>
+    <div class="one">Box 1 with name ONE</div>
+    <div class="two">Box 2 with name TWO</div>
+    <div class="three">Box 3 with name THREE</div>
+    <div class="four">Box 4 with name FOUR</div>
+
+    <input type="button" onclick="changeColor()" value="Click Here">
+</body>
+  
+</html>
+

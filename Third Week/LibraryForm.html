@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Form</title>
+    <style>
+        button
+        {
+            background-color: red;
+            color:white;
+            margin-left:200px;
+        }
+        span
+        {
+            color:red;
+        }
+        body
+        {
+            margin-left:300px;
+            margin-right:300px;
+            border:1px solid;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="main">
+    <h1>Library Membership Registration</h1>
+    <h5>Register for a free memebership, and read on!</h5>
+    <hr style="border-style: double;">
+    <form>
+        <div>
+        <label for="name"><b>Name<span>*</span></b></label><br>
+        <input type="text" name="fname" placeholder="First Name">
+        <input type="text" name="lname"placeholder="Last Name"><br><br>
+    </div>
+
+        <div>
+        <label for="dob"><b>DOB<span>*</span></b></label><br>
+        <input type="date" name="dob"><br><br>
+    </div>
+
+        <div>
+        <label for="address"><b>Address</b></label><br>
+        <input type="text" name="address" placeholder="Street Address"><br><br>
+        <input type="text" name="address" placeholder="Address Line2"><br><br>
+    </div>
+
+        <div>
+        <label for="city">City</label>
+        <select>
+            <option>Punganur</option>
+            <option>Chowdepalle</option>
+            <option>Madanapalle</option>
+            <option>Chittoor</option>
+        </select>
+        <br><br>
+    </div>
+
+        <label for="state">State</label>
+        <select>
+            <option>Andhra Pradesh</option>
+            <option>Telangana</option>
+            <option>Karnataka</option>
+            <option>Tamilnadu</option>
+        </select>
+        <br><br>
+
+        <lable for="pin">Postal/ZipCode</lable><br>
+        <input type="numebr" name="pin"><br><br>
+
+        <label for="country">Country</label>
+        <select>
+            <option>AIndia</option>
+            <option>Sri Lanka</option>
+            <option>Bangladesh</option>
+            <option>USA</option>
+        </select>
+        <br><br>
+        <label for="mail"><b>Email<span>*</span></b></label><br>
+        <input type="email" name="email"><br><br>
+
+        <label for="phone"><b>Phone<span>*</span></b></label><br>
+        <input type="number" name="phone" maxlength="10"><br><br>
+
+        <label for="q1"><b>What would you use the library for?<span>*</span></b></label><br>
+        <input type="checkbox" name="q1" value="Reference">Reference<br>
+        <input type="checkbox" name="q1" value="In-house reading">In-house reading<br>
+        <input type="checkbox" name="q1" value="Borrowing">Borrowing<br><br>
+
+        <label for="q2"><b>Which setions of the library would you like access to?<span>*</span></b></label><br>
+        <input type="checkbox" name="q2" value="All">All<br>
+        <input type="checkbox" name="q2" value="Magazines">Magazines<br>
+        <input type="checkbox" name="q2" value="Fiction">Fiction<br>
+        <input type="checkbox" name="q2" value="Non-Fiction">Non-Fiction<br>
+        <input type="checkbox" name="q2" value="Electronic">Electronic<br>
+        <input type="checkbox" name="q2" value="Research & Reference">Research & Reference<br><br>
+    </form>
+</div>
+    <button>Register</button>
+</body>
+</html>

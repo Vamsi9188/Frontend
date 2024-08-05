@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User INput Methods</title>
+</head>
+<body>
+    <script>
+        // 1. String:
+
+const userInput = prompt("Please enter your name:");
+
+
+// 1. Number:
+
+const userInput1 = parseInt(prompt("Please enter your age:"));
+
+
+// 1. Boolean:
+
+const userInput2 = confirm("Do you agree to the terms?");
+
+
+// 1. Array:
+
+const userInput3 = prompt("Please enter your favorite colors (separated by commas):");
+const colors = userInput.split(",");
+
+
+// 1. Object:
+
+const userInput4 = prompt("Please enter your name and age (separated by commas):");
+const [name, age] = userInput.split(",");
+const user = { name, age: parseInt(age) };
+
+
+// 1. Date:
+
+const userInput5= prompt("Please enter your birthdate (YYYY-MM-DD):");
+const birthdate = new Date(userInput);
+    </script>
+</body>
+</html>

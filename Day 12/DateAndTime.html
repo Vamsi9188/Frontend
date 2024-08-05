@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Current Day and Time</title>
+</head>
+<body>
+    <p id="day"></p>
+    <p id="time"></p>
+
+    <script>
+        function getDayString(dayNumber) {
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            return days[dayNumber];
+        }
+
+        function formatTime(date) {
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            let ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            seconds = seconds < 10 ? '0'+seconds : seconds;
+            return hours + ' ' + ampm + ' : ' + minutes + ' : ' + seconds;
+        }
+
+        function displayDateTime() {
+            const now = new Date();
+            const dayString = getDayString(now.getDay());
+            const timeString = formatTime(now);
+
+            document.getElementById("day").innerText = "Today is: " + dayString;
+            document.getElementById("time").innerText = "Current time is: " + timeString;
+        }
+
+        displayDateTime();
+        setInterval(displayDateTime, 1000); // Update time every second
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - E-Commerce</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Order Details</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="orders.html">Orders</a>
+        </nav>
+    </header>
+    <main>
+        <table id="ordersTable">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Items</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Order details will be populated here -->
+            </tbody>
+        </table>
+    </main>
+    <script>
+        function loadOrders() {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const ordersTableBody = document.getElementById('ordersTable').querySelector('tbody');
+            
+            ordersTableBody.innerHTML = '';
+
+            orders.forEach(order => {
+                const orderRow = document.createElement('tr');
+
+                const customerCell = document.createElement('td');
+                customerCell.textContent = order.customer;
+                orderRow.appendChild(customerCell);
+
+                const itemsCell = document.createElement('td');
+                // itemsCell.innerHTML = order.items.map(item => ${item.name} (x${item.quantity})).join('<br>');
+                orderRow.appendChild(itemsCell);
+
+                const dateCell = document.createElement('td');
+                dateCell.textContent = order.date;
+                orderRow.appendChild(dateCell);
+
+                ordersTableBody.appendChild(orderRow);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadOrders);
+    </script>
+</body>
+</html>

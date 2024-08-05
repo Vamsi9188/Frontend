@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions in JavaScript</title>
+</head>
+<body>
+    <h1>Welcome to Functions in Javascript</h1>
+    <h2>Functions without parameters</h2>
+    <script>
+        console.log("function created");
+        function printText() // creating function
+        {
+            console.log("This is a function with out parameters")
+            var name="vamsi";
+            console.log(name)
+        }
+        console.log("Function called");
+        console.log("i am before function call")
+        //calling a function to execute statements
+        printText();
+        console.log("i am after function call")
+    </script>
+
+<h2>Fucntions with Parameters</h2>
+<script>
+    function student(name,age,standard,marks)
+    {
+        var name="vamsi";
+        var age=22;
+        var standard="MCA";
+        var marks=25;
+        console.log("This is a function with parameters")
+        console.log("Name:",name,"Age:",age,"Standard:",standard,"Marks:",marks);
+    }
+    student('vamsi',21,'mca',25);
+</script>
+
+<h2>Functions with return statements</h2>
+<script>
+    console.log("This is a function with return statement")
+    function addTwoNumbers(num1,num2)
+    {
+        var num1=10;
+        var num2=20;
+        var sum=num1+num2;
+        return sum
+    }
+    // console.log(addTwoNumbers(10,20));
+    var result=addTwoNumbers(12,21);
+    console.log("sum",result);
+</script>
+
+<h2>Anonymous Functions</h2>
+<script>
+    console.log("This is Anonymous function");
+    console.log("Anonymous function means without function name");
+    let multiplication=function(a,b)
+    {
+        let product=a*b;
+        return product;
+    }
+console.log(multiplication(12,21));
+</script>
+</body>
+</html>

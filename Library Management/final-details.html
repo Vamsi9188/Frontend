@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management - Final Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul id="navbar-items">
+            <li><a href="books.html">Books</a></li>
+            <li><a href="book-details.html">Book Details</a></li>
+            <li><a href="borrow-confirmation.html">Borrow Confirmation</a></li>
+            <li><a href="final-details.html">Final Details</a></li>
+            <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Registered Users and Borrowed Books</h2>
+        <table id="user-borrow-table">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Book ID</th>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Issue Date</th>
+                    <th>Return Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Example data - in a real application, you would fetch this data from a server
+        const userBorrowData = [
+            { student_id: '12345', student_name: 'John Doe', book_id: '1', book_name: 'Book One', author: 'Author One', issue_date: '2024-07-01', return_date: '2024-07-15' },
+            { student_id: '67890', student_name: 'Jane Smith', book_id: '2', book_name: 'Book Two', author: 'Author Two', issue_date: '2024-07-05', return_date: '2024-07-19' }
+        ];
+
+        function populateTable(data) {
+            const tableBody = document.querySelector('#user-borrow-table tbody');
+            tableBody.innerHTML = '';
+
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.student_id}</td>
+                    <td>${item.student_name}</td>
+                    <td>${item.book_id}</td>
+                    <td>${item.book_name}</td>
+                    <td>${item.author}</td>
+                    <td>${item.issue_date}</td>
+                    <td>${item.return_date}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Populate the table with example data
+        populateTable(userBorrowData);
+
+        // Logout functionality
+        document.getElementById('logout').addEventListener('click', function() {
+            // Reset navbar items to initial state
+            var navbarItems = document.getElementById('navbar-items');
+            navbarItems.innerHTML = `
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+            `;
+            // Redirect to login page
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

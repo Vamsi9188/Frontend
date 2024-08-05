@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Card</title>
+    <style>
+        .box
+        {
+            height:300px;
+            width:200px;
+            border:2px solid black;
+            margin:auto;
+            border-radius:8px;
+            inset: 0;
+            position: relative;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color:red;
+            margin-top:150px;
+        }
+        .top-left-number
+        {
+           position:absolute;
+            top:16px;
+            left:16px;
+        }
+        .top-right-number
+        {
+            position:absolute;
+            top:16px;
+            right:16px;
+        }
+        .bottom-left-number
+        {
+            position:absolute;
+            bottom: 16px;
+            left:16px;
+            transform: rotate(180deg);
+        }
+        .bottom-right-number
+        {
+            position:absolute;
+            bottom: 16px;
+            right:16px;
+            transform: rotate(180deg);
+
+        }
+        .top-left-diamond
+        {
+           position:absolute;
+            top:32px;
+            left:16px;
+        }
+        .top-right-diamond
+        {
+            position:absolute;
+            top:32px;
+            right:16px;
+        }
+        .bottom-left-diamond
+        {
+           position:absolute;
+            bottom:32px;
+            left:16px;
+        }
+        .bottom-right-diamond
+        {
+            position:absolute;
+            bottom:32px;
+            right:16px;
+        }
+
+        .central-diamond
+        {
+            position: relative;
+            font-size: 100px;
+            top:90px;
+            padding:70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="top-left-number">A</span>
+        <span class="top-right-number">A</span>
+        <span class="top-left-diamond">&diamondsuit;</span>
+        <span class="top-right-diamond">&diamondsuit;</span>
+        <span class="bottom-left-diamond">&diamondsuit;</span>
+        <span class="central-diamond">&diamondsuit;</span>
+        <span class="bottom-right-diamond">&diamondsuit;</span>
+        <span class="bottom-left-number angle">A</span>
+        <span class="bottom-right-number angle">A</span>
+    </div>
+</body>
+</html>

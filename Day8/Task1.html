@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiples of 3 & 5</title>
+</head>
+<body>
+    <h2>Sum of Multiples of 3 and 5 Under 1000</h2>
+    <script>
+        let sum=0;
+        for(let i=0;i<=1000;i++)
+        {
+            if(i%3==0 || i%5==0)
+            {
+                sum=sum+i
+            }
+        }
+        document.writeln("Final Sum"+" ",sum)
+    </script>
+    <h2>Check Leap-Year</h2>
+    <script>
+        let year=2024;
+        if((year%4==0 && year%100!=0)|| (year%4==0))
+        {
+            document.writeln(year+" is a leap year");
+        }
+        else
+        {
+            document.writeln(year+" is not a leap year");
+        }
+    </script>
+    <h2>Average of numbers in an array</h2>
+    <script>
+    let numbers = [12,21,33,4,5];
+
+    let s = 0;
+    let count = 0;
+    for (let i = 0; i < numbers.length; i++)
+    {
+        s += numbers[i];
+        count++;
+    }
+    let average = s / count;
+    // document.writeln("Sum:", s);
+    // document.write("\n");
+    document.writeln("Average:", average);
+    </script>
+    <h2>Largest of Five numbers</h2>
+    <script>
+        let a = 10;
+        let b = 20;
+        let c = 30;
+        let d = 40;
+        let e = 50;
+        let largest = 0;
+        if (b > largest) 
+        {
+        largest = b;
+        }
+        if (c > largest) 
+        {
+        largest = c;
+        }
+        if (d > largest) 
+        {
+        largest = d;
+        }
+        if (e > largest) 
+        {
+        largest = e;
+        }
+        document.write(largest); 
+    </script>
+    <h2>Traffic Lights using switch statement</h2>
+    <script>
+        let trafficLight = "green";
+        switch (trafficLight) 
+        {
+        case "red":
+            document.write("Stop immediately");
+            break;
+        case "orange":
+            document.write("Ready to stop/move");
+            break;
+        case "green":
+            document.write("Proceed to driving");
+            break;
+        default:
+            document.write("Invalid traffic light color");
+        }
+    </script>
+</body>
+</html>

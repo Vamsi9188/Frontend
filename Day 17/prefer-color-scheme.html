@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefers color scheme</title>
+    <style>
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --back-color: hsl(40 100% 100%);
+    --forground-color: hsl(0 0% 0%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --back-color: hsl(0, 0%, 0%);
+    --forground-color: #fff;
+  }
+}
+
+:root {
+  background-color: var(--back-color);
+  color: var(--forground-color);
+  transition: background-color 0.8s ease-in;
+}
+
+    </style>
+</head>
+
+<body>
+    <h2>Prefers color scheme</h2>
+    <article>
+        <h2>this is the heading</h2>
+        <p>this is the para</p>
+    </article>
+</body>
+
+</html>

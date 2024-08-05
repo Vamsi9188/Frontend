@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management - Book Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul id="navbar-items">
+    
+            <li><a href="books.html">Books</a></li>
+            <li><a href="book-details.html">Book Details</a></li>
+            <li><a href="borrow-confirmation.html">Borrow Confirmation</a></li>
+            <li><a href="final-details.html">Final Details</a></li>
+            <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Book Details</h2>
+        <div id="book-details">
+            <!-- Book details will be populated here -->
+        </div>
+        <form id="borrow-form" action="borrow-confirmation.html" method="get">
+            <input type="hidden" id="student-id" name="student_id" value="12345">
+            <input type="hidden" id="student-name" name="student_name" value="John Doe">
+            <input type="hidden" id="book-id" name="book_id">
+            <input type="hidden" id="book-name" name="book_name">
+            <input type="hidden" id="author" name="author">
+            <button type="submit">Borrow</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to get query parameters
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const queryArray = queryString.split('&');
+            queryArray.forEach(query => {
+                const [key, value] = query.split('=');
+                params[key] = decodeURIComponent(value);
+            });
+            return params;
+        }
+
+        // Book data (for demonstration purposes, normally you would fetch this data from a server)
+        const books = [
+            { id: 1, name: 'Book One', author: 'Author One', description: 'Description for Book One', pages: 200 },
+            { id: 2, name: 'Book Two', author: 'Author Two', description: 'Description for Book Two', pages: 300 }
+        ];
+
+        // Function to display book details
+        function displayBookDetails(bookId) {
+            const book = books.find(b => b.id == bookId);
+            if (book) {
+                document.getElementById('book-details').innerHTML = `
+                    <p><strong>Book Name:</strong> ${book.name}</p>
+                    <p><strong>Book ID:</strong> ${book.id}</p>
+                    <p><strong>Author:</strong> ${book.author}</p>
+                    <p><strong>Description:</strong> ${book.description}</p>
+                    <p><strong>No. of Pages:</strong> ${book.pages}</p>
+                `;
+
+                // Set hidden form fields
+                document.getElementById('book-id').value = book.id;
+                document.getElementById('book-name').value = book.name;
+                document.getElementById('author').value = book.author;
+            } else {
+                document.getElementById('book-details').innerText = 'Book not found!';
+            }
+        }
+
+        // Get book ID from query parameters and display book details
+        const params = getQueryParams();
+        if (params.id) {
+            displayBookDetails(params.id);
+        } else {
+            document.getElementById('book-details').innerText = 'No book selected!';
+        }
+
+        // Logout functionality
+        document.getElementById('logout').addEventListener('click', function() {
+            // Reset navbar items to initial state
+            var navbarItems = document.getElementById('navbar-items');
+            navbarItems.innerHTML = `
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+            `;
+            // Redirect to login page
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

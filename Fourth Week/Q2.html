@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form</title>
+    <style>
+            
+        #container
+        {
+            height:850px;
+            width:700px;
+            border:1px solid black;
+            margin-left:25%;
+            background-color:rgb(122, 70, 172);
+            color:white;
+            font-size: 1.4rem;
+            border-radius:10px;
+        }
+        #donation-form
+        {
+            margin-left:50px;
+            margin-right:50px;
+            padding:10px;
+            background-color: #0f0e0ebb;
+            border-radius:5px;
+        }
+        #name,#email,#phone,#address,#da,#msg
+        {
+            width:200px;
+            float:left;
+        }
+        #street-address2,#city,#pin-code
+        {
+            margin-left:200px;
+        }
+        .phone-number,.street-address1,.street-address2
+        {
+            width:370px;
+        }
+        .input-field {
+            background-color:whitesmoke;
+            color:black;
+            font-size: 16px;
+            margin-left:200px;
+            width:370px;
+        }
+        .da
+        {
+            width:320px;
+        }
+        h3
+        {
+            text-align:center;
+            color:#ebae3d;
+            font-family: Arial, sans-serif;;
+        }
+        hr
+        {
+            border:1px solid;
+            margin-left:50px;
+            margin-right:50px;
+        }
+        #country
+        {
+            margin-left:200px;
+            padding:2px;
+            width:375px;
+            margin-top:15px;
+        }
+        input[radio].yes.no
+        {
+            width:40px;
+        }
+        button
+        {
+            padding:10px;
+            border-radius:20px;
+            width:20%;
+            background-color:darkorange;
+            color:white;
+            font-size:1.2rem;
+            margin-left:250px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h3>Halloween Donation Form</h3>
+        <hr>
+        <form id="donation-form">
+            <div for="name" id="name">Name</div>
+            <input type="text" id="fname" placeholder="First Name">
+            <input type="text" id="lname" placeholder="Last Name">
+            <br><br>
+            <div for="mail" id="email">Email Address</div><div class="email">
+            <input type="email" id="mail" size="44px"></div><br>
+            <div for="ph-no" id="phone">Phone Number</div>
+            <input type="number" id="ph-no" class="phone-number">
+            <br><br>
+            <div for="address" id="address">Address</div>
+            <input type="text" id="street-address1" class="street-address1" placeholder="Street Address"><br><br>
+            <input type="text" id="street-address2" class="street-address2" placeholder="Address - Line 2"><br><br>
+            <input type="text" id="city" placeholder="City">
+            <input type="text" id="state" placeholder="State/Region/Province"><br><br>
+          
+            <input type="number" class="input-field" placeholder="Postal / Zip Code">
+            <select class="input-field" id="country">
+            <option value="" disabled selected>Country</option>
+            </select>
+            
+
+            <br><br>
+            <div for="amount" id="da">Donation Amount</div>
+            <input type="number" id="amount" class="da">&nbsp;USD
+            <br><br>
+            <div id="msg" for="question">Woud yu like to receive updates about out charity work?</div>
+            <input type="radio" name="quesion" class="yes">Yes
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+            <input type="radio" name="question" class="no">No
+            <br><br>
+           <br><br>
+            <input type="checkbox" id="terms" name="terms">Terms and Conditions
+            <br>
+            <small>By checking this box, I agree to the terms and conditions of this donation.</small>
+            <br><br>
+            <button type="submit">Submit</button>
+           
+    
+        </form>
+    </div>
+    <script>
+        const countries = [
+            "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", 
+            "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", 
+            "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", 
+            "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", 
+            "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", 
+            "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", 
+            "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", 
+            "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", 
+            "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", 
+            "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", 
+            "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", 
+            "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", 
+            "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", 
+            "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", 
+            "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", 
+            "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", 
+            "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", 
+            "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", 
+            "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", 
+            "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", 
+            "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", 
+            "Yemen", "Zambia", "Zimbabwe"
+        ];
+
+        const countrySelect = document.getElementById('country');
+        countries.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country;
+            option.textContent = country;
+            countrySelect.appendChild(option);
+        });
+    </script>
+</body>
+</html>

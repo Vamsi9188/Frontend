@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Loops in JavaScript</title>
+</head>
+<body>
+    <h1>Welcome to For Loops in  JavaScript</h1>
+    <script>
+    let nums=[12,21,33,4,5];
+    let sum=0;
+    for(let index=0;index<nums.length;index++)
+    {
+        sum=sum+nums[index];
+        console.log(index+":"+sum)
+    }
+    console.log("Final Sum",sum)
+    </script>
+    <h2>Even and Odd Numbers using JavaScript</h2>
+    <script>
+    let evenodd=[1,2,3,4,5,6,7,8,9,10];
+    evenNums=[];
+    oddNums=[];
+    for(let i=0;i<evenodd.length;i++)
+    {
+        if(evenodd[i]%2==0)
+        {
+            evenNums.push(evenodd[i]);
+        }
+        else
+        {
+            oddNums.push(evenodd[i]);
+        }
+    }
+    console.log("Listof Numbers",evenodd);
+    console.log("Even Numbers:",evenNums);
+    console.log("Odd Numbers:",oddNums);
+
+    console.log("some  slice operations are");
+    console.log(nums.slice(0,4));
+    console.log(nums.slice(2,4));
+    console.log(nums.slice(-4));
+    console.log(2,nums.length);
+    console.log(nums.slice(2,nums.length));
+    console.log(nums.slice(-3));
+
+    console.log("splice operation");
+    console.log(nums.splice(1,2));
+    console.log(nums.splice(1,nums.length))
+
+    console.log("For of Loop Output")
+    for(let num of nums)
+    {
+        console.log(num);
+    }
+    
+    nums=[12,21,33,4,5,9]
+    console.log("for in loop output:")
+    for(let number in nums)
+    {
+        console.log(number+":"+nums[number]);
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Color Units</title>
+    <style>
+        h1
+        {
+            background-color: #abcdef;
+            color:rgb(255,0,0);
+            border:5px solid #a3b6c9;
+        }
+        .red
+        {
+            color:rgb(255,0,0);
+            background-color: rgb(100,0,0,0.3);
+        }
+        .green
+        {
+            color:rgb(0,255,0);
+            background-color: rgb(0,100,0,0.8);
+        }
+        .blue
+        {
+            color:rgb(0,0,255);
+            background-color: rgb(0,0,100,0.3);
+        }
+        .black
+        {
+            color:rgb(0,0,0);
+            background-color: rgb(100,100,100,0.9);
+        }
+        .white
+        {
+            color:rgb(255,255,255);
+            background-color: rgb(0,0,0,0.8);
+        }
+        p
+        {
+            color:rgb(90%,91%,90%);
+            background-color: rgb(50%,50%,50%,1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to RGB() Color Units</h1>
+    <h1>RGB Means RED GREEN BLUE</h1>
+    <h3 class="red">First value is in 0-255 range of Red Color</h3>
+    <h3 class="green">Second value is in 0-255 range of Green Color</h3>
+    <h3 class="blue">Third value is in 0-255 range of Blue Color</h3>
+
+    <h4 class="black">If three values are 0 then it is black Color</h4>
+    <h4 class="white">If three values are 255 the it is white color</h4>
+
+    <p>The values of opacity is between 0 and 1</p>
+    <p>The values are taken in terms of percentages 0%-100%</p>
+</body>
+</html>

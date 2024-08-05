@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul id="navbar-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="student-name">Student Name</label>
+            <input type="text" id="student-name" name="student_name" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <input type="checkbox" onclick="togglePassword('password')"> Show Password
+
+            <button type="submit">Login</button>
+        </form>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        function togglePassword(id) {
+            var x = document.getElementById(id);
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            var studentName = document.getElementById('student-name').value;
+            var password = document.getElementById('password').value;
+
+            // You can add your authentication logic here
+            // For demonstration, we'll assume the login is always successful
+
+            if (studentName && password) {
+                // Remove existing navbar items
+                var navbarItems = document.getElementById('navbar-items');
+                navbarItems.innerHTML = '';
+
+                // Add new navbar items
+                var newItems = `
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="book-details.html">Book Details</a></li>
+                    <li><a href="borrow-confirmation.html">Borrow Confirmation</a></li>
+                    <li><a href="final-details.html">Final Details</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                `;
+                navbarItems.innerHTML = newItems;
+
+                // Show success message
+                document.getElementById('message').innerText = 'Logged in successfully!';
+                document.getElementById('message').style.color = 'green';
+
+                // Add event listener for logout
+                document.getElementById('logout').addEventListener('click', function() {
+                    // Reset navbar items to initial state
+                    navbarItems.innerHTML = `
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    `;
+                    // Redirect to login page
+                    document.getElementById('message').innerText = '';
+                });
+            } else {
+                document.getElementById('message').innerText = 'Login failed. Please try again.';
+                document.getElementById('message').style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>

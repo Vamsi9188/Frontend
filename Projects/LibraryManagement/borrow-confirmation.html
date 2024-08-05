@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.confirm-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirm-button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <nav id="new-navbar">
+        <a href="####">Books</a>
+        <a href="books-details.html">Books-Details</a>
+        <a href="borrow-confirmation.html">Borrow-Confirmation</a>
+        <a href="####">Final-Details</a>
+        <a id="logout-btn" href="####">Logout</a>
+    </nav>
+
+    <nav id="original-navbar">
+        <a href="####">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="####">Contact Us</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+    </nav>
+     
+    <div class="container">
+        <h2>Borrow Confirmation</h2>
+        <form id="borrow-form">
+            <div class="form-group">
+                <label for="student-id">Student ID:</label>
+                <input type="text" id="student-id" name="student-id" required>
+            </div>
+            <div class="form-group">
+                <label for="student-name">Student Name:</label>
+                <input type="text" id="student-name" name="student-name" required>
+            </div>
+            <div class="form-group">
+                <label for="book-id">Book ID:</label>
+                <input type="text" id="book-id" name="book-id" required>
+            </div>
+            <div class="form-group">
+                <label for="book-name">Book Name:</label>
+                <input type="text" id="book-name" name="book-name" required>
+            </div>
+            <div class="form-group">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+            <div class="form-group">
+                <label for="issue-date">Issue Date:</label>
+                <input type="date" id="issue-date" name="issue-date" required>
+            </div>
+            <div class="form-group">
+                <label for="return-date">Return Date:</label>
+                <input type="date" id="return-date" name="return-date" required>
+            </div>
+            <div class="form-group">
+                <label for="signature">Signature:</label>
+                <input type="text" id="signature" name="signature" required>
+            </div>
+            <button type="submit" class="confirm-button">Confirm</button>
+        </form>
+    </div>
+    <script>
+
+document.getElementById('borrow-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const formData = new FormData(this);
+
+    let data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+
+    console.log('Form Submitted', data);
+
+    alert('Form submitted successfully!');
+    this.reset(); // Reset the form after submission
+});
+
+
+         // Logout button click handler
+         document.getElementById('logout-btn').addEventListener('click', function() {
+            // Hide new navbar
+            document.getElementById('new-navbar').style.display = 'block';
+            // Show original navbar
+            document.getElementById('original-navbar').style.display = 'none';
+            document.querySelector('.login-form').style.display = 'block';
+            // Clear username and password values
+            document.getElementById('sname').value = '';
+            document.getElementById('password').value = '';
+            // Hide login message
+            document.getElementById('login-message').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

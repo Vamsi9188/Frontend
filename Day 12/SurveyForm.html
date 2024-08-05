@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+</head>
+<body>
+    <h2>Please complete our survey</h2>
+    <form>
+        <div>
+            <legend>Contact Information</legend>
+            <label for="email">Email address:</label>
+            <input type="email" id="email" name="email"><br><br>
+            
+            <label for="firstname">First name:</label>
+            <input type="text" id="firstname" name="firstname"><br><br>
+            
+            <label for="lastname">Last name:</label>
+            <input type="text" id="lastname" name="lastname"><br><br>
+        </div>
+        
+        <div>
+            <legend>Geographic Information</legend>
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state"><br><br>
+            
+            <label for="zipcode">Zip code:</label>
+            <input type="text" id="zipcode" name="zipcode"><br><br>
+        </div>
+        
+        <div>
+            <legend>How did you hear about us?</legend>
+            <input type="radio" id="websearch" name="referral" value="websearch">
+            <label for="websearch">Web Search</label><br>
+            
+            <input type="radio" id="facebook" name="referral" value="facebook">
+            <label for="facebook">Facebook</label><br>
+            
+            <input type="radio" id="twitter" name="referral" value="twitter">
+            <label for="twitter">Twitter</label><br>
+            
+            <input type="radio" id="emailmessage" name="referral" value="emailmessage">
+            <label for="emailmessage">Email message</label><br>
+        </div>
+        
+        <br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>

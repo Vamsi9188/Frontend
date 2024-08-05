@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM getElementsByName() Method</title>
+    <style>
+        body
+        {
+            text-align: center;
+            color:blueviolet;
+            font-size: larger;
+        }
+    </style>
+    <script>
+        function changeColor()
+        {
+            var result=document.getElementsByName("dom");
+            alert("Total elements with name dom are: " + result.length);
+        
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to DOM getElementsByName() Method</h1>
+    <h1>getElementsByName() Method</h1>
+    <h3 name="dom">document.write()</h3>
+    <h3 name="dom">document.getElementById()</h3>
+    <h3 name="dom">document.getElementsByName()</h3>
+    <h3 name="dom">document.getElementsByTagName()</h3>
+    <h3 name="dom">document.getElementsByClassName()</h3>
+
+    <input type="button" onclick="changeColor()" value="Click Here">
+
+</body>
+</html>

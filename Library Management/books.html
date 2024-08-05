@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management - Books</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    overflow: hidden;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+table tr td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+table tr td a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul id="navbar-items">
+            <li><a href="books.html">Books</a></li>
+            <li><a href="book-details.html">Book Details</a></li>
+            <li><a href="borrow-confirmation.html">Borrow Confirmation</a></li>
+            <li><a href="final-details.html">Final Details</a></li>
+            <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Books List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Book Name</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><a href="book-details.html?id=1">Book One</a></td>
+                    <td>Fiction</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><a href="book-details.html?id=2">Book Two</a></td>
+                    <td>Non-Fiction</td>
+                </tr>
+                <!-- Add more book rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Logout functionality
+        document.getElementById('logout').addEventListener('click', function() {
+            // Reset navbar items to initial state
+            var navbarItems = document.getElementById('navbar-items');
+            navbarItems.innerHTML = `
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+            `;
+            // Redirect to login page
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

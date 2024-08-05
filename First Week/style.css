@@ -1,0 +1,35 @@
+body 
+{
+    background-color: lightpink;
+}
+#mian
+{
+    border:2px solid;
+    padding:10px 20px;
+    background-color: #dd5e77;
+}
+#home,#tags,#list,#table,#image,#video,#audio,#about,#box
+{
+    display:inline-block;
+    background-color:lightblue;
+    /* transition:background-color; */
+    border:3px solid;
+    padding:10px 20px;
+    font-size:18px;
+    font-weight:bold;
+    border-style:outset;
+    border-radius:10px;
+}
+a
+{
+color:blueviolet;
+text-decoration:none;
+font-size:18px;
+padding:10px 20px;
+}
+a:hover
+{
+padding:10px 20px;
+color:rgb(139, 28, 0);
+background-color: cadetblue;
+}

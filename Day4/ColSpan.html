@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColSpan Tables</title>
+    <style>
+        tr,th,.t1,td
+        {
+            width:500px;
+            border-collapse:collapse;
+            border:2px solid;
+            text-align:center;
+        }
+        table,td,th
+        {
+            border-collapse:collapse;
+            border:2px solid;
+            width:700px; 
+            padding:15px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to ColSpan Tables</h1>
+    <table class="t1">
+        <tr>
+            <th colspan="4">TITLE</th>
+        </tr>
+        <tr>
+            <th colspan="2">subtitle</th>
+            <th colspan="2">subtitle</th>
+        </tr>
+        <tr>
+            <td>1 item</td>
+            <td>123</td>
+            <td>1 item</td>
+            <td>123</td>
+        </tr>
+        <tr>
+            <td>1 item</td>
+            <td>123</td>
+            <td>1 item</td>
+            <td>123</td>
+        </tr>
+        <tr>
+            <td>1 item</td>
+            <td>123</td>
+            <td>1 item</td>
+            <td>123</td>
+        </tr>
+        <tr>
+            <th colspan="2">sub susbtitle</th>
+            <th colspan="2">sub subtitle</th>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <th rowspan="2">State of Health</th>
+            <th colspan="2">Fasting Value</th>
+            <th>After Eating</th>
+            <tr>
+                <th>Minium</th>
+                <th>Maximun</th>
+                <th>2 hours after eating</th>
+            </tr>
+        </tr>
+        <tr>
+            <td>Healthy</td>
+            <td>70</td>
+            <td>100</td>
+            <td>Less than 140</td>
+        </tr>
+        <tr>
+            <td>Pre-Diabettes</td>
+            <td>101</td>
+            <td>126</td>
+            <td>140 to 200</td>
+        </tr>
+        <tr>
+            <td>Diabetes</td>
+            <td>More then 126</td>
+            <td>N/A</td>
+            <td>More than 200</td>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <th colspan="4">STUDENT & EMPLOYEE DATA LIST</th>
+        </tr>
+        <tr>
+            <th colspan="2">STUDENT DATA</th>
+            <th colspan="2">EMPLOYEE DATA</th>
+        </tr>
+        <tr>
+            <th>NAME</th>
+            <th>CLASS</th>
+            <th>NAME</th>
+            <th>SALARY</th>
+        </tr>
+        <tr>
+            <td>RAVI</td>
+            <td>IX</td>
+            <td>SRINIVASA RAO</td>
+            <td rowspan="2">20,000</td>
+        </tr>
+        <tr>
+            <td>GANESH</td>
+            <td rowspan="2">VII</td>
+            <td>RAMA RAO</td>
+        </tr>
+        <tr>
+            <td>VIJAY</td>
+            <td>CHALAPATHI RAO</td>
+            <td>18,500</td>
+        </tr>
+    </table>
+</body>
+</html>

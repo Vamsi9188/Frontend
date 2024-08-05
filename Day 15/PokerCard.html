@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker card</title>
+    <style>
+        .card {
+  height: 400px;
+  width: 300px;
+  border: 2px solid hsl(0, 0%, 0%);
+  border-radius: 16px;
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: hsl(355, 70%, 50%);
+}
+
+.top-left-number {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+}
+
+.bottom-right-number {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+}
+
+.central-element {
+  position: absolute;
+  inset: 0;
+  height: 62px;
+  width: 62px;
+  margin: auto;
+  font-size: 4rem;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <span class="top-left-number">7</span>
+        <span class="central-element">&hearts;</span>
+        <span class="bottom-right-number">7</span>
+    </div>
+</body>
+
+</html>

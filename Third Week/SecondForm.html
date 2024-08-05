@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Form</title>
+    <style>
+        #box
+        {
+            height:50%;
+            width:50%;
+            border:1px solid;
+            background:url('nature.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-left:300px;
+        }
+        div > h1
+        {
+            text-align: center;
+        }
+        hr
+        {
+            margin-bottom:10px;
+        }
+        #button
+        {
+            background-color:orange;
+            color:#ffffff;
+            padding:4px;
+            margin-left:40%;
+            width:70px;
+            border-radius:5px;
+        }
+        form
+        {
+            margin-left:60px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h1>Personal Information Form</h1>
+    <form>
+        <span>General Info</span>
+        <hr>
+
+        <label for="name"><b>Name</b></label><br>
+        <input type="text" name="name" id="fname" placeholder="First Name">
+        <input type="text" name="name" id="lname" placeholder="Last Name"><br><br>
+
+        <label for="dob"><b>Date of Birth</b></label><br>
+        <input type="date" name="dob" id="dob"><br><br>
+
+        <label for="gender"><b>Gender</b></label><br>
+        <input type="checkbox"  name="gender" id="male">Male
+        <input type="checkbox"  name="gender" id="femage">Female
+        <input type="checkbox"  name="gender" id="other">other
+        <br><br>
+
+        <label for="marriage"><b>Marital Status</b></label><br>
+        <input type="text" name="marriage" id="ms"><br><br>
+
+        <label for="contry"><b>Nationality</b></label><br>
+        <input type="text" name="country" id="nationality"><br><br>
+
+        <label for="address"><b>Address</b></label><br>
+        <input type="text" name="address" id="street-address" placeholder="Street Address"><br><br>
+        <input type="text" name="address" id="address-line" placeholder="Address Line 2"><br><br>
+        <input type="text" name="address" id="city" placeholder="City">
+        <input type="text" name="address" id="state" placeholder="State/Region/Province"><br><br>
+        <input type="number" name="address" id="postal" placeholder="Postal/ Zip Code">
+        <input type="text" name="address" id="country" placeholder="Country"><br><br>
+
+        <label for="email"><b>Email Address</b></label><br>
+        <input type="email" name="email" id="mail"><br><br>
+
+        <label for="phone"><b>Phone Number</b></label><br>
+        <input type="number" name="phone" id="ph-no" maxlength="10"><br><br>
+       
+    
+            <input type="button" value="Submit" id="button">
+     
+    </form>
+    
+    </div>
+
+</body>
+</html>

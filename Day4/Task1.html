@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Table</title>
+    <style>
+        table,tr,td,th
+        {
+            border:1px solid grey;
+            border-collapse:collapse;
+            text-align:center;
+        }
+        .cls2
+        {
+            background-color: lightgrey;
+            border:2px solid grey;
+           
+        }
+        .cls3
+        {
+            background-color: yellow;
+        }
+        caption
+        {
+            caption-side:bottom;
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>TABLE ELEMENTS & CSS</h1>
+    <table>
+        <hr style="margin-bottom:20px;border:1px solid;">
+        <colgroup>
+            <col>
+            <col>
+            <col>
+            <col class="cls2">
+            <col class="cls2">
+            <col>
+            <col class="cls3">
+            <col class="cls3">
+          </colgroup>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>&nbsp;</th>
+            <th>Age</th>
+            <th>Contact</th>
+            <th>Designation</th>
+            <th>Emp Type</th>
+            <th>CTC</th>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <th colspan="2">Personal</th>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Vamsi</td>
+            <td>&nbsp;</td>
+            <td>22</td>
+            <td>7995918175</td>
+            <td>Software Engineer</td>
+            <td>Full Time</td>
+            <td>12LPA</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Yogesh</td>
+            <td rowspan="2">Team1</td>
+            <td>22</td>
+            <td>9347209711</td>
+            <td>Test Engineer</td>
+            <td>Full Time</td>
+            <td>10LPA</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Mahesh</td>
+            <!-- <td>&nbsp;</td> -->
+            <td>22</td>
+            <td>6303219037</td>
+            <td>Analyst</td>
+            <td>Full Time</td>
+            <td>24LPA</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Sumanth</td>
+            <td>&nbsp;</td>
+            <td>24</td>
+            <td>9492057324</td>
+            <td>Developer</td>
+            <td>Full Time</td>
+            <td>24LPA</td>
+        </tr>
+        <tr>
+            <th colspan="7">Total</th>
+            <td>60LPA</td>
+        </tr>
+        <caption>Student Details</caption>
+    </table>
+    
+</body>
+</html>

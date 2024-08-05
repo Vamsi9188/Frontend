@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rowspan and Colspan</title>
+    <style>
+        .table,td,th,tr
+        {
+            border:1px solid;
+            border-collapse:collapse;
+            text-align:center;
+            padding:5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>Region</th>
+            <th>Manager</th>
+            <th>Coordinator</th>
+            <th>Local Rep</th>
+            <th>Secretary</th>  
+        </tr>
+        <tr>
+            <td>North</td>
+            <td>Adam</td>
+            <td>Beth</td>
+            <td>Callum</td>
+            <td>Diane</td>
+        </tr>
+        <tr>
+            <th>South West</th>
+            <th rowspan="3" colspan="2">Annie</th>
+            <td>Dodie</td>
+            <td rowspan="3">&nbsp;</td>
+        </tr>
+        <tr>
+            <th>South East Upper</th>
+            <th>Dylan</th>
+        </tr>
+        <tr>
+            <th>South East Lower</th>
+            <th>Dahlia</th>
+        </tr>
+        <tr>
+            <td>South West</td>
+            <td rowspan="2" colspan="3">Annie</td>
+            <td>Dodie</td>
+        </tr>
+        <tr>
+            <td>South East</td>
+            <td>Dahlia</td>
+        </tr>
+        <tr>
+            <td>East</td>
+            <td>Ash</td>
+            <td>Bill</td>
+            <td>Cecilia</td>
+            <td>Dave</td>
+        </tr>
+        <tr>
+            <td>West</td>
+            <td>Art</td>
+            <td>Bruce</td>
+            <td>Colin</td>
+            <td>Danny</td>
+        </tr>
+    </table>
+<br><br><h2>Nested Table</h2>
+<table border="1">
+    <tr>
+        <th>Device</th>
+        <th>Brand</th>
+        <th>Specifications</th>
+    </tr>
+    <tr>
+        <td>Smartphone</td>
+        <td>Apple</td>
+        <td><table border="1">
+            <tr>
+                <th>Model</th>
+                <th>Storage</th>
+            </tr>
+            <tr>
+                <td>iPhone  12 Pro</td>
+                <td>256GB</td>
+            </tr>
+            <tr>
+                <td>iPhone SE</td>
+                <td>128GB</td>
+            </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+        <td>Laptop</td>
+        <td>HP</td>
+        <td>15.6"Display</td>
+    </tr>
+    <tr>
+        <td>Tablet</td>
+        <td>Samsung</td>
+        <td>10.5"Display</td>
+    </tr>
+</table>
+</body>
+</html>

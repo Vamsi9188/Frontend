@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body
+        {
+            margin:25%;
+        }
+        .card {
+            width: 150px;
+            height: 250px;
+            border: 2px solid black;
+            background-color: white;
+            position: relative;
+        }
+
+        .corner {
+            position: absolute;
+            font-size: 20px;
+            color: red;
+        }
+
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+            transform: rotate(180deg);
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 64px;
+            color: red;
+        }
+
+        .diamond {
+            color: red;
+        }
+    </style>
+    <title>Playing Card - Ace of Diamonds</title>
+</head>
+<body>
+    <center>
+    <div class="card">
+        <div class="corner top-left">
+            A<br>
+            <span class="diamond">♦️</span>
+        </div>
+        <div class="corner bottom-right">
+            A<br>
+            <span class="diamond">♦️</span>
+        </div>
+        <div class="center diamond">♦</div>
+    </div>
+</center>
+</body>
+</html>

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media queries</title>
+    <style>
+        h2 {
+  font-size: 4rem;
+}
+
+@media print {
+  body {
+    background-color: gray;
+    color: whitesmoke;
+  }
+}
+
+.heading::before {
+  position: relative;
+  top: -20px;
+  font-size: 0.5rem;
+  background-color: palegoldenrod;
+}
+
+@media screen and (width <= 500px) {
+  body {
+    background-color: greenyellow;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* @media screen and (orientation: landscape) {
+  body {
+    background-color: palevioletred;
+    color: whitesmoke;
+  }
+  .heading::before {
+    content: "Landscape";
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .heading::before {
+    content: "Portrait";
+  }
+} */
+    </style>
+</head>
+
+<body>
+
+    <h2 class="heading">Website Responsiveness and media queries</h2>
+
+    <h2>Different media types</h2>
+    <ul>
+        <li>print</li>
+        <li>screen</li>
+        <li>all(default)</li>
+    </ul>
+
+</body>
+
+</html>
