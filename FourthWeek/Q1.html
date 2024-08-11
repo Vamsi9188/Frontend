@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest</title>
+    <style>
+        .container
+        {
+            height:350px;
+            width:300px;
+            border:2px solid;
+            inset: 0;
+            margin:auto;
+            font-weight: bold;
+            background-color:lightgoldenrodyellow;
+            border-radius: 10px;
+            margin-top:100px;
+        }
+        #simple-interest
+        {
+            margin-left:40px;
+        }
+        #calculate
+        {
+            background-color: royalblue;
+            color:white;
+            margin-left:40px;
+            width:220px;
+            padding:6px;
+        }
+        p
+        {
+            color:blue;
+            font-weight: bold;
+            font-size:larger;
+            margin-left:40px;
+        }
+        input
+        {
+            padding:6px;
+            width:200px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () 
+        {
+            const button = document.getElementById('calculate');
+            button.addEventListener("click", function () 
+            {
+                var p = document.getElementById('principle').valueAsNumber;
+                var r = document.getElementById('rate').valueAsNumber;
+                var t = document.getElementById('time').valueAsNumber;
+                if (p && r && t) 
+                {
+                    var simpleInterest = (p * t * r) / 100;
+                    console.log(simpleInterest);
+                    var msg = document.getElementById('message');
+                    msg.textContent = "After " + t + " years, your investment will be worth $" + (simpleInterest + p) + ".00 with simple interest.";
+                } 
+                else 
+                {
+                    alert("Please enter all fields");
+                }
+            })
+        })
+    </script>
+    <div class="container">
+        <p>Simple Interest Calculator</p>
+        <form id="simple-interest">
+            <label for="principle">Principal Amount($):</label><br>
+            <input type="number" id="principle" required><br><br>
+            <label for="rate">Annual Interest Rate(%):</label><br>
+            <input type="number" id="rate" required><br><br>
+            <label for="time">Number of Years:</label><br>
+            <input type="number" id="time" required><br><br>
+        </form>
+        <button id="calculate">Calculate</button><br>
+        <label id="message"></label>
+
+    </div>
+
+    
+</body>
+</html>
