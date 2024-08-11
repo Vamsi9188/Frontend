@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform Rotate</title>
+    <style>
+        h1
+        {
+            text-align: center;
+            background-color: goldenrod;
+        }
+        .box1
+        {
+            margin:100px auto;
+            height:200px;
+            width:200px;
+            background-color: coral;
+            float:left;
+            transform: rotate(315deg);
+        }
+        .box2
+        {
+            margin:100px auto;
+            height:200px;
+            width:200px;
+            background-color: lightblue;
+            float:left;
+            margin-left:50px;
+            transform: rotate(135deg);
+        }
+        .box1:hover
+        {
+         transform:rotateX(70deg); 
+         transform: rotateY(45deg);
+         transform: rotateZ(180deg);
+        }
+        .box2:hover
+        {
+            transform:rotateX(140deg); 
+            transform: rotateY(90deg);
+            transform: rotateZ(10deg);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Transform Rotation</h1>
+    <div class="box1">
+
+    </div>
+    <div class="box2">
+
+    </div>
+</body>
+</html>

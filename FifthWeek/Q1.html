@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Theme</title>
+    <style>
+        .container {
+            margin:100px;
+            padding: 30px;
+            height: 300px;
+            width:400px;
+            border: 1px solid;
+
+            background-color: var(--back-color);
+            color: var(--text-color);
+        }
+        .light-mode {
+            --back-color: wheat;
+            --text-color: black;
+        }
+        .dark-mode {
+            --back-color: black;
+            --text-color: white;
+        }
+        button {
+            padding: 10px;
+            width: 200px;
+            font-size: 1.1rem;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function()
+        {
+            const button = document.getElementById('toggle-theme');
+            button.addEventListener("click", function()
+            {
+                document.documentElement.classList.toggle("dark-mode");
+                document.documentElement.classList.toggle("light-mode");
+                if (document.documentElement.classList.contains("dark-mode"))
+                {
+                    button.textContent = "Switch to Light Mode";
+                }
+                else
+                {
+                    button.textContent = "Switch to Dark Mode";
+                }
+            })
+        })
+    </script>
+    <div class="container">
+        <h1>Dark mode javascript plugin</h1>
+        <p>Theme Color Switch is a Quick implementation of the<br> popular Dark Mode on your web app.</p>
+        <button id="toggle-theme">Switch to Dark Mode</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Box</title>
+    <style>
+        *
+        {
+            box-sizing: border-box;
+        }
+        .box
+        {
+            height:100px;
+            width:100px;
+            background-color: coral;
+            margin:16px;
+            align-content: center;
+            border-radius:10px;
+        }
+        .container1
+        {
+            display:flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            border:2px dashed;
+            height:500px;
+            width:600px;
+            padding:16px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .container2
+        {
+            display:flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            border:2px dashed;
+            height:500px;
+            width:600px;
+            padding:16px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .box:hover
+        {
+            flex:1 1 300px;
+            border-radius:45%;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Flex Box1</h1>
+    <section class="container1">
+        <section class="box">Box1</section>
+        <section class="box">Box2</section>
+        <section class="box">Box3</section>
+        <section class="box">Box4</section>
+        <section class="box">Box5</section>
+        <section class="box">Box6</section>
+    </section>
+    <h1>Welcome to Flex Box2</h1>
+    <section class="container2">
+        <section class="box">Box1</section>
+        <section class="box">Box2</section>
+        <section class="box">Box3</section>
+        <section class="box">Box4</section>
+        <section class="box">Box5</section>
+        <section class="box">Box6</section>
+    </section>
+</body>
+</html>

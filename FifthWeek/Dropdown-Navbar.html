@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown-Navbar</title>
+    <style>
+        /* main navbar */
+        .navbar
+        {
+            display: flex;
+            background-color:black;
+            color:white;
+            align-items: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        /* hovering  navbar */
+        .navbar a
+        {
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            
+        }
+        /* dropbtn properties */
+        .dropdown .dropbtn
+        {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit; 
+            margin: 0; 
+        }
+        /* hover navbar dropdown dropbtn properties */
+        .navbar a:hover, .dropdown:hover .dropbtn
+        {
+            background-color: red;
+        }
+        /* dropdown-content properties */
+        .dropdown-content
+        {
+            display:none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+           box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5);
+           z-index: 1;
+        }
+        /* dropdown-content hover properties */
+        .dropdown-content a
+        {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+    
+        }
+        .dropdown:hover .dropdown-content
+        {
+            display: block;
+        }
+        .dropdown-content a:hover
+        {
+            background-color: gray;
+            color:white;
+        }
+        @media (max-width: 800px) {
+            .navbar ul {
+                display: none;
+            }
+
+            .navbar .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <div class="dropdown">
+            <button class="dropbtn">CSS</button>
+            <div class="dropdown-content">
+                <a href="#">Inline</a>
+                <a href="#">Internal</a>
+                <a href="#">External</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Frames</button>
+            <div class="dropdown-content">
+                <a href="#">Vertical</a>
+                <a href="#">Horizontal</a>
+                <a href="#">Mixed</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Tables</button>
+            <div class="dropdown-content">
+                <a href="#">Simple</a>
+                <a href="#">Complex</a>
+                <a href="#">Compound</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

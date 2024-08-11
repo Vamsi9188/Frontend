@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Object</title>
+    
+</head>
+<body>
+    <h1>Welcome to Date Object</h1>
+    <script>
+        // displaying date 
+        var date=new Date();
+        console.log("Today is",date);
+        
+        // displaying full year
+        console.log("Full Year",date.getFullYear());
+
+        // displaying month in number
+        console.log("Month",date.getMonth());
+
+        // displaying date only in 1-31 or 1-30 or 1-29/28
+        console.log("Date",date.getDate());
+
+        // displaying day of the week in numbers 0-6(sun-sat)
+        console.log("Day of the week",date.getDay());
+
+         // display new date provided by user
+        console.log(new Date(2002,3,12));
+
+        // toString() Method display date along with time
+        console.log(new Date().toString());
+
+        // toDateString() Method display date without time
+        console.log(new Date().toDateString()); 
+
+        // display only in numbers format without day
+        console.log(new Date().toLocaleDateString()); 
+
+        // display date and time only in numbers format without day
+        console.log(new Date().toLocaleString());
+
+        // setting new date
+        var newDate=new Date();
+       newDate.setDate(12);
+       console.log("New Date",newDate);
+
+       // setting new month
+       var newMonth=new Date();
+       newMonth.setMonth(3);
+       console.log("New Month",newMonth);
+
+       // setting new year
+       var newYear=new Date();
+       newYear.setYear(2002);
+       console.log("New Year",newYear);
+       var newYear=new Date();
+       newYear.setFullYear(2002);
+       console.log("New Year",newYear);
+
+       // Time Functions()
+       // Displaying Date and Time
+       console.log("Date and Time",newDate);
+
+       // displaying hours
+       var time=new Date();
+      console.log("Hours",time.getHours());
+      
+      // displaying minutes
+      console.log("Minutes",time.getMinutes());
+
+      // displaying seconds
+      console.log("Seconds",time.getSeconds());
+
+      //setting hours in milliseconds
+      console.log(newDate.setHours(19));
+
+      // setting minutes in milliseconds
+      console.log(newDate.setMinutes(54));
+
+      // setting seconds in milliseconds
+      console.log(newDate.setSeconds(34));
+
+      // convert time into toString() Method
+      console.log("Date and Time along with Day",newDate.toString());
+
+      // convert time in toTimeString() Method
+      console.log("Time without Date and Day",newDate.toTimeString());
+
+      // convert time in toLocaleTimeString() Method
+      console.log("Only Time with Hours:Minutes:Seconds",newDate.toLocaleTimeString());
+
+      // convert time in toLocaleString() Method
+      console.log("Date, Time without Day in DD/MM/YYYY, HH:MM:SS",newDate.toLocaleString());
+
+      // getTime() Function
+      // returns the number of milli seconds that have been elapsed since 1970
+      console.log("Time in MilliSeconds",time.getTime());
+
+      // displaying time from milli seconds to hours
+      console.log(new Date(12042002));
+    </script>
+</body>
+</html>

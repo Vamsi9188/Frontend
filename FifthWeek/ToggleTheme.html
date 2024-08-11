@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Theme</title>
+    <style>
+        :root
+        {
+            --back-color:yellow;
+            --forground-color:red;
+            background-color: var(--back-color);
+            color: var(--forground-color);
+        }
+        article>p
+        {
+            --back-color:black;
+            --text-color:white;
+            background-color: var(--back-color);
+            color:var(--text-color);
+        }
+        section >p
+        {
+            --back-color:black;
+            --text-color:white;
+            background-color: var(--back-color);
+            color:var(--text-color);
+        }
+        .dark-theme
+        {
+            --back-color:#000;
+            --forground-color:#fff;
+        }
+        .blue-theme
+        {
+            --back-color:rgb(64, 19, 187);
+            --forground-color:#fff; 
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const darkButton=document.getElementById('dark-theme');
+            darkButton.addEventListener("click",function()
+            {
+                if(document.documentElement.classList.contains("blue-theme"))
+                {
+                    document.documentElement.classList.remove("blue-theme");
+                }
+                document.documentElement.classList.toggle("dark-theme");
+            })
+            //BlueTheme
+            const blueButton=document.getElementById('blue-theme');
+            blueButton.addEventListener("click",function()
+            {
+                if(document.documentElement.classList.contains("dark-theme"))
+                {
+                    document.documentElement.classList.remove("dark-theme");
+                }
+                document.documentElement.classList.toggle("blue-theme");
+            })
+        })
+    </script>
+    <article>
+        <h1>This is heading in article</h1>
+        <p>This is para in article</p>
+    </article>
+    <section>
+        <h1>This is heading in section</h1>
+        <p>This is para in section</p>
+    </section>
+    <button id="dark-theme">Dark Theme</button>
+    <button id="blue-theme">Blue Theme</button>
+</body>
+</html>

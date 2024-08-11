@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style>
+        *,*::before,*::after
+        {
+            box-sizing: border-box;
+        }
+        .container
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+            
+        }
+       .calendar
+       {
+            display:flex;
+            flex-direction: column;
+            width:500px;
+            height:600px;
+            padding:16px;
+            overflow: hidden;
+            box-shadow: 1px 1px 12px 2px;
+       }
+       .calendar>header
+       {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            size: 1.5rem;
+            gap: 8px;
+            padding: 16px 0;
+            background-color: pink;
+            border-radius:10px;
+       }
+       .calendar header > h3,.calendar header > p
+       {
+            margin: 0;
+        }
+        #full-date
+        {
+        font-weight: 600;
+        }
+        .calendar .week > p
+        {
+        font-weight: 600;
+        flex: 0 0 50px;
+        text-align: center;
+
+        }
+        .calendar .days .date
+        {
+        flex: 0 0 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+       .calendar .week, .calendar .days
+       {
+        display: flex;
+        gap:16px;
+        justify-content: center;
+       }
+       .calendar .days
+       {
+            flex-wrap: wrap;
+       }
+       .today
+       {
+            border:1px solid;
+            border-radius:50%;
+            border-color: darkblue;
+            background-color: lightgreen;
+       }
+       .holidays
+       {
+        border:1px solid;
+            border-radius:50%;
+            border-color: darkblue;
+            background-color:rgb(231, 72, 24);
+       }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+            const totalDaysOfTheWeek=6;
+            const today=new Date();
+
+            const currentMonthIndex=today.getMonth();
+            console.log(currentMonthIndex);
+
+            const currentMonth=document.getElementById('current-month').textContent=months[currentMonthIndex];
+            console.log(currentMonth);
+
+            const fullDate=document.getElementById('full-date').textContent=today.toDateString();
+            console.log(fullDate);
+
+            const firstDayOfMonth=new Date(today.getFullYear(),today.getMonth(),1).getDay();
+            console.log(firstDayOfMonth);
+
+            const numberOfDaysInMonth=new Date(today.getFullYear(),today.getMonth()+1,0).getDate();
+            console.log(numberOfDaysInMonth);
+
+
+            const lastDay=new Date(today.getFullYear(),today.getMonth()+1,0).getDay();
+            console.log(lastDay);
+
+            let daysHTML="";
+            const daysElement=document.querySelector(".days");
+
+            for(let index=0;index<firstDayOfMonth;index++)
+            {
+                daysHTML += "<p class=\"date\">"+"</p>";
+            }
+
+            var holidays=[4,11,18,25];
+            for(let date=1;date<=numberOfDaysInMonth;date++)
+            {
+                if(today.getDate()===date)
+                {
+                    daysHTML += "<p class=\"date today\">"+date+"</p>";
+                }
+                else if(holidays.includes(date))
+                {
+                    daysHTML += "<p class=\"date holidays\">"+date+"</p>";
+                }
+                else
+                {
+                    daysHTML += "<p class=\"date\">"+date+"</p>";
+                }
+                
+            }
+
+            if(lastDay<totalDaysOfTheWeek)
+            {
+                for(let i=lastDay;i<totalDaysOfTheWeek;i++)
+                {
+                    daysHTML += "<p class=\"date\">"+"</p>"; 
+                }
+            }
+
+            console.log(daysHTML);
+            daysElement.innerHTML=daysHTML;
+            
+
+           
+        })
+    </script>
+    <div class="container">
+        <div class="calendar">
+
+            <header>
+                <div id="current-month">Current Month</div>
+                <div id="full-date">Full Date</div>
+            </header>
+     
+            <div class="week">
+                <p>Sun</p>
+                <p>Mon</p>
+                <p>Tue</p>
+                <p>Wed</p>
+                <p>Thu</p>
+                <p>Fri</p>
+                <p>Sat</p>
+            </div>
+            <div class="days">
+                <p class="date">1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+                <p>6</p>
+                <p>7</p>
+                <p>8</p>
+                <p>9</p>
+                <p>10</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

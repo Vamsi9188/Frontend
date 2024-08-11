@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Properties</title>
+    <style>
+        h2
+        {
+            text-align:center;
+            background-color: yellowgreen;
+            color:darkblue;
+        }
+        .box1
+        {
+            margin:200px;
+            height:200px;
+            width:200px;
+            background-color: royalblue;
+            text-align:center;
+            align-content: center;;
+            animation:translate 5s ease-out 100;
+        }
+        .box2
+        {
+            margin:200px;
+            height:200px;
+            width:200px;
+            background-color: royalblue;
+            text-align:center;
+            align-content: center;;
+            animation:scale 2s ease-in-out 1000;
+        }
+        .box3
+        {
+            margin:200px;
+            height:200px;
+            width:200px;
+            background-color: royalblue;
+            text-align:center;
+            align-content: center;;
+            animation:rotate 500ms linear infinite;
+        }
+        .box4
+        {
+            margin:200px;
+            height:200px;
+            width:200px;
+            background-color: royalblue;
+            text-align:center;
+            align-content: center;;
+            animation:skew 5s ease 1000;
+        }
+        @keyframes translate
+        {
+            form
+            {
+                transform:translate(10px);
+                border-radius:10;
+            }
+            to
+            {
+                transform:translate(200px);
+                border-radius:80%;
+                background-color: red;
+            }
+        }
+        @keyframes scale
+        {
+            form
+            {
+                transform:scale(1,1);
+                border-radius:0;
+            }
+            to
+            {
+                transform:scale(2,2);
+                border-radius:50%;
+                background-color:green;
+            }
+        }
+        @keyframes rotate
+        {
+            form
+            {
+                transform:rotate(0);
+                border-radius:0;
+            }
+            to
+            {
+                transform:rotate(360deg);
+                border-radius:50%;
+                background-color:gold;
+            }
+        }
+        @keyframes skew
+        {
+            form
+            {
+                transform:skew(10deg);
+                border-radius:0;
+            }
+            to
+            {
+                transform:skew(270deg);
+                border-radius:50%;
+                background-color:tomato;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to Animate Properties</h2>
+    <section class="box1 translate">Translation</section>
+    <section class="box2 scale">Scaling</section>
+    <section class="box3 rotate">Rotation</section>
+    <section class="box4 skew">Skewing</section>
+</body>
+</html>

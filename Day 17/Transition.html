@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition Properties</title>
+    <style>
+        h2
+        {
+            text-align:center;
+            background-color: yellowgreen;
+            color:darkblue;
+        }
+        .box
+        {
+            margin:200px;
+            height:200px;
+            width:200px;
+            background-color: royalblue;
+            text-align:center;
+            align-content: center;;
+            /* transition-property: transform;
+            transition-duration: 2s;
+            transition-delay: 100ms;
+            transition-timing-function:cubic-bezier(0.6, -0.28, 0.735, 0.045); */
+        }
+        .box.translate:hover
+        {
+            transform: translate(150px);
+            border-radius:50%;
+            background-color: brown;
+        }
+        .box.scale:hover
+        {
+            transition:transform 3s ease-in-out 1s;
+            transform:scale(2,2);
+            border-radius:50%;
+            background-color: red;
+        }
+        .box.rotate:hover
+        {
+            transition:transform 300ms linear 100ms;
+            border-radius:25%;
+            transform:rotate(360deg);
+            background-color: deeppink;
+        }
+        .box.skew:hover
+        {
+            transition:transform 5s ease 2s;
+            transform:skew(180deg);
+            border-radius:100%;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to Transition Properties</h2>
+    <section class="box translate">Translation</section>
+    <section class="box scale">Scaling</section>
+    <section class="box rotate">Rotation</section>
+    <section class="box skew">Skewing</section>
+</body>
+</html>

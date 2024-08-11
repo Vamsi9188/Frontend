@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Properties or CSS Variables</title>
+    <style>
+        :root
+        {
+            --back-color:hsl(40 70% 40%);
+            --forground-color:hsl(0 0% 0%);
+            background-color: var(--back-color);
+            color: var(--forground-color);
+        }
+        .dark-theme
+        {
+            --back-color:#000;
+            --forground-color:#fff;
+        }
+        .blue-theme
+        {
+            --back-color:rgb(64, 19, 187);
+            --forground-color:#fff; 
+        }
+        article
+        {
+            --text-color:hsl(250 50% 60%);
+            --back-color:hsl(40 70% 40%);
+            background-color: var(--back-color);
+        }
+        article h2
+        {
+            color:var(--text-color);
+        }
+        section h2
+        {
+            color:var(--text-color);
+        }
+    </style>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded",function()
+    {
+       const button=document.getElementById("toggle-theme");
+       button.addEventListener("click",function()
+        {
+            if(document.documentElement.classList.contains("blue-theme"))
+            {
+                document.documentElement.classList.remove("blue-theme")
+            }
+            function toggleTheme()
+            {
+                document.documentElement.classList.toggle("dark-theme");
+            }
+            toggleTheme();
+        })
+        const btn=document.getElementById("blue-theme");
+        btn.addEventListener("click",function()
+        {
+            if(document.documentElement.classList.contains("dark-theme"))
+            {
+                document.documentElement.classList.remove("dark-theme")
+            }
+            function blueTheme()
+            {
+                document.documentElement.classList.toggle("blue-theme");
+            }
+            blueTheme();
+        })
+    })
+</script>
+<body>
+    <h1>Welcome to Custom Properties</h1>
+    <h1>Welcome to CSS Variables</h1>
+    <article>
+        <h2>This is heading in Article</h2>
+        <p>This is para in The Article</p>
+    </article>
+    <section>
+        <h2>This is heading in Section</h2>
+        <p>This is para in the Section</p>
+    </section>
+    <button id="toggle-theme">Toggle Theme</button>
+    <button id="blue-theme">Blue Theme</button>
+</body>
+</html>

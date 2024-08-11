@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Country and State Selector</title>
+    <style>
+        label
+        {
+            padding:30px;
+
+        }
+        select
+        {
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <label for="country">Country:</label>
+    <select id="country">
+        <option value="" disabled selected>Select your Country</option>
+    </select>
+
+    <label for="state">State:</label>
+    <select id="state">
+        <option value="">Select your State</option>
+    </select>
+
+    <script>
+       document.addEventListener("DOMContentLoaded", function ()
+       {
+        const countries = ["India", "USA", "UK", "Australia", "Italy", "New Zealand", "Bangladesh", "South Africa", "West Indies", "Sri Lanka", "Pakistan", "Afghanistan"];
+        const selectCountry = document.getElementById('country');
+        selectCountry.length = 0;
+        function selectCountries()
+        {
+            for (let index = 0; index < countries.length; index++)
+            {
+                const element = countries[index];
+                selectCountry.options[selectCountry.options.length] = new Option(element, element);
+            }
+        }
+
+        selectCountries();
+    });
+
+    </script>
+</body>
+</html>

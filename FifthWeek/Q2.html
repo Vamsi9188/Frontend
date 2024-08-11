@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar 15th July, 2023</title>
+    <style>
+        *,*::before,*::after
+        { 
+            box-sizing: border-box;
+        }
+        .container
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin:50px;
+        }
+        .calendar
+        {
+            display:flex;
+            flex-direction:column;
+            width:500px;
+            height:700px;
+            padding:16px;
+            overflow: hidden;
+            box-shadow: 1px 1px 12px 2px;
+        }
+        .calendar .week > p
+        {
+            font-weight: 600;
+            flex: 0 0 50px;
+            text-align: center;
+        }
+        .calendar .days .date
+        {
+            flex: 0 0 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .calendar .week, .calendar .days
+        {
+            display: flex;
+            gap:16px;
+            justify-content: center;
+        }
+        .calendar .days
+        {
+            flex-wrap: wrap;
+        }
+        .today
+        {
+            border:1px solid;
+            border-radius:50%;
+            border-color: darkblue; background-color: lightgreen;
+        }
+        .calendar hr
+        {
+            border:2px solid;
+            margin-left:20px;
+            margin-right:20px;
+        }
+        .month-year
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded",function() {
+            const months=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+            const totalDaysOfTheWeek=6;
+            const today=new Date(2023,9,15);
+            const currentMonthIndex=today.getMonth();
+            console.log(currentMonthIndex);
+            const currentMonth=document.getElementById('month').textContent=months[currentMonthIndex];
+            console.log(currentMonth);
+            const fullDate=document.getElementById('year').textContent=today.getFullYear();
+            console.log(fullDate);
+            const firstDayOfMonth=new Date(today.getFullYear(),today.getMonth(),1).getDay();
+            console.log(firstDayOfMonth);
+            const numberOfDaysInMonth=new Date(today.getFullYear(),today.getMonth()+1,0).getDate();
+            console.log(numberOfDaysInMonth);
+            const lastDay=new Date(today.getFullYear(),today.getMonth()+1,0).getDay();
+            console.log(lastDay);
+            let daysHTML="";
+            const daysElement=document.querySelector(".days");
+            for(let index=0;index<firstDayOfMonth;index++) {
+                daysHTML += "<p class=\"date\">"+"</p>";
+            }
+            for(let date=1;date<=numberOfDaysInMonth;date++) {
+                if(today.getDate()===date) {
+                    daysHTML += "<p class=\"date today\">"+date+"</p>";
+                } else {
+                    daysHTML += "<p class=\"date\">"+date+"</p>";
+                }
+            }
+            if(lastDay<totalDaysOfTheWeek) {
+                for(let i=lastDay;i<totalDaysOfTheWeek;i++) {
+                    daysHTML += "<p class=\"date\">"+"</p>";
+                }
+            }
+            console.log(daysHTML);
+            daysElement.innerHTML=daysHTML;
+        })
+    </script>
+    <div class="container">
+        <div class="calendar">
+            <div class="month-year">
+                <h2 id="month">Month</h2>
+                <h2 id="year">Year</h2>
+            </div>
+            <section class="week">
+                <p>S</p>
+                <p>M</p>
+                <p>T</p>
+                <p>W</p>
+                <p>T</p>
+                <p>F</p>
+                <p>S</p>
+            </section>
+            <hr>
+            <section class="days">
+                <p class="date"></p>
+                <p class="date"></p>
+                <p class="date"></p>
+                <p class="date">4</p>
+                <p class="date">5</p>
+                <p class="date">6</p>
+                <p class="date">7</p>
+                <p class="date">8</p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

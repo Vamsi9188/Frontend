@@ -21,11 +21,13 @@
     margin-top:10px;
     background-color:slategray;
     padding:16px;
+    margin-left:150px;
+    margin-right:150px;
 }
 #about,#education,#hobbies,#languages
 {
     margin-left:150px;
-    margin-right:100px;
+    margin-right:150px;
     background-color: rgb(202, 202, 143);
 }
 #navbar
@@ -42,7 +44,7 @@
     font-size:larger;
     text-decoration:none;
 }
-section > h2,h1
+section,div > h2,h1
 {
     text-align:center;
 }

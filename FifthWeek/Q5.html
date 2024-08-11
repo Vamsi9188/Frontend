@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Registration Form</title>
+    <style>
+        span
+        {
+            color:red;
+            font-size:1.1rem;
+        }
+        .container
+        {
+            display: flex;
+            /* justify-conten */
+            height:600px;
+            width:600px;
+            border:1px solid;
+            margin-left:20px;
+            box-shadow: 1px 1px 12px 2px;
+        }
+
+        #Registration-Form
+        {
+            display: flex;
+            flex-direction: column;
+            /* align-items; */
+            width: 70%;
+            padding:10px;
+        }
+
+        #Registration-Form div
+        {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        #Registration-Form label
+        {
+            width: 50%;
+            text-align: leftt;
+            /* margin-right:50px */
+        }
+
+        #Registration-Form input, select
+        {
+            width: 60%;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        #Registration-Form input[type="number"]
+        {
+            width: 60%;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        #Registration-Form select
+        {
+            width: 60%;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="Registration-Form">
+        <div id="first-field">
+            <label for="company">Company</label>                    
+            <input type="text" name="company" id="company">
+        </div>
+        <div id="second-field">
+            <label for="fname">Full Name<span>*</span></label>
+            <input type="text" name="fname" id="fname" placeholder="Master Chief" required>
+        </div>
+        <div id="third-field">
+            <label for="address1">Address Line1<span>*</span></label>    
+            <input type="text" name="address1" id="address1" placeholder="117 john Spartan Lane" required>
+        </div>
+        <div id="fourth-field">
+            <label for="address2">Address Line2</label>
+            <input type="text" name="address2" id="address2">
+        </div>
+        <div id="fifth-field">
+            <label for="city">City<span>*</span></label>
+            <input type="text" name="city" id="city" placeholder="Old Mombasa" required>
+        </div>
+        <div id="sixth-field">
+            <label for="country">Country</label>
+            <select class="input-field" id="country">
+                <option value="" disabled selected>Country</option>
+            </select>
+        </div>
+        <div id="seventh-field">
+            <label for="state">State</label>
+            <select class="input-field" id="state">
+                <option value="" disabled selected>State</option>
+            </select>
+        </div>
+        <div id="eighth-field">
+            <label for="zip">Zip<span>*</span></label>
+            <input type="number" name="zip" id="zip" placeholder="32259" required>
+        </div>
+        <div id="nineth-field">
+            <label for="ph-no">Phone</label>  
+            <input type="number" name="ph-no" id="ph-no">
+        </div>
+        <div id="tenth-field">
+            <label for="mail">Email</label>
+            <input type="email" name="mail" id="mail">
+        </div>
+        
+    </form>
+    </div>
+<script>
+     document.addEventListener("DOMContentLoaded",function()
+     {
+        const countries = ["India", "USA", "Mexico", "South Africa", "Brazil", "Canada", "Australia", "Germany", "France", "Italy"];
+        const states = [];
+        states[0] = ["Andhra Pradesh", "Telangana", "Kerala", "Goa", "Tamil Nadu", "Maharashtra", "Uttar Pradesh", "Bihar", "West Bengal", "Madhya Pradesh"];
+        states[1] = ["California", "Texas", "Florida", "New York", "Illinois", "Ohio", "Georgia", "North Carolina", "Michigan", "New Jersey"];
+        states[2] = ["Jalisco", "Nuevo León", "Mexico City", "Puebla", "Guanajuato", "Veracruz", "Chiapas", "Sinaloa", "Chihuahua", "Coahuila"];
+        states[3] = ["Gauteng", "KwaZulu-Natal", "Western Cape", "Eastern Cape", "Limpopo", "Mpumalanga", "Free State", "North West", "Northern Cape"];
+        states[4] = ["São Paulo", "Rio de Janeiro", "Minas Gerais", "Rio Grande do Sul", "Paraná", "Bahia", "Pernambuco", "Ceará", "Maranhão", "Goias"];
+        states[5] = ["Ontario", "Quebec", "British Columbia", "Alberta", "Manitoba", "Saskatchewan", "Nova Scotia", "New Brunswick", "Prince Edward Island", "Newfoundland and Labrador"];
+        states[6] = ["New South Wales", "Victoria", "Queensland", "South Australia", "Western Australia", "Tasmania", "Australian Capital Territory", "Northern Territory"];
+        states[7] = ["Baden-Württemberg", "Bavaria", "Berlin", "Brandenburg", "Bremen", "Hamburg", "Hesse", "Lower Saxony", "Mecklenburg-Vorpommern", "North Rhine-Westphalia"];
+        states[8] = ["Alsace", "Aquitaine", "Auvergne", "Burgundy", "Brittany", "Centre", "Champagne-Ardenne", "Corsica", "Franche-Comté", "Île-de-France"];
+        states[9] = ["Abruzzo", "Apulia", "Basilicata", "Calabria", "Campania", "Emilia-Romagna", "Friuli-Venezia Giulia", "Lazio", "Liguria", "Lombardy"];
+
+
+        const countryElement = document.getElementById("country");
+        const stateElement = document.getElementById("state");
+
+   
+        countryElement.length = 0;
+        stateElement.length = 0;
+        function fillcountries()
+        {
+            for (let index = 0; index < countries.length; index++)
+            {
+                const element = countries[index];
+
+                countryElement.options[index] = new Option(element, element);
+            }
+        }
+        fillcountries();
+        function fillstates(country) 
+        {
+            const countryindex = countries.indexOf(country);
+            const statelist = states[countryindex];
+            for (let index = 0; index < statelist.length; index++)
+            {
+                const element = statelist[index];
+                stateElement.options[index] = new Option(element, element);
+            }
+        }
+        fillstates(countries[0]);
+        countryElement.onchange = function ()
+        {
+            stateElement.length = 0;
+            fillstates(countryElement.value);
+        }
+    })
+    
+</script>
+</body>
+</html>

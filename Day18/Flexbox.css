@@ -1,0 +1,29 @@
+*
+{
+    box-sizing: border-box;
+    text-align: center;
+}
+.container
+{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    height:400px;
+    width:540px;
+    border:2px dashed;
+
+}
+.box
+{
+    height:100px;
+    width:100px;
+    background-color: royalblue;
+    margin:16px;
+    
+}
+.box:hover
+{
+   box-shadow: -2px -4px 2px 4px;
+    background-color: red;
+}
