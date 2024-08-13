@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Practice</title>
+</head>
+<body>
+    <h2>Ojects and their Implementation</h2>
+    <script>
+        // related can done using an array
+        console.log("Objects Using array");
+        var arr=['Vamsi','7995918175','India','Student'];
+        console.log(arr);
+
+        // primitive object declaration
+        var name="Vamsi";
+        var phNo='7995918175';
+        var profession='Student';
+        var isEmployee=false;
+
+        // new object using literal 
+        var person={
+            name:"Vamsi",
+            age:22,
+            phNo:'7995918175',
+            profession:'Student',
+            isEmployee:false,
+            not_from_space:false
+            
+        }
+
+        console.log(person.age);
+        console.log(person['name']);
+
+        // object constructor
+        function Person(name,age,phNo,profession,isEmployee)
+        {
+            this.name=name;
+            this.age=age;
+            this.phNo=phNo;
+            this.profession=profession;
+            this.isEmployee=isEmployee;
+        }
+        var Vamsi=new Person('Vamsi',22,7995918175,'Student',false);
+
+        console.log(Vamsi.phNo);
+        console.log(Vamsi.profession);
+        console.log(Vamsi.isEmployee);
+    </script>
+    <script>
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope Types</title>
+</head>
+<body>
+    <h2>Scope Types and Implementation</h2>
+    <script>
+        console.log("debugger using in functions")
+        function a1()
+        {
+            debugger;
+            function a2()
+            {
+                debugger;
+                console.log("I am a2() function.");
+            }
+            console.log("I am a1() function.");
+        }
+    </script>
+    <script>
+        function whatIsMyName()
+        {
+            return locateMyName();
+        }
+        function locateMyName()
+        {
+            var locA="Something";
+            function getMyName()
+            {
+                debugger;
+                console.log(locA);
+                return 'My Name is Vamsi';
+            }
+            getMyName();
+        }
+    </script>
+    <script>
+        function getDegreeName()
+        {
+            degreeName='Bachelor\'s Degree';
+            // console.log('Masters\'s Degree');
+            return degreeName;
+            
+        }
+        getDegreeName();
+        window.degreeName;
+    </script>
+
+    <script>
+        console.log("Global Functions:");
+        var x="hi";
+        var xx="Hello";
+        var xxx="Hi, Hello";
+        var x="Hi Vamsi! How are you?"
+
+        console.log(x);// here overwriding hi to Hi Vamsi! How are you?
+        console.log(xx);
+        console.log(xxx);
+        console.log("hi");
+    </script>
+
+    <script>
+        console.log("IIFE: Immediately Invoked Function Expression");
+        /* (function()
+            {
+                Structure 
+            });
+            */
+           (function()
+            {
+                var x="Hi Vamsi!";
+                return 
+                {
+                    x:x
+                }
+            })
+    </script>
+</body>
+</html>

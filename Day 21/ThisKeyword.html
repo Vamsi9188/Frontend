@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Keyword</title>
+</head>
+<body>
+    <h2>This Keyword and implementation.</h2>
+    <script>
+        function a()
+        {
+            console.log("This is'this keyword' ");
+        }
+        // a();
+
+
+        // this and object
+        // Example1
+        var obj1={
+            name:'vamsi',
+            code:function()
+            {
+                // return this.name + ' is a Student';
+                return "JS is Coding";
+                
+            }
+        }
+        obj1.code();
+        console.log(obj1.code());
+
+        // Example 2
+        var obj2={
+            name:'vamsi',
+            code:function()
+            {
+                return this.name + ' is a Student';
+                return "JS is Coding";
+                
+            },
+            StudentInCollege()
+            {
+                return this.code()+" of JTD Bootcamp"
+            }
+        }
+        obj2.code();
+
+        console.log(obj2.code());
+        console.log(obj2.StudentInCollege());
+
+        // Example 3
+        function getProgrammingAbility()
+        {
+            return this.name+" is a good Programmer";
+        }
+        var name="Vamsi";
+        var obj1={
+            name:'Mahesh',
+            getProgrammingAbility:getProgrammingAbility
+        }
+        var obj2={
+            name:"Yogesh",
+            getProgrammingAbility:getProgrammingAbility
+        }
+        getProgrammingAbility();
+
+        console.log(obj1.getProgrammingAbility());
+        console.log(getProgrammingAbility());
+        console.log(obj2.getProgrammingAbility());
+
+
+        // Example 4
+        const obj3={
+            name:'Vamsi',
+            code()
+            {
+                console.log('a:',this);
+                var anotherFunction=function()
+                {
+                    console.log('b:',this);
+                }
+                anotherFunction();
+            }
+        };
+    </script>
+</body>
+</html>
