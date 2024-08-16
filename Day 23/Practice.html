@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 23 Practice-Session</title>
+</head>
+<body>
+    <h2>Practice on Closures, Prototypes and OOPs</h2>
+    <script>
+        function getEmployee(employeeId)
+        {
+            const employeeDatabase=new Array(1000).fill("Employee...");
+            console.log("Employee Database Created");
+            return employeeDatabase[employeeId];
+        }
+        getEmployee(100);
+        getEmployee(200);
+        getEmployee(900);
+        getEmployee(1000);// undefined  because size is 1000
+        getEmployee(999);
+
+    </script>
+
+    <script>
+        let employeeDatabase=[];
+        function createEmployeeDatabase()
+        {
+            if(!employeeDatabase || employeeDatabase.length==0)
+            {
+                employeeDatabase=new Array(1000).fill("Employee...");
+                console.log("Employee Database Created.");
+            }
+        }
+        function getEmployeeOptimized(employeeId)
+        {
+            if(employeeId>=0 && employeeDatabase && employeeDatabase.length)
+            {
+                return employeeDatabase[employeeId]+ " is " + employeeId;
+            }
+        }
+
+        function createEmployeeDatabase(employeeId)
+        {
+            let employeeDatabase=[];
+            employeeDatabase=new Array(1000).fill("Employee...");
+            console.log("Created Employee Database.");
+            return function(employeeId)
+            {
+                if(employeeId >= 0 && employeeDatabase && employeeDatabase.length)
+                {
+                    return employeeDatabase[employeeId]+" is " + employeeId;
+                }
+            }
+        }
+
+    </script>
+    <h2>Practice on Prototypes</h2>
+    <script>
+        
+    </script>
+</body>
+</html>

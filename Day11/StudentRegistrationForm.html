@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        .container
+        {
+            background-color: rgb(241, 177, 177);
+            max-width: 500px;
+            margin:0 auto;
+            border-radius: 5px;
+            padding:16px;
+        }
+        h2
+        {
+            text-align: center;
+        }
+        .text-field
+        {
+           margin-bottom: 16px;            
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select
+        {
+            width:97%;
+            padding:5px;
+            border:1px solid blue;
+            border-radius: 3px;
+        }
+        #register
+        {
+            width:100px;
+            padding:5px;
+            border-radius:4px;
+            margin-left:200px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background-color: lightgreen;
+            color:red;
+        }
+        #register:hover
+        {
+            background-color: yellowgreen;
+            color:darkmagenta;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form>
+            <div class="text-field">
+                <label for="firstName">First Name:</label><br>
+                <input type="text" name="firstName" id="FirstName" placeholder="Enter Your First Name">
+               
+            </div>
+            <div class="text-field">
+                <label for="lastName">Last Name:</label><br>
+                <input type="text" name="lastName" id="LastName" placeholder="Enter Your Last Name">
+            </div>
+    
+            <div class="text-field">
+                <label for="email">E-Mail ID:</label><br>
+                <input type="email" name="email" id="e-mail" placeholder="Enter Your E-Mail ID">
+            </div>
+
+            <div class="text-field">
+                <label for="phoneNumber">Phone Number:</label><br>
+                <input type="text" name="phoneNumber" id="PhoneNumber" placeholder="Enter Your Phone Number">
+            </div>
+
+            <div class="text-field">
+                <label for="dob">Date Of Birth:</label><br>
+                <input type="date" name="dob" id="DOB">
+            </div>
+            <div class="text-field">
+                <label for="gender">Gender:</label>
+
+                <label for="Male">Male</label>
+                <input type="radio" name="gender" id="male">
+                <label for="Female">Female</label>
+                <input type="radio" name="gender" id="female">
+                <label for="others">Others</label>
+                <input type="radio" name="gender" id="others">
+            </div>
+
+            <div class="text-field">
+                <label for="states">State:</label><br>
+                <select name="state" id="states">
+                    <option value="" selected="selected">Select Your State</option>
+                </select>
+            </div>
+
+            <div class="text-field">
+                <label for="district">District:</label><br>
+                <select name="district" id="districts">
+                    <option value="" selected="selected">Select Your District</option>
+                </select>
+            </div>
+
+            <input type="button" value="Register" id="register">
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+
+            // validations
+            const submit=document.getElementById("register");
+            submit.addEventListener("click",function()
+            {
+                const fname=document.getElementById("FirstName").value;
+                const lname=document.getElementById("LastName").value;
+                const email=document.getElementById("e-mail").value;
+                const phno=document.getElementById("PhoneNumber").value;
+                const dob=document.getElementById("DOB").value;
+                const state=document.getElementById("states").value;
+                const district=document.getElementById("districts").value;
+
+
+                if(!fname || !lname || !email || !phno || !dob || !state || !district)
+                {
+                    alert("please enter all fields");
+                    return;
+                }
+            })
+            const states=["Andhra Pradesh","Telangana","Tamilnadu","Kerala","Karnataka"];
+            
+            const districts=[];
+            districts[0]=["Anantapur", "Chittoor", "East Godavari", "Guntur", "Kadapa", "Krishna", "Kurnool", "Nellore", "Prakasam", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari"];
+            districts[1]=["Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagtial", "Jangaon", "Jayashankar Bhupalpally", "Jogulamba Gadwal", "Kamareddy", "Karimnagar", "Khammam", "Komaram Bheem Asifabad", "Mahabubabad", "Mahabubnagar", "Mancherial", "Medak", "Medchal", "Nagarkurnool", "Nalgonda", "Nirmal", "Nizamabad", "Peddapalli", "Rajanna Sircilla", "Ranga Reddy", "Sangareddy", "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Warangal Rural", "Warangal Urban", "Yadadri Bhuvanagiri"];
+            districts[2]=["Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kallakurichi", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi", "Thanjavur", "Theni", "Thiruvallur", "Thiruvarur", "Thoothukudi", "Tiruchirappalli", "Tirunelveli", "Tirupathur", "Tiruppur", "Tiruvannamalai", "Vellore", "Viluppuram", "Virudhunagar"];
+            districts[3]=["Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"];
+            districts[4]=["Bagalkot", "Ballari", "Belagavi", "Bengaluru", "Bidar", "Chamarajanagar", "Chikkaballapur", "Chikkamagaluru", "Chitradurga", "Dakshina Kannada", "Davanagere", "Dharwad", "Gadag", "Hassan", "Haveri", "Kalaburagi", "Kodagu", "Kolar", "Koppal", "Mandya", "Mysuru", "Raichur", "Ramanagara", "Shivamogga", "Tumakuru", "Udupi", "Uttara Kannada", "Vijayapura", "Yadgir"];
+
+            
+            const stateElement=document.getElementById("states");
+            stateElement.length=0;
+            function selectState()
+            {
+                for(let i=0;i<states.length;i++)
+                {
+                    const state=states[i];
+                    stateElement.options[i]=new Option(state,state);
+                }
+            }
+            selectState();  
+            
+            const districtElement=document.getElementById("districts");
+            districtElement.length=0;
+            try
+            {
+                function selectDistrict(state)
+                {
+                    const districtIndex=states.indexOf(state);
+                    const districtList=districts[districtIndex];
+                    for(let i=0;i<districtList.length;i++)
+                    {
+                        const district=districtList[i];
+                        districtElement.options[i]=new Option(district,district);
+                    }
+                }
+                selectDistrict(states[0]);
+                stateElement.onchange=function()
+                {
+                    districtElement.length=0;
+                    selectDistrict(stateElement.value);
+                }
+            }
+            catch(ex)
+            {
+                console.log(ex);
+                throw ex;
+            }
+            finally
+            {
+                console.log("I am Finally Block code!...")
+            }
+           
+        }) 
+    </script>
+</body>
+</html>
