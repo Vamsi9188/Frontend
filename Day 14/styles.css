@@ -1,0 +1,18 @@
+h2,p
+{
+    background-color:yellow;
+    color:red;
+    font-size: 1.4rem;
+    padding:20px;
+}
+.box
+{
+    height: 400px;
+    width:400px;
+    border:2px solid;
+    background-color: lightpink;
+}
+.color-change
+{
+    background-color: lightgreen;
+}
