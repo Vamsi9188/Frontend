@@ -1,0 +1,43 @@
+STEPS TO UPLOAD A FILE OR FOLDER IN YOUR GITHUB ACCOUNT:
+
+Note:
+Repository creaed in your git account before commit command
+
+1. git config --global core.editor "nano"
+-->to close editor --> remove # symbol before initial commit, then ctrl+o, enter, caplock on ,ctrl+x
+2.git init
+-->initialize git
+3.  git config --global user.name "username"
+4.  git config --global user.email "email"
+5. git status --- optional
+6. git add filename(to add one file)
+7. git add .(to add more than one or more files and folders)
+
+CREATE REPOSITORY IF NOT CREATE 
+
+8. git commit (save the file or folder in git)
+9. git commit -a -m "commit message" *messgage is compulsory but not null* (overall commit)
+
+10. Open your github account login then open the repository you created in that follow last three steps:
+    10.1. git branch -M main
+    <!-- 10.2. https://github.com/Your username/Your repository name.git  -->
+
+    for this url open code in your repository the copy .git extension url followed by username and password
+
+    10.3. git push -u origin main
+11. After completing this tasks you will get  message below format:
+    Enumerating objects: 4, done.
+    Counting objects: 100% (4/4), done.
+    Delta compression using up to 4 threads
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 1016 bytes | 1016.00 KiB/s, done.
+    Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+    <!-- To https://github.com/your username/repository name.git -->
+    cf4b15a..3b7058b  main -> main
+    Branch 'main' set up to track remote branch 'main' from 'origin'. 
+
+
+
+    username:Vamsi9188
+    password:Vamsi@124JTD
+    gmail:damalcheruvuvamsi_jtbb2@jtdfoundation.org
