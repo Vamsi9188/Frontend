@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        .container
+        {
+            background-color: rgb(241, 177, 177);
+            max-width: 500px;
+            margin:0 auto;
+            border-radius: 5px;
+            padding:16px;
+        }
+        h2
+        {
+            text-align: center;
+        }
+        .text-field
+        {
+           margin-bottom: 16px;            
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select
+        {
+            width:97%;
+            padding:5px;
+            border:1px solid blue;
+            border-radius: 3px;
+        }
+        .text-field>span
+        {
+            color:red;
+            font-size: 0.9rem;
+            padding:4px;
+        }
+        #register
+        {
+            width:100px;
+            padding:5px;
+            border-radius:4px;
+            margin-left:200px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background-color: lightgreen;
+            color:red;
+            flex-shrink: 2;
+        }
+        #register:hover
+        {
+            background-color: yellowgreen;
+            color:darkmagenta;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form>
+            <div class="text-field">
+                <label for="firstName">First Name:</label><br>
+                <input type="text" name="firstName" id="FirstName" placeholder="Enter Your First Name" onkeyup="onFirstNameKeyUp(event)">
+                <span id="fnameError"></span>
+               
+            </div>
+            <div class="text-field">
+                <label for="lastName">Last Name:</label><br>
+                <input type="text" name="lastName" id="LastName" placeholder="Enter Your Last Name" onkeyup="onLastNameKeyUp(event)">
+                <span id="lnameError"></span>
+            </div>
+    
+            <div class="text-field">
+                <label for="email">E-Mail ID:</label><br>
+                <input type="email" name="email" id="e-mail" placeholder="Enter Your E-Mail ID" onkeyup="onEmailKeyUp(event)">
+                <span id="mailError"></span>
+            </div>
+
+            <div class="text-field">
+                <label for="phoneNumber">Phone Number:</label><br>
+                <input type="text" name="phoneNumber" id="PhoneNumber" placeholder="Enter Your Phone Number" onkeyup="onPhoneNumberKeyUp(event)">
+                <span id="phoneNumberError"></span>
+            </div>
+
+            <div class="text-field">
+                <label for="dob">Date Of Birth:</label><br>
+                <input type="date" name="dob" id="DOB" onchange="onDOBChange(event)">
+                <span id="DOBError"></span>
+            </div>
+            <div class="text-field">
+                <label for="gender">Gender:</label>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="male">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female">
+                <label for="others">Others</label>
+                <input type="radio" name="gender" id="others"><br>
+                <span id="genderError"></span>
+            </div>
+
+            <div class="text-field">
+                <label for="states">State:</label><br>
+                <select name="state" id="states">
+                    <option value="" selected="selected">Select Your State</option>
+                </select>
+            </div>
+
+            <div class="text-field">
+                <label for="district">District:</label><br>
+                <select name="district" id="districts">
+                    <option value="" selected="selected">Select Your District</option>
+                </select>
+            </div>
+
+            <input type="button" value="Register" id="register">
+        </form>
+    </div>
+
+    <script>  
+    // First Name Validations
+    function onFirstNameKeyUp(ev)
+            {
+                const value = ev.target.value;
+                validateFName(value);
+            }
+            let fNameError=document.getElementById('fnameError');
+            function validateFName(value)
+            {
+                value = value ?? document.getElementById('FirstName').value;
+                if(!value || value.length == 0)
+                {
+                    fNameError.innerText="*Please Provide First Name";
+                    return false;
+                }
+                else if(value && value.length<5)
+                {
+                    fNameError.innerHTML="*First Name should be atleast 5 characters."
+                    return false;
+                }
+                else if(value && value.length>25)
+                {
+                    fNameError.innerHTML="*First Name should not exceed 25 characters."
+                    return false;
+                }
+                else if(value && !value.match(/^[A-Z a-z]*$/))
+                {
+                    fNameError.innerHTML="*First Name allows only characters."
+                    return false;
+                }
+                else
+                {
+                    fNameError.innerText="";
+                    return true;
+                }
+            }  
+            
+        //  Last Name Validations
+        const lNameError=document.getElementById('lnameError');
+        function onLastNameKeyUp(ev)
+        {
+            const value=ev.target.value;
+            validateLName(value);
+        } 
+        function validateLName(value)
+        {
+            value = value ?? document.getElementById('LastName').value;
+            if(!value || value.length == 0)
+            {
+                lNameError.innerText="*Please Provide Last Name";
+                return false;
+            }
+            else if(value && value.length<5)
+            {
+                lNameError.innerText="*Last Name Should be atleast 5 characters."
+                return false;
+            }
+            else if(value && value.length>20)
+            {
+                lNameError.innerText="*Last Name Should not exceed 20 characters."
+                return false;
+            }
+            else if(value && !value.match(/^[A-Z a-z]*$/))
+            {
+                lNameError.innerText="*Last Name allows only characters."
+                return false;
+            }
+            else
+            {
+                lNameError.innerText="";
+                return true;
+            }
+        } 
+
+        // Phone Number Validations
+        const PhNoError=document.getElementById('phoneNumberError');
+        function onPhoneNumberKeyUp(ev)
+        {
+            const value=ev.target.value;
+            validatePhoneNumber(value);
+        }
+        function validatePhoneNumber(value)
+        {
+            value = value ?? document.getElementById('PhoneNumber').value;
+            if(!value && value.length==0)
+            {
+                PhNoError.innerText="*Please Provide Phone Number.";
+                return false;
+            }
+            else if(value && value.length<10)
+            {
+                PhNoError.innerText="*Phone Number should be atleast 10 digits.";
+                return false;
+            }
+            else if(value && value.length>10)
+            {
+                PhNoError.innerText="*Phone Number should not exceed 10 digits";
+                return false;
+            }
+            else if(value && !value.match(/^[0-9]{10}$/))
+            {
+                PhNoError.innerText="*Phone Number allows only Digits.";
+                return false;
+            }
+            else
+            {
+                PhNoError.innerText="";
+                return true;
+            }
+        }
+
+        // Email Id Validation
+        const emailError=document.getElementById('mailError');
+        function onEmailKeyUp(ev)
+        {
+            const value=ev.target.value;
+            validateEmail(value);
+        }
+        function validateEmail(value)
+        {
+            value=value ?? document.getElementById().value;
+            if(!value || value.length==0)
+            {
+                emailError.innerText="*Please Provide Email-Id";
+                return false;
+            } 
+            else if(value && !value.match(/^[a-z0-9_.@]+$/))
+            {
+                emailError.innerText="*Invalid Email ID";
+                return false;
+            }
+            else if (!value.match(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.(com|org|in)$/i))
+            {
+                emailError.innerText = "*Invalid Email ID.";
+                return false;
+            }
+            else
+            {
+                emailError.innerText="";
+                return true;
+            }
+
+        }
+
+        // DOB Validation
+        const dobError=document.getElementById('DOBError');
+        function onDOBChange(ev)
+        {
+            const value = ev.target.value;
+            validateDOB(value);
+        }
+        function validateDOB(value)
+        {
+            value = value ?? document.getElementById('DOB').value;
+            var inputSplitted=value.split("-");
+            const currentDateTime = new Date();
+            if(!value || value.length ==0)
+            {
+                dobError.innerText="*Please provide Date of Birth.";
+                return false;
+            }
+            else if(Date.parse(currentDateTime.toDateString()) < Date.parse(value))
+            {
+                dobError.innerText = "*Future dates not allowed.";
+                return false;
+            }
+            else if(currentDateTime.getFullYear() - inputSplitted[0] > 25)
+            {    // age restriction 
+                dobError.innerText = "*You are above 25."
+                return false;
+            }
+            else
+            {
+                dobError.innerText="";
+                return true;
+            }
+        }
+
+        // Gender Validation
+        const genderError = document.getElementById('genderError');
+        function validateGender()
+        {
+            const male = document.getElementById('male').checked;
+            const female = document.getElementById('female').checked;
+            const others = document.getElementById('others').checked;
+            if (!male && !female && !others) {
+                genderError.innerText = "*Please select a gender.";
+                return false;
+            } else {
+                genderError.innerText = "";
+                return true;
+            }
+        }
+
+        // Event Listeners for Gender Radio Buttons
+        document.querySelectorAll('input[name="gender"]').forEach(radio => {
+            radio.addEventListener('change', validateGender);
+        });
+        
+
+      // Register Button Click Event
+        const submit = document.getElementById("register");
+        submit.addEventListener("click", function() {
+            const fname = document.getElementById("FirstName").value;
+            const lname = document.getElementById("LastName").value;
+            const email = document.getElementById("e-mail").value;
+            const phno = document.getElementById("PhoneNumber").value;
+            const dob = document.getElementById("DOB").value;
+            const gender = document.querySelector('input[name="gender"]:checked'); // Correctly get selected gender
+            const state = document.getElementById("states").value;
+            const district = document.getElementById("districts").value;
+
+            // Perform all validations
+            const isFNameValid = validateFName(fname);
+            const isLNameValid = validateLName(lname);
+            const isEmailValid = validateEmail(email);
+            const isPhoneNumberValid = validatePhoneNumber(phno);
+            const isDOBValid = validateDOB();
+            const isGenderValid = validateGender();
+
+            if (!isFNameValid || !isLNameValid || !isEmailValid || !isPhoneNumberValid || !isDOBValid || !isGenderValid || !state || !district) {
+                alert("Please enter all fields correctly.");
+                return;
+            }
+            else
+            {
+                alert("Form Submitted Successfully!");
+                return;
+            }
+        });
+
+        // js code for countries and districts filling
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const states=["Andhra Pradesh","Telangana","Tamilnadu","Kerala","Karnataka"];
+            const districts=[];
+            districts[0]=["Anantapur", "Chittoor", "East Godavari", "Guntur", "Kadapa", "Krishna", "Kurnool", "Nellore", "Prakasam", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari"];
+            districts[1]=["Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagtial", "Jangaon", "Jayashankar Bhupalpally", "Jogulamba Gadwal", "Kamareddy", "Karimnagar", "Khammam", "Komaram Bheem Asifabad", "Mahabubabad", "Mahabubnagar", "Mancherial", "Medak", "Medchal", "Nagarkurnool", "Nalgonda", "Nirmal", "Nizamabad", "Peddapalli", "Rajanna Sircilla", "Ranga Reddy", "Sangareddy", "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Warangal Rural", "Warangal Urban", "Yadadri Bhuvanagiri"];
+            districts[2]=["Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kallakurichi", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi", "Thanjavur", "Theni", "Thiruvallur", "Thiruvarur", "Thoothukudi", "Tiruchirappalli", "Tirunelveli", "Tirupathur", "Tiruppur", "Tiruvannamalai", "Vellore", "Viluppuram", "Virudhunagar"];
+            districts[3]=["Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"];
+            districts[4]=["Bagalkot", "Ballari", "Belagavi", "Bengaluru", "Bidar", "Chamarajanagar", "Chikkaballapur", "Chikkamagaluru", "Chitradurga", "Dakshina Kannada", "Davanagere", "Dharwad", "Gadag", "Hassan", "Haveri", "Kalaburagi", "Kodagu", "Kolar", "Koppal", "Mandya", "Mysuru", "Raichur", "Ramanagara", "Shivamogga", "Tumakuru", "Udupi", "Uttara Kannada", "Vijayapura", "Yadgir"];
+            
+            const stateElement=document.getElementById("states");
+            stateElement.length=0;
+            function selectState()
+            {
+                for(let i=0;i<states.length;i++)
+                {
+                    const state=states[i];
+                    stateElement.options[i]=new Option(state,state);
+                }
+            }
+            selectState();  
+
+            const districtElement=document.getElementById("districts");
+            districtElement.length=0;
+                function selectDistrict(state)
+                {
+                    const districtIndex=states.indexOf(state);
+                    const districtList=districts[districtIndex];
+                    for(let i=0;i<districtList.length;i++)
+                    {
+                        const district=districtList[i];
+                        districtElement.options[i]=new Option(district,district);
+                    }
+                }
+                selectDistrict(states[0]);
+                stateElement.onchange=function()
+                {
+                    districtElement.length=0;
+                    selectDistrict(stateElement.value);
+                }
+        }) 
+    </script>
+</body>
+</html>
