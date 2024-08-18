@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,*::before,::after
+        {
+            box-sizing: border-box;
+        }
+        .container
+        {
+            display: flex;
+            height:100vh;
+            justify-content: center;
+            align-items: center;
+            /* margin:0 auto; */
+        }
+        .calendar
+        {
+            display: flex;
+            flex-direction: column;
+            height:700px;
+            width:500px;
+            padding:16px;
+            overflow: hidden;
+            box-shadow: 1px 1px 12px 2px;
+           
+        }
+        .calendar>header
+        {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.2rem;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            background-color: lightpink;
+            border-radius: 5px;
+        }
+        .calendar .week,.calendar .days
+        {
+            display: flex;
+            gap:16px;
+            justify-content: center;
+        } 
+        .calendar .week>p
+        {
+            font-weight: 600;
+            flex: 0 0 50px;
+            text-align: center;
+        }
+        .calendar .days .date
+        {
+            height: 50px;
+            display:flex;
+            flex:0 0 50px;
+            justify-content: center;
+            align-items: center;
+        }
+        .calendar .days
+        {
+            flex-wrap: wrap;
+        }
+        .today
+        {
+            /* border:1px solid; */
+            border-radius:50%;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+            const today=new Date();
+            const totalDaysInWeek = 6;
+
+            const monthIndex=today.getMonth();
+            const currMonth=document.getElementById('current-month').textContent=months[monthIndex];
+
+            const currDate=document.getElementById('current-date').textContent=today.toDateString();
+
+            const firstDayOfMonth=new Date(today.getFullYear(),today.getMonth(),1).getDay();
+            console.log(firstDayOfMonth);
+
+            const numberOfDaysInMonth=new Date(today.getFullYear(),today.getMonth()+1,0).getDate();
+            console.log(numberOfDaysInMonth);
+
+            const lastDayOfMonth=new Date(today.getFullYear(),today.getMonth()+1,0).getDay();
+            console.log(lastDayOfMonth);
+
+            let days="";
+            const monthDays=document.querySelector(".days");
+
+            for(let i=0;i<firstDayOfMonth;i++)
+            {
+                days += "<p class=\"date\">"+"</p>";
+            }
+
+            for(let date=1;date<=numberOfDaysInMonth;date++)
+            {
+                if(today.getDate()==date)
+                {
+                    days += "<p class=\"date today\">"+date+"</p>";
+                }
+                else
+                {
+                    days += "<p class=\"date\">"+date+"</p>";
+                }
+            }
+            if(lastDayOfMonth<totalDaysInWeek)
+            {
+                for(let i=lastDayOfMonth;i<totalDaysInWeek;i++)
+                {
+                    days += "<p class=\"date\">"+"</p>";  
+                }
+            }
+            console.log(days);
+            monthDays.innerHTML=days;
+        })
+    </script>
+    <div class="container">
+        <div class="calendar">
+            <header>
+                <p id="current-month">Current Month</p>
+                <p id="current-date">Current Date</p>
+            </header>
+            <div class="week">
+                <p>Sun</p>
+                <p>Mon</p>
+                <p>Tue</p>
+                <p>Wed</p>
+                <p>Thu</p>
+                <p>Fri</p>
+                <p>Sat</p>
+            </div>
+            <div class="days">
+                <p class="date">1</p>
+                <p class="date">2</p>
+                <p class="date">1</p>
+                <p class="date">2</p>
+                <p class="date">1</p>
+                <p class="date">2</p>
+                <p class="date">1</p>
+                <p class="date">2</p>
+                <p class="date">2</p>
+                <p class="date">1</p>
+                <!-- <p class="date">2</p>
+                <p class="date">2</p>
+                <p class="date">1</p>
+                <p class="date">2</p> -->
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

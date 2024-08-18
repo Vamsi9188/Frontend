@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Theme</title>
+    <style>
+        .container
+        {
+            height:300px;
+            width:300px;
+            margin:100px;
+            border: 1px solid;
+            align-content: center;
+            text-align: center;
+            background-color: var(--back-color);
+            color:var(--text-color);
+        }
+        button
+        {
+            margin-left:170px;
+            padding:5px;
+            background-color: lightblue;
+            color:red;
+        }
+        .dark-color
+        {
+            --back-color: #333;
+            --text-color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">Hello Vamsi</div>
+    <button id="toggle-theme">Click To Dark Mode</button>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const btn=document.getElementById('toggle-theme');
+            btn.addEventListener("click",function()
+            {
+                document.documentElement.classList.toggle('dark-color');
+                if(document.documentElement.classList.contains('dark-color'))
+                {
+                    btn.innerText="Click to White Mode";
+                }
+                else
+                {
+                    btn.innerText="Click to Dark Mode";
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>
