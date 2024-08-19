@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="Quiz.css">
+</head>
+<body>
+    <div class="top-bar">The Quiz App</div>
+    <div class="quiz-container">
+        <div class="quiz">
+            <div class="slide">
+                <div class="question">This is Simple question?</div>
+                <div class="answers">
+                    <div class="answer">
+                        <input type="radio" name="question" id="a" value="a">
+                        <span>a:Option1</span>
+                    </div>
+                </div>
+                <div class="answers">
+                    <div class="answer">
+                        <input type="radio" name="question" id="b" value="b">
+                        <span>b:Option2</span>
+                    </div>
+                </div>
+                <div class="answers">
+                    <div class="answer">
+                        <input type="radio" name="question" id="c" value="a">
+                        <span>c:Option3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="prev-next">
+            <button class="prev-btn" onclick="onPreviousClick()">Previous</button>
+            <button class="next-btn" onclick="onNextClick()">Next</button>
+        </div>
+        <div class="reset-submit">
+            <button class="reset-btn">Reset</button>
+            <button class="submit-btn" onclick="onSubmitClick()">Submit</button>
+            <div class="results"></div>
+        </div>
+    </div>
+    
+    <script src="Quiz.js"></script>
+</body>
+</html>
