@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            margin: 0;
+        }
+
+        .clock {
+            color: red;
+            background-color: black;
+            padding: 20px;
+            border: 5px solid #333;
+            text-align: center;
+            width: 300px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .date, .time, .temperature, .weekdays, .am-pm {
+            margin: 10px 0;
+        }
+
+        .date span, .time span, .temperature span, .weekdays span, .am-pm span {
+            display: inline-block;
+            font-size: 2rem;
+        }
+
+        .weekdays {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .weekdays .day {
+            font-size: 1rem;
+        }
+
+        .weekdays .active {
+            color: white;
+        }
+
+        .am-pm .active {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="date">
+            <span>Date</span>
+            <span>Month</span>
+            <span>Year</span>
+            <span id="day">21</span>
+            <span id="month">02</span>
+            <span id="year">10</span>
+        </div>
+        <div class="time">
+            <span id="hours">11</span>:<span id="minutes">33</span>:<span id="seconds">25</span>
+        </div>
+        <div class="weekdays">
+            <span id="sunday" class="day">SUN</span>
+            <span id="monday" class="day">MON</span>
+            <span id="tuesday" class="day">TUE</span>
+            <span id="wednesday" class="day">WED</span>
+            <span id="thursday" class="day">THU</span>
+            <span id="friday" class="day">FRI</span>
+            <span id="saturday" class="day active">SAT</span>
+        </div>
+        <div class="temperature">
+            <span id="temp">29</span>°C
+        </div>
+        <div class="am-pm">
+            <span id="am">AM</span>
+            <span id="pm" class="active">PM</span>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = String(now.getFullYear()).slice(-2);
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            document.getElementById('day').textContent = day;
+            document.getElementById('month').textContent = month;
+            document.getElementById('year').textContent = year;
+
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+
+            const daysOfWeek = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDay = daysOfWeek[now.getDay()];
+
+            document.querySelectorAll('.weekdays .day').forEach(day => {
+                day.classList.remove('active');
+            });
+            document.getElementById(currentDay).classList.add('active');
+
+            const amPm = hours >= 12 ? 'pm' : 'am';
+            document.getElementById('am').classList.remove('active');
+            document.getElementById('pm').classList.remove('active');
+            document.getElementById(amPm).classList.add('active');
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>

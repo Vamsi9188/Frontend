@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Queries</title>
+    <style>
+        @media screen and (max-width:800px) and (orientation:landscape)
+        {
+            body
+            {
+                background-color: lightblue;
+                color:blue;
+            }  
+            h1::before
+            {
+                content:" Landscape";
+                background-color: yellow;
+                color:red;
+                margin:5px;
+                border: 1px solid blue;
+            }  
+        }
+        @media print and (max-width:500px) and (orientation:portrait)
+        {
+            body
+            {
+                background-color: lightcoral;
+                color:white;
+            }  
+            h1::after
+            {
+                content:" Portrait";
+                background-color: yellow;
+                color:red;
+                margin:5px;
+                border: 1px solid blue;
+            } 
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Media Queries</h1>
+    <h3>Three types are there:</h3>
+    <dl>
+        <dt>all</dt>
+        <dd>Used for all media type devices</dd>
+        <dl>print</dl>
+        <dd>Used for print preview mode</dd>
+        <dt>screen</dt>
+        <dd>Used for computer screens, tablets, smart-phones etc.</dd>
+    </dl>
+    <b><i>By default it is in screen mode.</i></b>
+</body>
+</html>

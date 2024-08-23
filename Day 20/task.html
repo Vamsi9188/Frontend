@@ -21,18 +21,22 @@ someFunc(2);
 
 // Task #2:-
 //     What will be the output of below code snippet & why?
-
+/*
 var a = 8;
 
-printA(a);
+printA();
 
+var printA = function(){
+console.log(a);
+} */
+var a = 8;
 var printA = function(a){
 console.log(a);
 }
-
+printA(a);
 // Task #3:-
 //     What is going to happen when you run the code mentioned below?
-a()
+a();
 function a(){
 console.log("I'm function a.");
 }
@@ -41,6 +45,15 @@ function a(){
 console.log("I'm also function a");
 }
 
+function printName()
+{
+    console.log("I am Vamsi");
+}
+printName();
+function printName()
+{
+    console.log("I am also Vamsi");
+}
 // Task #4:-
 //     What will be output of the below code & why?
 var favFruit = "Banana";
@@ -52,6 +65,16 @@ console.log("Again Fav. Fruit is ", favFruit);
 };
 
 eatAndSay();
+
+
+var favDish="Dosa";
+var eatFood=function()
+{
+    console.log("My FavDish is: ",favDish);
+    favDish="Poori";
+    console.log("Again my FavDish is: ",favDish);
+};
+eatFood();
 
 // Task #5:-
 //     What will be returned in this execution?
@@ -69,6 +92,38 @@ function innerFunc() {
 
 console.log(outerFunc());
 
+var x=50;
+function outer()
+{
+    var y=100;
+    console.log(y);
+    function inner()
+    {
+       
+        var z=200;
+        
+        console.log(x,y,z);
+    }
+    inner();
+}
+console.log(x);
+outer();
+
+var grandSon="Vamsi";
+function father()
+{
+    var wife='reddemma';
+    console.log("my wife ",wife);
+    function grandFather()
+    {
+        var son_in_law="Subramanyam";
+        console.log("My GrandSon,daughter,sonInlaw are:"+grandSon,wife,son_in_law);
+
+    }
+    grandFather();
+}
+console.log("I am ", grandSon);
+father();
 // Task #6:-
 //     What will be the output of below two snippets?
 
@@ -80,6 +135,31 @@ for(var i = 5; i < 5; i++){
 console.log(i);
 }
 
+function evenNumbers()
+{
+    for(var i=1;i<=10;i++)
+    {
+        if(i%2==0)
+        {
+            console.log("Even Numbers",i);
+        }
+    }
+    console.log(i);
+}
+evenNumbers();
+
+function oddNumbers()
+{
+    for(var i=1;i<=10;i++)
+    {
+        if(i%2!==0)
+        {
+            console.log("Odd Numbers",i);
+        }
+    }
+    console.log(i);
+}
+oddNumbers();
 // Snippet #2:
 function simpleLoop(){
 for(let i = 5; i < 5; i++){
@@ -87,6 +167,16 @@ for(let i = 5; i < 5; i++){
 }
 console.log(i);
 }
+
+function displayDOB()
+{
+    for(let dob=12;dob<12;dob++)
+    {
+        console.log(dob);
+    }
+    console.log(dob);
+}
+displayDOB();
     </script>
 </body>
 </html>

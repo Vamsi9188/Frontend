@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid-Template-Area-2</title>
+    <style>
+        *
+        {
+            box-sizing: border-box;
+        }
+        .container
+        {
+            display: grid;
+            grid-template-rows:auto 1fr auto;
+            height: 100vh;
+        }
+        .header
+        {
+            background-color: royalblue;
+        }
+        .content
+        {
+            background-color: paleturquoise;
+        }
+        .footer
+        {
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <header class="header">Header</header>
+        <section class="content">Content</section>
+        <footer class="footer">Footer</footer>
+    </main>
+</body>
+</html>

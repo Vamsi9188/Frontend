@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Area-1</title>
+    <style>
+        .container
+        {
+            display: grid;
+            grid-template-columns: repeat(2,200px);
+            grid-template-rows: 200px 100px 300px;
+            grid-auto-rows: 300px;
+            gap:16px;
+        }
+        .first
+        {
+            background-color: coral;
+            grid-row: span 3;
+            grid-column: span 2;
+        }
+        .second
+        {
+            background-color: royalblue;
+            /* grid-column: span 2; */
+        }
+        .third
+        {
+            background-color: palegreen;
+            grid-row: span 2;
+            /* grid-column: span 2; */
+        }
+        .fourth
+        {
+            background-color:cyan;
+            grid-column: 3 span;
+            grid-row:span 2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Intro to Grid Areas 1</h2>
+    <main>
+        <section class="container">
+            <div class="first">First</div>
+            <div class="second">Second</div>
+            <div class="third">Third</div>
+            <div class="fourth">Fourth</div>
+        </section>
+    </main>
+</body>
+</html>

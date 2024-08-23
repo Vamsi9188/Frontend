@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacking Context and Z-Index</title>
+    <style>
+        p.normal
+        {
+            position:none;
+            color:red;
+            font-size: 1.2em;
+        }
+        p.relative
+        {
+            position: relative;
+            font-size: 1.2em;
+            color:orangered;
+        }
+        p.absolute
+        {
+            position: absolute;
+            font-size: 1.2em;
+            color:green;
+        }
+        p.fixed
+        {
+            position: fixed;
+            font-size: 1.2em;
+            color:royalblue;
+        }
+        p.sticky
+        {
+            position: sticky;
+            font-size: 1.2em;
+            color:darkblue;
+        }
+        div.normal
+        {
+            background-color: yellow;
+            height: 100px;
+            width: 100px;
+            border:1px solid gray;
+        }
+        div.relative
+        {
+            background-color: yellowgreen;
+            position: relative;
+            height: 100px;
+            width: 100px;
+            border:1px solid gray;
+        }
+        div.absolute
+        {
+            background-color:coral;
+            position:absolute;
+            height: 100px;
+            width: 100px;
+            border:1px solid gray;
+            margin-left:50px;
+        }
+        div.fixed
+        {
+            background-color:palegoldenrod;
+            position:fixed;
+            height: 100px;
+            width: 100px;
+            border:1px solid gray;
+        }
+        div.sticky
+        {
+            background-color:orange;
+            position:sticky;
+            height: 100px;
+            width: 100px;
+            border:1px solid gray;
+            margin:50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stacking Context and Z-Index</h1>
+
+        <p class="normal">This is normal Para</p>
+        <p class="relative">This is relatively positioned Para</p>
+        <p class="absolute">This is absolutely positioned Para</p>
+        <p class="fixed">This para positioned in a fixed direction</p>
+        <p class="sticky">This is stickily positioned para</p>
+        <br><br>
+        <div class="normal">This is normal div</div>
+        <div class="relative">This is relative div</div>
+        <div class="absolute">This is absolute div</div>
+        <div class="fixed">This is Fixed div</div>
+        <div class="sticky">This is sticky div</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* img 
+{
+  position:fixed;
+  left: 0px;
+  top: 0px;
+  z-index:-1;
+  height: 200px;
+  width: 200px;
+} */
+img 
+{
+  position:relative;
+  left: 0px;
+  top: 0px;
+  z-index:-1;
+  height: 200px;
+  width: 200px;
+}
+</style>
+</head>
+<body>
+
+<h1>The z-index Property</h1>
+
+<img src="zindex.png" width="100" height="140">
+
+<p>Because the image has a z-index of -1, it will be placed behind the heading.</p>
+<p>When position is <b>absolute,fixed and z-index value 0 </b>then image will displayed on text</p>
+<p>When position is <b>absolute,fixed and z-index value -1 </b>then text displayed  on image</p>
+
+<p>When position is <b>relative,sticky and z-index value 0 or -1 </b>then image displayed inbetween texts</p>
+</body>
+</html>

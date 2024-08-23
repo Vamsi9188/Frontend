@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Alignments</title>
+    <style>
+        *
+        {
+            box-sizing: border-boxs;
+            margin:0;
+        }
+        .container
+        {
+            display: grid;
+            grid-template-columns:200px 300px;
+            height: 600px;
+            border:2px solid;
+            padding:16px;
+            gap:16px;
+            grid-auto-flow:row;
+            grid-auto-rows: 200px;
+            /* justify-content: center;
+            align-content: center; */
+            /* justify-items: center;
+            align-items: center; */
+            place-content: center;
+            /* place-items: center; */
+        }
+        .container>section
+        {
+            background-color:coral;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section>4</section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Lines</title>
+    <style>
+        *
+        {
+            box-sizing: border-box;
+            margin:0;
+        }
+        .container
+        {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(2,200px 100px);
+        }
+        .first
+        {
+            background-color: palegreen;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+        .second
+        {
+            background-color: pink;
+            grid-row-start: 2;
+            grid-column-start: 4;
+            grid-row-end: 4;
+        }
+        .third
+        {
+            background-color: royalblue;
+            grid-column-start:2;
+            grid-row-start: 2;
+            grid-column-end: 2;
+            grid-row-end: 4;
+        }
+        .fourth
+        {
+            background-color:coral;
+            grid-row: 2 / 3;
+            grid-column: 4 / 3;
+        }
+        .five
+        {
+            background-color:limegreen;
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="first">1</section>
+        <section class="second">2</section>
+        <section class="third">3</section>
+        <section class="fourth">4</section>
+        <section class="five">5</section>
+    </main>
+</body>
+</html>

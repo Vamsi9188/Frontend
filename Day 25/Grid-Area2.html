@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Area 2</title>
+<style>
+    .container
+    {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(3,300px);
+    }
+    header
+    {
+        background-color: royalblue;
+        color:white;
+        grid-column: span 3;
+    }
+    aside
+    {
+        background-color: coral;
+        grid-row: span 2;
+    }
+    section
+    {
+        background-color: palevioletred;
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+</style>
+</head>
+<body>
+    <main class="container">
+        <header>Header</header>
+        <aside>Sidebar</aside>
+        <section>Main Content</section>
+    </main>
+</body>
+</html>

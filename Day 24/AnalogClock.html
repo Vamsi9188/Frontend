@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <style>
+        .clock
+        {
+            height:300px;
+            width:300px;
+            background-color: #333;
+            margin:100px auto;
+            border-radius: 50%;
+            position: relative;
+            border:8px solid brown;
+        }
+        .numbers >span
+        {
+            position:absolute;
+            color:white;
+            /* font-size: 30px; */
+        }
+        .twelve
+        {
+            top:8px;
+            left:50%;
+            transform:translateX(-50%);
+        }
+        .one
+        {
+            top: 20px;
+            left:70%;
+        }
+        .two
+        {
+            top: 65px;
+            left:85%;
+        }
+        .three
+        {
+            right:8px;
+            top:50%;
+            transform:translateY(-50%);
+        }
+        .four
+        {
+            bottom: 65px;
+            left:85%
+        }
+        .five
+        {
+            bottom: 25px;
+            left:67%;
+        }
+        .six
+        {
+            bottom:8px;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        .seven
+        {
+            bottom: 15px;
+            left:27%;
+        }
+        .eight {
+            bottom: 60px;
+            left: 10%;
+        }
+        .nine
+        {
+            left:15px;
+            top:50%;
+            transform:translateX(-50%);
+        }
+        .ten
+        {
+            top: 80px;
+            left: 15px;
+        }
+        .eleven
+        {
+            top: 30px;
+            left: 20%;
+        }
+        .hands
+        {
+            height: 100%;
+            width: 100%;
+            position:absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .dot
+        {
+            height:8px;
+            width:8px;
+            background-color: #fff;
+            position:absolute;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .hours
+        {
+            height: 40px;
+            width:4px;
+            position:absolute;
+            border: 1px solid;
+            background-color: #fff;
+            transform-origin:bottom;
+            bottom:50%;
+            border-radius:8px 8px 0 0;
+        }
+        .minutes
+        {
+            height: 80px;
+            width:4px;
+            position:absolute;
+            border: 1px solid;
+            background-color: #fff;
+            transform-origin:bottom;
+            bottom:50%;
+            border-radius:8px 8px 0 0;
+        }
+        .seconds
+        {
+            height: 90px;
+            width:4px;
+            position:absolute;
+            background-color:mediumseagreen;
+            transform-origin:bottom;
+            bottom:50%;
+            border-radius:8px 8px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="clock">
+            <section class="numbers">
+                <span class="twelve">12</span>
+                <span class="one">1</span>
+                <span class="two">2</span>
+                <span class="three">3</span>
+                <span class="four">4</span>
+                <span class="five">5</span>
+                <span class="six">6</span>
+                <span class="seven">7</span>
+                <span class="eight">8</span>
+                <span class="nine">9</span>
+                <span class="ten">10</span>
+                <span class="eleven">11</span>
+            </section>
+            <section class="hands">
+                <span class="dot"></span>
+                <span class="hours"></span>
+                <span class="minutes"></span>
+                <span class="seconds"></span>
+            </section>
+        </section>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const hoursHand=document.querySelector('.hours');
+            const minutesHand=document.querySelector('.minutes');
+            const secondsHand=document.querySelector('.seconds');
+            function setTime()
+            {
+                const now = new Date();
+                
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+
+                const hoursInDegree=(hours/12) * 360;
+                const minutesInDegree=(minutes/60)*360;
+                const secondsInDegree = (seconds / 60) * 360;
+
+                hoursHand.style.transform="rotate("+hoursInDegree+"deg)";
+                minutesHand.style.transform="rotate("+minutesInDegree+"deg)";
+                secondsHand.style.transform="rotate(" + secondsInDegree + "deg)";
+            }
+            setInterval(setTime,1000);
+        })
+    </script>
+</body>
+</html>

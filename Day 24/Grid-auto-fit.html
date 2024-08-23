@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid auto-fit</title>
+    <style>
+        .container
+        {
+            display: grid;
+            grid-template-columns: 100px minmax(200px,1fr);
+            gap:8px;
+            grid-template-rows:repeat(auto-fit,minmax(200px,1fr));
+            grid-template-columns: repeat(auto-fit,minmax(200px,2fr));
+            grid-template-columns: repeat(auto-fit,300px);
+            grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+        }
+        #box
+        {
+            background-color: lightcoral;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <h2>Grid auto-fit Concept</h2>
+    <!-- section#box{Box$}*10 -->
+    <!--section.container{$}*5-->
+    <section class="container">
+        <section id="box">1</section>
+        <section id="box">2</section>
+        <section id="box">3</section>
+        <section id="box">4</section>
+        <section id="box">5</section>
+        <section id="box">6</section>
+        <section id="box">7</section>
+    </section>
+</body>
+</html>

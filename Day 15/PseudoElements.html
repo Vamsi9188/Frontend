@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Elements in CSS</title>
+    <style>
+        body
+        {
+            background-color: yellow;
+            color:#3228c9;
+            align-content: center;
+        }
+        h2::before
+        {
+            content:"Hello, Vamsi! ";
+            font-weight: bold;
+            color: #ff0000;
+        }
+        h2::after
+        {
+            content:" Let's Practice:)";
+            font-weight: bold;
+            color:hsl(115,70%,30%);
+            prefix:image();
+        }
+        p::first-line 
+        {
+            font-weight: bold;
+            color: #ff0000;
+        }
+        .first
+        {
+            border: 2px solid;
+            height: 10em;
+            width: 10em;
+            margin:0 auto;
+            align-content: center;
+            text-align: center;
+            font-size: 1.5rem;
+
+        }
+        div:first-line
+        {
+            color: #ff0000;
+            text-transform: uppercase;
+            background-color:lightblue;
+            font-size: 50px;
+        }
+        p.intro::first-letter
+        {
+            color:darkblue;
+            font-size: 200%;
+            margin-left: 45px;
+            background-color: lightcoral;
+        }  
+        h3::first-letter
+        {
+            color: #ff0000;
+            font-size: xx-large;
+            font-weight:900;
+        }
+        span::first-line
+        {
+            color: #0000ff;
+            font-size:80px; 
+            margin:50px;
+            background-color:black;
+        }
+        .order ol li::before
+        {
+            content:"Order ";
+            color: #a12fef;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .unorder ul li::before
+        {
+            content: "Unorder ";
+            color: #108010;
+            font-weight: bold;
+        }
+        h5::before
+        {
+            content:"Vamsi ";
+            font-size: 20px;
+        }
+        ::marker
+        { 
+            color: red;
+            font-size: 23px;
+        }
+        ::selection 
+        {
+            color:white;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to Pseudo-Elements in CSS</h2>
+
+    <p>Pseudo-elements are a CSS feature that allows you to style specific parts of an HTML element, without needing to add additional HTML markup. They are denoted by two colons (::) followed by the pseudo-element name.</p>
+
+    <div class="first">Box1</div>
+
+    <p class="intro">This is an Introduction</p>
+
+    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure laudantium reiciendis, libero commodi nesciunt voluptates impedit aut architecto nisi ipsum mollitia repellat expedita aliquam! Ullam laborum dolor unde nostrum quae!</h3>
+    <h5>I am Smiley</h5>
+   <header>Header related data include here.</header>
+   <main class="order">
+    <nav>
+        <ol>
+            <li><a href="">Link 1</a></li>
+            <li><a href="">Link 2</a></li>
+            <li><a href="">Link 3</a></li>
+            <li><a href="">Link 4</a></li>
+            <li><a href="">Link 5</a></li>
+        </ol>
+    </nav>
+   </main>
+   <main class="unorder">
+    <nav>
+        <ul>
+            <li><a href="">Link 1</a></li>
+            <li><a href="">Link 2</a></li>
+            <li><a href="">Link 3</a></li>
+            <li><a href="">Link 4</a></li>
+            <li><a href="">Link 5</a></li>
+        </ul>
+    </nav>
+   </main>
+
+</body>
+</html>

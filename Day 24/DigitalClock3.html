@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        .clock
+        {
+            height: 400px;
+            width:400px;
+            background-color: #f6f66e;
+            margin:100px auto;
+            position: relative;
+            border:8px solid green;
+            border-radius: 25%;
+        }
+        .date-headings
+        {
+            height: 100%;
+            width:100%;
+            position: absolute;
+            display: grid;
+            grid-template-columns: 50px 50px 50px;
+            gap:8px;
+            margin-left:30%;
+        }
+        .date-headings>p
+        {
+            height:50px;
+            font-size: 18px; 
+            text-align: center;
+        }
+        .date-values
+        {
+            height: 100%;
+            width:100%;
+            position: absolute;
+            display: grid;
+            grid-template-columns: 50px 50px 50px;
+            gap:8px;
+            margin-left:30%;
+            top:50px;
+        }
+        .date-values>p
+        {
+            font-size: 18px;
+            text-align: center;
+        }
+        .week-days
+        {
+            position:absolute;
+            display: grid;
+            grid-template-columns:repeat(7,50px);
+            left:30px;
+            top:100px;
+        }
+        .circle
+        {
+            position: absolute;
+            display: grid;
+            grid-template-columns: repeat(7, 50px);
+            left: 40px;
+            top: 140px;
+           
+        }
+        .box
+        {
+            width: 15px;
+            height: 15px;
+            border: 1px solid #000;
+            margin-top: 10px;
+            border-radius: 50%;
+           
+        }  
+        .selected
+        {
+            background-color: #333;
+        } 
+        .time-headings
+        {
+            height: 100%;
+            width:100%;
+            top:200px;
+            position: absolute;
+            display: grid;
+            grid-template-columns:repeat(3,70px);
+            gap:8px;
+            margin-left:25%;
+        }
+        .time-headings>p
+        {
+            height:50px;
+            font-size: 18px; 
+            text-align: center;
+        }
+        .time-values
+        {
+            height: 100%;
+            width:100%;
+            position: absolute;
+            display: grid;
+            grid-template-columns:repeat(3,70px);
+            gap:8px;
+            margin-left:25%;
+            top:250px;
+        }
+        .time-values>p
+        {
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <section class="date-headings">
+            <p>Date</p>
+            <p>Month</p>
+            <p>Year</p>
+        </section>
+        <section class="date-values">
+            <p class="date">12</p>
+            <p class="month">4</p>
+            <p class="year">2002</p>
+        </section>
+        <section class="week-days">
+           <p>SUN</p>
+           <p>MON</p>
+           <p>TUE</p>
+           <p>WED</p>
+           <p>THU</p>
+           <p>FRI</p>
+           <p>SAT</p>
+        </section>
+        <section class="circle">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+          </section>
+          <section class="time-headings">
+            <p>Hours</p>
+            <p>Minutes</p>
+            <p>Seconds</p>
+          </section>
+          <section class="time-values">
+            <p class="hours">12</p>
+            <p class="minutes">30</p>
+            <p class="seconds">45</p>
+          </section>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const months=["JAN",'FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+            const today=new Date();
+            const date=document.querySelector('.date').textContent=today.getDate();
+            const monthIndex=today.getMonth();
+            const month=document.querySelector('.month').textContent=months[monthIndex];
+            const year=document.querySelector('.year').textContent=today.getFullYear();
+            const days=document.querySelectorAll(".box");
+            const weekDays=["SUN","MON","TUE","WED","THU","FRI","SAT"]
+            const day=today.getDay();
+            days[day].classList.add('selected');
+
+            function setTime()
+            {
+                var today=new Date();
+                // const hours=document.querySelector('.hours').textContent=today.getHours();
+                // const minutes=document.querySelector('.minutes').textContent=today.getMinutes();
+                // const seconds=document.querySelector(".seconds").textContent=today.getSeconds();
+
+                const hours=document.getElementsByClassName('hours')[0].textContent=today.getHours()%12;
+                const minutes=document.getElementsByClassName('minutes')[0].textContent=today.getMinutes();
+                const seconds=document.getElementsByClassName("seconds")[0].textContent=today.getSeconds();
+            }
+            setInterval(setTime,1000);
+        })
+    </script>
+</body>
+</html>
