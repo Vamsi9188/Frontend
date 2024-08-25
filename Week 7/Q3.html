@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar
+        {
+            display: flex;
+            background-color: #333;
+            overflow: hidden;
+            padding:10px 12px;
+            align-items: centers;
+        }
+        .navbar a
+        {
+            color:white;
+            text-decoration: none;
+            padding:10px 14px;
+            display: block;
+            font-size: 18px;
+        }
+        .menu-icon
+        {
+            color:white;
+            cursor: pointer;
+            display: none;
+            font-size: 24px;
+        }
+        .navbar .side-nav
+        {
+            display: none;
+            position:fixed;
+            height: 100%;
+            width:200px;
+            top:0;
+            left:0;
+            padding-top: 70px;
+            background-color: #333;
+        }
+        .navbar .side-nav a
+        {
+            display: block;
+            text-decoration: none;
+            padding:10px 14px;
+            color: white;
+            font-size: 18px;
+        }
+        .navbar .side-nav.active
+        {
+            display: block;
+        }
+        .side-nav .close-btn
+        {
+            position:absolute;
+            color:white;
+            font-size: 24px;
+            top:20px;
+            right:20px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        @media screen and (width < 440px)
+        {
+            .navbar a
+            {
+                display: none;
+            }
+            .navbar .menu-icon
+            {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">Link 4</a>
+        <a href="#">Link 5</a>
+
+        <div class="side-nav" id="side-nav">
+            <a class="close-btn" href="#" onclick="toggleMenu()">&times;</a>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+            <a href="#">Link 4</a>
+            <a href="#">Link 5</a>
+        </div>
+    </div>
+    <script>
+        function toggleMenu()
+        {
+            const sideNav=document.getElementById('side-nav');
+            sideNav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

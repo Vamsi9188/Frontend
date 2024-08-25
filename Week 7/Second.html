@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .error {
+            color: red;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        .success {
+            color: green;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Contact Form</h2>
+    <form id="contactForm">
+        <div>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name">
+            <div id="nameError" class="error"></div>
+        </div>
+        <div>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email">
+            <div id="emailError" class="error"></div>
+        </div>
+        <div>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message"></textarea>
+            <div id="messageError" class="error"></div>
+        </div>
+        <br>
+        <button type="submit">Submit</button>
+        <div id="successMessage" class="success"></div>
+    </form>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting in the traditional way
+            
+            // Clear previous errors
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('messageError').textContent = '';
+            document.getElementById('successMessage').textContent = '';
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Validate the form
+            let isValid = true;
+
+            // Name validation (at least 3 characters)
+            if (name.length < 3) {
+                document.getElementById('nameError').textContent = 'Name must be at least 3 characters long.';
+                isValid = false;
+            }
+
+            // Email validation (must contain @)
+            if (!email.includes('@')) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+                isValid = false;
+            }
+
+            // Message validation (cannot be empty)
+            if (message === '') {
+                document.getElementById('messageError').textContent = 'Message cannot be empty.';
+                isValid = false;
+            }
+
+            // If form is valid, display a thank you message
+            if (isValid) {
+                document.getElementById('successMessage').textContent = `Thank you, ${name}, for your message!`;
+            }
+        });
+    </script>
+</body>
+</html>

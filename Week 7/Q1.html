@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style>
+        .container
+        {
+            display:flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+    .calendar
+    {
+        display:flex;
+        flex-direction: column;
+        width:500px;
+        height: 700px;
+       padding:16px;
+       overflow: hidden;
+        box-shadow: 2px 2px 12px 1px;
+        /* background-color: lightblue; */
+    }
+    .calendar>header
+    {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        background-color: blueviolet;
+        color:white;
+    }
+    .calendar .weeks, .calendar .days
+    {
+        display:flex;
+        gap:16px;
+        justify-content: center;
+    }
+    .calendar .weeks>p
+    {
+        font-weight: 600;
+        flex:0 0 50px;
+        text-align: center;
+    }
+    .calendar .days .date
+    {
+        height: 50px;
+        display: flex;
+        flex:0 0 50px;
+        justify-content: center;
+        align-items: center;
+    }
+    .calendar .days
+    {
+        flex-wrap:wrap;
+    }
+    .today
+    {
+        background-color: lightblue;
+        border:1px solid;
+        border-radius: 50%;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calendar">
+            <header>
+                <p id="current-month">Month</p>
+                <p id="full-date">Date</p>
+            </header>
+            <section class="weeks">
+                <p>Sun</p>
+                <p>Mon</p>
+                <p>Tue</p>
+                <p>Wed</p>
+                <p>Thu</p>
+                <p>Fri</p>
+                <p>Sat</p>
+            </section>
+            <section class="days">
+                <p class="date">1</p>
+                <p class="date">2</p>
+                <p class="date">3</p>
+                <p class="date">4</p>
+                <p class="date">5</p>
+                <p class="date">6</p>
+                <p class="date">7</p>
+                <p class="date">8</p>
+                <p class="date">9</p>
+                <p class="date">10</p>
+                <p class="date">11</p>
+                <p class="date">12</p>
+                <p class="date">13</p>
+                <p class="date">14</p>
+                <p class="date">15</p>
+            </section>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+            const today=new Date();
+            const monthIndex=today.getMonth();
+            const currentMonth=document.getElementById("current-month").textContent=months[monthIndex];
+            const date=document.getElementById('full-date').textContent=today.toDateString();
+
+            const firstDay=new Date(today.getFullYear(),today.getMonth(),1).getDay();
+            console.log(firstDay);
+
+            const numberOfDays=new Date(today.getFullYear(),today.getMonth()+1,0).getDate();
+            console.log(numberOfDays);
+
+            const lastDay=new Date(today.getFullYear(),today.getMonth()+1,0).getDay();
+            console.log(lastDay);
+
+            let days='';
+            const daysElement=document.querySelector(".days");
+
+            for(let i=0;i<firstDay;i++)
+            {
+                days += "<p class=\"date\">"+"</p>";
+            }
+            for(let date=1;date<=numberOfDays;date++)
+            {
+                if(today.getDate()==date)
+                {
+                    days += "<p class=\"date today\">"+date+"</p>";
+                }
+                else
+                {
+                    days += "<p class=\"date\">"+date+"</p>";
+                }
+            }
+            const weekDays=6;
+            if(lastDay<weekDays)
+            {
+                for(let i=lastDay;i<weekDays;i++)
+                {
+                    days += "<p class=\"date\">"+"</p>";
+                }
+            }
+            console.log(days);
+            daysElement.innerHTML=days;
+        })
+    </script>
+</body>
+</html>

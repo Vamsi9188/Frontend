@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .quiz-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        #question {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .btn.selected {
+            background-color: #0056b3;
+            outline: 2px solid #fff;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-control {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .btn-control:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="question-container">
+            <div id="question">Question text goes here</div>
+            <div id="answer-buttons" class="btn-group"></div>
+        </div>
+        <div class="controls">
+            <button id="prev-btn" class="btn-control">Prev</button>
+            <button id="next-btn" class="btn-control">Next</button>
+            <button id="submit-btn" class="btn-control">Submit</button>
+            <button id="reset-btn" class="btn-control">Reset</button>
+        </div>
+    </div>
+    <script>
+        const questions = [
+            {
+                question: 'What is the capital of France?',
+                answers: ['Paris', 'London', 'Berlin', 'Madrid'],
+                correct: 0
+            },
+            {
+                question: 'Who wrote "To Kill a Mockingbird"?',
+                answers: ['Harper Lee', 'Mark Twain', 'Ernest Hemingway', 'F. Scott Fitzgerald'],
+                correct: 0
+            },
+            {
+                question: 'What is the largest planet in our solar system?',
+                answers: ['Earth', 'Mars', 'Jupiter', 'Saturn'],
+                correct: 2
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let selectedAnswerIndex = null;
+
+        const questionContainer = document.getElementById('question-container');
+        const questionElement = document.getElementById('question');
+        const answerButtons = document.getElementById('answer-buttons');
+        const nextButton = document.getElementById('next-btn');
+        const prevButton = document.getElementById('prev-btn');
+        const submitButton = document.getElementById('submit-btn');
+        const resetButton = document.getElementById('reset-btn');
+
+        function showQuestion(question) {
+            questionElement.innerText = question.question;
+            answerButtons.innerHTML = '';
+            selectedAnswerIndex = null;
+            question.answers.forEach((answer, index) => {
+                const button = document.createElement('button');
+                button.innerText = answer;
+                button.classList.add('btn');
+                button.addEventListener('click', () => selectAnswer(index, button));
+                answerButtons.appendChild(button);
+            });
+        }
+
+        function selectAnswer(index, button) {
+            selectedAnswerIndex = index;
+            Array.from(answerButtons.children).forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+        }
+
+        function showNextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion(questions[currentQuestionIndex]);
+            }
+        }
+
+        function showPrevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion(questions[currentQuestionIndex]);
+            }
+        }
+
+        function submitQuiz() {
+            if (selectedAnswerIndex === null) {
+                alert('Please select an answer before submitting.');
+                return;
+            }
+
+            const currentQuestion = questions[currentQuestionIndex];
+            if (selectedAnswerIndex === currentQuestion.correct) {
+                alert('Correct!');
+            } else {
+                alert('Incorrect. The correct answer is: ' + currentQuestion.answers[currentQuestion.correct]);
+            }
+        }
+
+        function resetQuiz() {
+            currentQuestionIndex = 0;
+            showQuestion(questions[currentQuestionIndex]);
+        }
+
+        nextButton.addEventListener('click', showNextQuestion);
+        prevButton.addEventListener('click', showPrevQuestion);
+        submitButton.addEventListener('click', submitQuiz);
+        resetButton.addEventListener('click', resetQuiz);
+
+        showQuestion(questions[currentQuestionIndex]);
+    </script>
+</body>
+</html>

@@ -1,69 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tables</title>
+    <title>Box Model Layout</title>
     <style>
-        table,td
+        body
         {
-            text-align:center;
-            border:4px solid whitesmoke;
-            border-collapse:collapse;
-            width:650px;
-            height:200px;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        #blue
+        .container
         {
-            color:#ffffff;
-            background-color:indigo;
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 800px;
         }
-        #green
+        .column 
         {
-            color:#ffffff;
-            background-color:mediumseagreen;
+            width: 48%;
         }
-        #red
+        .box
         {
-            color:#ffffff;
-            background-color:crimson;
-            border-bottom:1px solid;
+            margin-bottom: 10px;
+            padding: 20px;
+            color: white;
+            border-radius: 8px;
+            box-sizing: border-box;
+            text-align: center;
         }
-        #pink
+        .guiding-principles
         {
-            color:#ffffff;
-            background-color:lightcoral;
-            border-bottom:1px solid;
+            background-color: #303050;
         }
-        #lightpink
+        .brand-identity
         {
-            color:black;
-            background-color:lightpink;
+            background-color: #2cb9a3;
+            height:45%;
+        }
+        .editorial-guidelines
+        {
+            background-color: #f2b2c0;
+        }
+        .ui-patterns
+        {
+            background-color: #e76b6c;
+        }
+        .code
+        {
+            background-color: #d14a53;
+        }
+        .box h2
+        {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .box p
+        {
+            margin: 10px 0 0;
+            font-size: 1em;
         }
     </style>
 </head>
+
 <body>
-    <table>
-        <tr>
-            <td id="blue"><div><B>GUIDING PRINCIPLES</B><P>Customer personas, Brand vlaues Design priciples based on the above Best practices: when and how to use each pattern, template and component</P></div></td>
-            <td id="lightpink"><div><b>EDITORIAL GUIDELINES</b><P>Tone of voice, copy style</P></div></td>
-        </tr>
-        <tr>
-            <td id="green"><div><b>BRAND IDENTITY</b><p>Colour</p><p>Typolography</p>
-            <p>Imagery,illustrations,iconography</p><p>Layout & grid, scaling</p><p>Animation & sound</p></div></td>
-            <td><div id="pink">
-                <b>UI PATTERNS</b>
-                <p>UI components, Paage templates</p>
-                <p>Interaction patterns for key experiences</p>
+    <div class="container">
+        <div class="column">
+            <div class="box guiding-principles">
+                <div>
+                    <h2>GUIDING PRINCIPLES</h2>
+                    <p>Customer personas, Brand values<br>Design principles based on the above<br>Best practices: when and how to use each pattern, template and component</p>
+                </div>
             </div>
-            <div id="red">
-                <b>CODE</b>
-                <p>Coding standards</p>
-                <p>Versioning</p>
-                <p>Pattern implementation</p>
+            <div class="box brand-identity">
+                <div>
+                    <h2>BRAND IDENTITY</h2>
+                    <p>Colour<br>Typography<br>Imagery, illustrations, iconography<br>Layout & grid, scaling<br>Animation & sound</p>
+                </div>
             </div>
-        </td>
-        </tr>
-    </table>
+        </div>
+        <div class="column">
+            <div class="box editorial-guidelines">
+                <div>
+                    <h2>EDITORIAL GUIDELINES</h2>
+                    <p>Tone of voice, copy style</p>
+                </div>
+            </div>
+            <div class="box ui-patterns">
+                <div>
+                    <h2>UI PATTERNS</h2>
+                    <p>UI components, Page templates<br>Interaction patterns for key experiences</p>
+                </div>
+            </div>
+            <div class="box code">
+                <div>
+                    <h2>CODE</h2>
+                    <p>Coding standards<br>Versioning<br>Pattern implementation</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

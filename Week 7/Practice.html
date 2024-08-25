@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice JavaScript Code</title>
+</head>
+<body>
+    <h2>I am a <span id="dynamic-text"></span></h2>
+    <div class="container">
+        <form>
+            <label for="country">Country:</label>
+            <select name="contry" id="countries">
+                <option value="" selected="selected">
+                    Select Your Country
+                </option>
+            </select>
+            <label for="state">State:</label>
+            <select name="state" id="states">
+                <option value="" selected="selected">
+                    Select Your State
+                </option>
+            </select>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const countries = ["India", "USA", "Mexico", "South Africa", "Brazil"];
+            const states = [];
+            states[0] = ["Andhra Pradesh", "Telangana", "Kerala", "Goa", "Tamil Nadu"];
+            states[1] = ["California", "Texas", "Florida", "New York", "Illinois"];
+            states[2] = ["Jalisco", "Nuevo León", "Mexico City", "Puebla", "Guanajuato"];
+            states[3] = ["Gauteng", "KwaZulu-Natal", "Western Cape", "Eastern Cape", "Limpopo"];
+            states[4] = ["São Paulo", "Rio de Janeiro", "Minas Gerais", "Bahia", "Paraná"];
+            const countryElement=document.getElementById('countries');
+            const stateElement=document.getElementById('states');
+
+            countryElement.length=0;
+            function selectCountry()
+            {
+            for(var i=0; i<countries.length;i++)
+                {
+                    const country = countries[i];
+                    countryElement.options[i]=new Option(country,country);
+                } 
+            }
+            selectCountry();
+            stateElement.length=0;
+            function selectState(country)
+            {
+                stateIndex=countries.indexOf(country);
+                stateList=states[stateIndex];
+                for(var i=0;i<stateList.length;i++)
+                {
+                    const state=stateList[i];
+                    stateElement.options[i]=new Option(state,state);
+                }
+            }
+            selectState(countries[0]);
+            countryElement.onchange =function()
+            {
+                stateElement.length=0;
+                selectState(countryElement.value);
+            }
+        })
+        
+    </script>
+
+    <script>
+        let text="student";
+        let index=0;
+        const dynamicText=document.getElementById("dynamic-text");
+        function dynamicFlow()
+        {
+            if(index<text.length)
+            {
+                dynamicText.textContent += text[index];
+                index++;
+                setTimeout(dynamicFlow,100);
+            }
+        }
+        dynamicFlow();
+    </script>
+</body>
+</html>

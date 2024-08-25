@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container
+        {
+            height: 400px;
+            width: 400px;
+            margin:0 auto;
+            background-color: lightblue;
+            place-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="state">State:</label>
+        <select name="state" id="states">
+            <option value=" " selected="selecteds"></option>
+        </select><br><br>
+        <label for="city">City</label>
+        <select name="city" id="cities">
+            <option value="" selected="selected">
+
+            </option>
+        </select>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+        const states = [
+   "please select a state",
+   "California",
+   "Texas",
+   "New York",
+   "Florida",
+   "Illinois",
+   "Pennsylvania",
+   "Ohio",
+   "Georgia",
+   "North Carolina",
+   "Michigan",
+   "Arizona",
+   "Massachusetts",
+   "Virginia",
+];
+
+
+const cities = [];
+cities[0] = ["please select your city"];
+cities[1] = ["Los Angeles", "San Francisco", "San Diego", "Sacramento"]; // California
+cities[2] = ["Houston", "Austin", "Dallas", "San Antonio"]; // Texas
+cities[3] = ["New York City", "Buffalo", "Rochester", "Albany"]; // New York
+cities[4] = ["Miami", "Orlando", "Tampa", "Jacksonville"]; // Florida
+cities[5] = ["Chicago", "Springfield", "Aurora", "Naperville"]; // Illinois
+cities[6] = ["Philadelphia", "Pittsburgh", "Allentown", "Harrisburg"]; // Pennsylvania
+cities[7] = ["Columbus", "Cleveland", "Cincinnati", "Toledo"]; // Ohio
+cities[8] = ["Atlanta", "Augusta", "Savannah", "Athens"]; // Georgia
+cities[9] = ["Charlotte", "Raleigh", "Durham", "Greensboro"]; // North Carolina
+cities[11] = ["Detroit", "Grand Rapids", "Lansing", "Ann Arbor"]; // Michigan
+cities[12] = ["Phoenix", "Tucson", "Mesa", "Scottsdale"]; // Arizona
+cities[13] = ["Boston", "Worcester", "Springfield", "Cambridge"]; // Massachusetts
+cities[14] = ["Richmond", "Virginia Beach", "Norfolk", "Arlington"]; // Virginia
+
+    const stateElement=document.getElementById('states');
+    const cityElement=document.getElementById('cities');
+    stateElement.length=0;
+    cityElement.length=0;
+    
+    function selectState()
+    {
+        for(let index=0;index<states.length;index++)
+        {
+            const state=states[index];
+            stateElement.options[index]=new Option(state,state);
+        }
+    }
+    selectState();
+    
+    function selectCity(state)
+    {
+        cityIndex=states.indexOf(state);
+        cityList=cities[cityIndex];
+        for(let i=0;i<cityList.length;i++)
+        {
+            const city=cityList[i];
+            cityElement.options[i]=new Option(city,city);
+        }
+    }
+    selectCity(states[0]);
+
+    stateElement.onchange = function()
+    {
+        cityElement.length=0;
+        selectCity(stateElement.value);
+    }
+})
+    </script>
+</body>
+</html>
