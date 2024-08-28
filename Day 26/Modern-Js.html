@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern JS Features</title>
+</head>
+<body>
+    <h2>Modern JS Features</h2>
+    <script>
+        // template literal syntax (` backtick)
+
+        const person = {firstName: "Vamsi", lastName: "Damalcheruvu"};
+        console.log("My name is "+person.firstName+" "+person.lastName);
+        
+        console.log("With template literal syntax-",`My name is ${person.firstName} ${person.lastName}`);
+
+        const anotherPerson = {firstName: "John", lastName: "Doe"};
+        let flag=false;
+        console.log(`My name is ${flag ? anotherPerson.firstName : person.firstName}`);
+
+        const firstName = "Rohit";
+        const lastName = "Sharma";
+        const address = "Mumbai";
+
+        // old way
+        let person2 = {firstName:firstName, lastName: lastName}
+        console.log(person2);
+
+        // short hand property
+        person2 = {fName:firstName, lastName, address};
+        console.log("Shorthand property",person2);
+
+        // old way
+        let personName = person2.fName;
+        console.log(personName);
+
+        // Oject destructing
+        let {fName} = person2;
+        console.log("With destructuring", fName);
+
+        let abc = { a:"value for a", b:"value for b", c:"value for c"};
+        // alias
+        let {a:valA, b: aliasForB,c,d} =abc;
+        
+        console.log(c);
+        console.log(d);
+
+        console.log(valA);
+        console.log(aliasForB);
+
+        let fruits = ["apple","orange","kiwi"];
+        // old way
+        let firstFruit = fruits[0];
+        console.log(firstFruit);
+
+        let [firstFruitName] = fruits;
+        console.log(firstFruitName);
+
+        let [one,two,three] = fruits;
+        console.log(one);
+        console.log(two);
+        console.log(three);
+
+        let [First] = fruits;
+        console.log(First);
+        let [,Second]=fruits;
+        console.log(Second);
+        let [,,Third]=fruits;
+        console.log(Third);
+
+        console.log(First,Second,Third);
+        
+        // rest operator (prints remaining things)
+        // denoted by "..."
+        console.log(person2);
+        let {fName: name,...rest} = person2;
+        console.log(name);
+        console.log(rest);
+        let [,first,...remaining]=fruits;
+        console.log(first,remaining);
+
+        // spread operator
+        // denoted by ...
+        console.log(fruits);
+        console.log(...fruits);
+        console.log(person2);
+        console.log(person);
+
+        console.log({...person2,...person});
+        let someFruits = ["straberry","banana"];
+        console.log(...fruits,...someFruits);
+
+        // Arrow Functions
+        // old way
+        function printPerson({firstName,lastName})
+        {
+            return `My name is ${firstName} ${lastName}`;
+        }
+        console.log(printPerson(person));
+    
+        const printPersonName = ({firstName,lastName})=>`My name is ${firstName}`;
+        console.log(printPersonName(person))
+        const anotherFunction = ({firstName,lastName})=>
+        {
+            console.log(person);
+            return `My name is ${firstName} ${lastName}`;
+        }
+        console.log(anotherFunction(person));
+
+        // optional chaining
+        let obj = {
+                    name : "Alice",
+                    cat : {name:"Meow"}
+                }
+        console.log(obj);
+
+        // console.log(obj.dog.name);
+        if(obj.dog && obj.dog.name)
+        {
+            console.log(obj.dog.name);
+        }
+        if(obj.dog?.name)
+        {
+            console.log(obj.dog.name);
+        }
+        obj.dog={name:"Bark"};
+        console.log(obj.dog.name);
+
+        // nullish coalesing operator
+        // if the left hand side is null or undefined only then it will return the right hand side
+
+        let a;
+        let b="This is b";
+        let foo = a || b;
+        console.log(foo);
+        foo = a ?? b;
+        console.log(foo);
+        a = null;
+        foo = a??b;
+        console.log(foo);
+    </script>
+</body>
+</html>

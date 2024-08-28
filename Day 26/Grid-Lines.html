@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Named Lines</title>
+    <style>
+        .container
+        {
+            display: grid;
+            grid-template-columns: [main-start] 1fr [content-start] 1fr [content-end] 1fr [main-end];
+            grid-template-rows: [main-start] 100px [content-start] 100px [content-end] 100px [main-end];
+            margin:100px 100px;
+            place-content: center;
+            text-align: center;
+            gap:14px;
+        }
+        .box1
+        {
+            grid-column: main-start / main-end ;
+            grid-row: main-start / content-start;
+            background-color: coral;
+            place-content: center;
+        }
+
+        .box2
+        {
+            grid-column: content-end / main-end;
+            grid-row: content-start / content-end;
+            background-color: lightblue;
+            place-content: center;
+        }
+
+        .box3
+        {
+            grid-column: main-start / main-end ;
+            grid-row: content-end / main-end;
+            background-color: palevioletred;
+            place-content: center;
+        }
+
+        .box4
+        {
+            grid-column: main-start / content-start;
+            grid-row: content-start / content-end;
+            background-color: lightgreen;
+            place-content: center;
+        }
+        .box5
+        {
+            grid-column: content-start;
+            grid-row: content-start;
+            background-color: yellowgreen;
+            place-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1">One</div>
+        <div class="box2">Two</div>
+        <div class="box3">Three</div>
+        <div class="box4">Four</div>
+        <div class="box5">Five</div>
+      </div>
+</body>
+</html>

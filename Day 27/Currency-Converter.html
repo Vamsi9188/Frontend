@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+        * {
+  box-sizing: border-box;
+  margin: 0;
+}
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  gap: 16px;
+}
+
+header,
+footer {
+  padding: 8px 16px;
+  text-align: center;
+}
+
+header {
+  border-bottom: 1px solid;
+}
+
+footer {
+  border-top: 1px solid;
+}
+
+.currency-converter {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  width: 400px;
+  box-shadow: 2px 2px 5px 3px;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: darkslateblue;
+  color: white;
+}
+
+.input-fields {
+  flex-direction: column;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: start;
+}
+
+.input-fields input,
+.input-fields select {
+  width: 100%;
+  padding: 8px;
+}
+
+.button {
+  display: grid;
+  place-content: center;
+}
+.button > button {
+  padding: 8px;
+}
+     </style>
+</head>
+
+<body>
+    <!-- <script src="main.js"></script> -->
+    <main class="container">
+        <header>
+            <h2>Currency Converter</h2>
+        </header>
+
+        <article class="currency-converter">
+
+            <section class="input-fields">
+                <label for="fromCurrency">From</label>
+                <select name="fromCurrency" id="fromCurrency">
+
+                </select>
+                <label for="toCurrency">To</label>
+                <select name="toCurrency" id="toCurrency"></select>
+                <label for="amount">Amount</label>
+
+                <input placeholder="Enter Amount" type="number" id="amount" name="amount" value="1">
+                <label for="result">Result</label>
+                <input name="result" id="result" type="text" readonly>
+            </section>
+
+            <section class="button">
+                <button id="convert">Convert</button>
+            </section>
+
+
+        </article>
+        <footer>
+            Created By Gaurav
+        </footer>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+const convertButton = document.getElementById("convert");
+convertButton.addEventListener("click", convertCurrency)
+let currencyInfo;
+
+function getListOfCurrencies() {
+    return fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json").then(res => res.json())
+}
+
+
+
+function buildCurrencyOptions() {
+
+    let listOfCurrencies;
+    getListOfCurrencies().then(result => {
+        listOfCurrencies = result
+        console.log(listOfCurrencies);
+        let fromCurrency = document.getElementById("fromCurrency");
+        let toCurrency = document.getElementById("toCurrency");
+
+        for (let key in listOfCurrencies) {
+            let fromCurrencyOption = document.createElement("option");
+            fromCurrencyOption.id = `${key}_from`;
+            fromCurrencyOption.value = key;
+            fromCurrencyOption.textContent = listOfCurrencies[key];
+            fromCurrency.appendChild(fromCurrencyOption);
+            let toCurrencyOption = document.createElement("option");
+            toCurrencyOption.id = `${key}_to`;
+            toCurrencyOption.value = key;
+            toCurrencyOption.textContent = listOfCurrencies[key];
+            toCurrency.appendChild(toCurrencyOption);
+        }
+
+    });
+    console.log(listOfCurrencies);
+
+
+
+
+}
+
+function loadCurrencyValues() {
+    fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/eur.json")
+        .then(res => res.json())
+        .then(data => currencyInfo = data);
+}
+
+function convertCurrency() {
+    let fromCurrency = document.getElementById("fromCurrency");
+    let toCurrency = document.getElementById("toCurrency");
+
+    const selectedFromCurrency = fromCurrency.value;
+    const selectedToCurrency = toCurrency.value;
+
+    if (selectedFromCurrency && selectedToCurrency) {
+        let { eur } = currencyInfo;
+        let convertedAmount = eur[selectedToCurrency] / eur[selectedFromCurrency];
+        let result = document.getElementById("result");
+        let amountToConvert = document.getElementById("amount").valueAsNumber;
+        result.value = (amountToConvert * convertedAmount).toFixed(2);
+        console.log(currencyInfo, selectedFromCurrency, selectedToCurrency);
+
+    }
+
+
+}
+convertButton.addEventListener("click", () => {
+
+})
+
+loadCurrencyValues();
+buildCurrencyOptions();
+
+})
+    </script>
+</body>
+
+</html>
