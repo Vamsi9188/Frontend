@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Nesting</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+        .card {
+  width: 200px;
+  height: 400px;
+  border: 1px solid;
+  padding: 16px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 16px;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    cursor: pointer;
+  }
+  .card-header {
+    font-size: 2rem;
+  }
+  .card-body {
+    background-color: grey;
+    color: aliceblue;
+  }
+  .card-footer {
+    text-align: center;
+    & p {
+      color: palegreen;
+    }
+  }
+}
+
+/* .card:hover {
+  cursor: pointer;
+} */
+
+/* .card > .card-header {
+  font-size: 2rem;
+} */
+
+/* .card .card-body {
+  background-color: grey;
+  color: aliceblue;
+}
+
+.card .card-footer {
+  text-align: center;
+} */
+     </style>
+</head>
+
+<body>
+    <h2>CSS Nesting</h2>
+
+    <article class="card">
+        <header class="card-header">
+            this is the header
+        </header>
+        <section class="card-body">
+            this is the content of the card
+        </section>
+        <footer class="card-footer">
+            <p>this is the footer</p>
+        </footer>
+    </article>
+
+    <article>
+        <header class="card-header"></header>
+        this is the header
+        </header>
+    </article>
+</body>
+
+</html>

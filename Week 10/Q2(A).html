@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Closures in JavaScript</h3>
+    <script>
+        function outerFunction() {
+  let outerVariable = "I'm from the outer function";
+
+  function innerFunction() {
+    console.log(outerVariable); // Can access the outer function's variable
+  }
+
+  return innerFunction; // Return the inner function
+}
+
+const closureFunction = outerFunction(); // outerFunction has finished executing
+closureFunction(); // Logs: "I'm from the outer function"
+function createCounter() {
+  let count = 0;
+
+  return function () {
+    count++;
+    console.log(`Current count: ${count}`);
+  };
+}
+
+const counter = createCounter();
+counter(); // Current count: 1
+counter(); // Current count: 2
+
+    </script>
+    <h3>Hoisting in JavaScript</h3>
+    <script>
+        console.log(hoistedVar); // Output: undefined
+        var hoistedVar = "I'm hoisted!";
+        console.log(hoistedVar); // Output: "I'm hoisted!"
+        console.log(x); // ReferenceError: Cannot access 'x' before initialization
+        let x = 5;
+        greet(); // Output: "Hello, World!"
+
+        function greet() {
+        console.log("Hello, World!");
+        }
+
+    </script>
+   
+</body>
+</html>
+<!-- 
+Closures in JavaScript
+A closure is a function that retains access to its lexical scope, even when the function is executed outside of that scope. In simpler terms, a closure allows a function to "remember" the variables from the place where it was created, even after that outer function has finished executing.
+Use Cases of Closures:
+Data Privacy: Closures can be used to create private variables that cannot be accessed from the outside.
+Callbacks: Many callback functions rely on closures to access variables from their parent scope.
+Hoisting in JavaScript
+Hoisting is JavaScript's default behavior of moving variable and function declarations to the top of their containing scope (global or local). This means that you can reference variables and functions before they are actually declared in the code.
+
+However, only the declarations are hoisted, not the initializations.
+Hoisting with let and const: Variables declared with let and const are also hoisted but are placed in a Temporal Dead Zone (TDZ), which means you cannot access them before the actual declaration.
+
+Key Differences Between Hoisting and Closures:
+Hoisting affects where and how variables/functions are available during the execution phase. It allows you to use functions/variables before they are declared in the code.
+Closures are related to how functions access variables in their surrounding scope even after that scope has finished execution.
+-->

@@ -1,0 +1,53 @@
+*,*::before,*::after
+{
+    box-sizing: border-box;
+}
+*
+{
+    margin: 0;
+}
+#container
+{
+    width: 400px;
+    margin:auto;
+    height: 100vh;
+    border:1px solid;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: 
+        "current current"
+        "hourly hourly"
+        "fiveday fiveday"
+        "feelslike humidity";
+    gap:16px;
+    padding:16px;
+    border-radius: 8px;
+}
+#container>article
+{
+    border:1px solid;
+    padding:16px;
+    border-radius: 8px;
+}
+#current-forecast
+{
+    display: grid;
+    text-align: center;
+    grid-area: current;
+}
+#hourly-forecast
+{
+    grid-area: hourly;
+}
+#five-day-forecast
+{
+    grid-area: fiveday;
+}
+#feels-like
+{
+    grid-area: feelslike;
+}
+#humidity
+{
+    grid-area: humidity;
+}

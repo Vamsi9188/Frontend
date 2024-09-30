@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await</title>
+</head>
+<body>
+
+    <h2>Asynchronous Programming</h2>
+    <!-- how does it works? -->
+    <!-- call stack -->
+     <!-- Memory heap -->
+    <script>
+        console.log("Vamsi");
+        console.log("Vamsi12");
+        console.log("Vamsi4");
+        console.log("Vamsi2002");
+        function a()
+        {
+            console.log("a");
+            b();
+            function b()
+            {
+                console.log("b");
+            }
+        }
+        a();
+        console.log("Vamsi");
+        setTimeout(() =>
+        {
+            console.log("Hi Vamsi.");
+        },1000)
+        console.log("How are You?");
+
+    </script>
+    <h2>Welcome to Async-Await</h2>
+    <script>
+        const postsURL="https://jsonplaceholder.typicode.com/posts";
+        const usersURL="https://jsonplaceholder.typicode.com/users";
+
+        function fetchUsers()
+        {
+            return fetch(usersURL).then(resp => resp.json());
+        }
+        
+        function fetchPosts()
+        {
+            return fetch(postsURL).then(resp => resp.json());
+        }
+        
+        fetchUsers()
+            .then((data) => 
+            {
+                const usersData=data;
+                console.log(usersData);
+                fetchUsers();
+            })
+        
+        fetchPosts().then((data) => 
+        {
+            const postsData=data;
+            console.log(postsData);
+            fetchPosts();
+        })
+
+
+        // async function fetchWithAsync()
+        // {
+        //     const users=await fetchUsers();
+        //     console.log(users);
+        //     const posts=await fetchPosts();
+        //     console.log(posts);
+        // }
+        // fetchWithAsync();
+    </script>
+</body>
+</html>

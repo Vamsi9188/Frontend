@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    <h2>Array Methods and Prototypes Methods</h2>
+    <script>
+        function addingNNumbers1(a,b,...args)
+        {
+            let result=null;
+            a=a??0;
+            b=b??0;
+            result=a+b;
+            if(args && args.length)
+            {
+                args.forEach((x)=>
+                {
+                    result=result+x;
+                })
+            }
+            return result
+        }
+        var res= addingNNumbers1(10,20,40,30);
+        console.log(res);
+
+        function addingNNumbers2(...args)
+        {
+            let result=null;
+            if(Array.isArray(args))
+            {
+                args.forEach((x)=>
+                {
+                    result=result+x;
+                })
+            }
+            return result
+        }
+        var res=addingNNumbers2(10,20,40," ","Vamsi");
+        console.log(res);
+
+        function add1(...args)
+        {
+            let result=null;
+            if(Array.isArray(args))
+            {
+                args.forEach((x)=>
+                {
+                    result = Number.isNaN(+(result + x)) ? result : +result + x;
+                })
+            }
+            return result
+        }
+        var res=add1(10,20,"Vamsi","Hello",100);
+        console.log(res);
+
+        function add2(...args)
+        {
+            let result=null;
+            if(Array.isArray(args))
+            {
+                args.forEach((x)=>
+                {
+                    if(Number.isNaN(+(result + x)))
+                    {
+                        result = result;
+                    }
+                    else
+                    {   
+                        result = +result + x;
+                    }
+                })
+            }
+            return result
+        }
+        var res=add1(10.5,2.0,45.4,56.7,"Vamsi","Hello",100);
+        console.log(res);
+        
+        // Array Methods
+        Array.from([1,2,3]);
+        Array.from("Vamsi");
+        Array.from('v')
+
+        // Array.Prototype.find:-
+        const arr=[1,2,4,5,6,8,10,12,15];
+        arr.find((i)=> i==10);
+
+        // Array.Prototype.filter:-
+        const filteredResult=arr.filter(function(item,index)
+        {
+            if(item%2==0)
+            {
+                return item;
+            }
+        })
+
+        // Array.prototype.map:-
+        arr.map((i)=>i*10)
+
+        // Array.prototype.some:-
+        arr.some((i)=>
+        {
+            console.log(i);
+            return i==10
+        })
+
+        // Array.prototype.every
+        arr.every((i)=>
+        {
+            console.log(i)
+            i == 8
+        })
+    </script>
+</body>
+</html>

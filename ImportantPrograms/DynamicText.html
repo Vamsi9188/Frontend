@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Text</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Hi! I'm Vamsi :)</h2>
+        <p>I am a <span id="dynamic-text"></span></p>
+    </div>
+    <!-- <script>
+        // for one word
+        let dynamicText=document.getElementById('dynamic-text');
+        let word="Student";
+        let index=0;
+        function dynamicWord()
+        {
+            if(index<word.length)
+            {
+                dynamicText.textContent += word[index];
+                index++;
+            }
+            setTimeout(dynamicWord,1000);
+        }
+        dynamicWord();
+    </script> -->
+
+    <script>
+        // for multiple words
+        let dynamicWords=document.getElementById('dynamic-text');
+        let phrases=["student","fresher","job seeker","learner"];
+        let phraseIndex=0;
+        let charIndex=0;
+        function dynamicPhrases()
+        {
+            if(charIndex<phrases[phraseIndex].length)
+            {
+                dynamicWords.textContent += phrases[phraseIndex][charIndex];
+                charIndex++;
+                setTimeout(dynamicPhrases,100);
+            }
+            else
+            {
+                setTimeout(function ()
+                {
+                    dynamicWords.textContent='';
+                    charIndex=0;
+                    phraseIndex=(phraseIndex+1)%(phrases.length);
+                    dynamicPhrases();
+                },1000)
+            }
+            
+        }
+        dynamicPhrases();
+    </script>
+</body>
+</html>

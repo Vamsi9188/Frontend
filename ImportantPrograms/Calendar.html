@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style>
+        *,*::before,::after
+        {
+            box-sizing: border-box;
+        }
+        .container
+        {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .calendar
+        {
+            /* background-color: lightblue; */
+            display: flex;
+            flex-direction: column;
+            height: 700px;
+            width: 500px;
+            box-shadow: 2px 2px 10px 5px;
+            overflow: hidden;
+        }
+        .calendar>header
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            background-color: slateblue;
+            color: white;
+        }
+        .calendar .week, .calendar .days
+        {
+            display: flex;
+            gap:16px;
+            justify-content: center;
+        }
+        .calendar .week>p
+        {
+            flex:0 0 50px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .calendar .days .date
+        {
+            display: flex;
+            flex:0 0 50px;
+            height: 50px;
+            justify-content: center;
+            align-items:center;
+            
+        }
+        .calendar .days
+        {
+            flex-wrap: wrap;
+        }
+        .date.today
+        {
+            background-color: lightblue;
+            border-radius: 50%;
+            border:1px solid;
+        }
+        .date.holidays
+        {
+            background-color:hsl(0, 69%, 68%);
+            border-radius: 50%;
+            border:1px solid;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="calendar">
+            <header>
+                <p id="current-month">Month</p>
+                <p id="full-date">Full Date</p>
+            </header>
+            <section class="week">
+                <p>Sun</p>
+                <p>Mon</p>
+                <p>Tue</p>
+                <p>Wed</p>
+                <p>Thu</p>
+                <p>Fri</p>
+                <p>Sat</p>
+            </section>
+            <section class="days">
+                <p class="date">1</p>
+                <p class="date">2</p>
+                <p class="date">3</p>
+                <p class="date">4</p>
+                <p class="date">5</p>
+                <p class="date">6</p>
+                <p class="date">7</p>
+                <p class="date">8</p>
+                <p class="date">9</p>
+                <p class="date">10</p>
+                <p class="date">11</p>
+                <p class="date">12</p>
+                <p class="date">13</p>
+                <p class="date">14</p>
+                <p class="date">15</p>
+            </section>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>
+        {
+            const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+            let today=new Date();
+
+            const currentMonthIndex=today.getMonth();
+            const currentMonth=document.getElementById('current-month').textContent=months[currentMonthIndex];
+            const fullDate=document.getElementById('full-date').textContent=today.toDateString();
+
+            let firsDayOfMonth=new Date(today.getFullYear(),today.getMonth(),1).getDay();
+            console.log("First Day of The Month:",firsDayOfMonth);
+            let numberOfDaysInMonth=new Date(today.getFullYear(),today.getMonth()+1,0).getDate();
+            console.log("Total days in the month:",numberOfDaysInMonth);
+            let lastDayOfMonth=new Date(today.getFullYear(),today.getMonth()+1,0).getDay();
+            console.log("Las Day of The Month:",lastDayOfMonth);
+
+            let dates='';
+            let monthDates=document.querySelector('.days');
+            // for empty dates before first day
+            for(let i=0;i<firsDayOfMonth;i++)
+            {
+                dates += "<p class=\"date\">"+"</p>";
+            }
+            // for fill dates
+            let holidays=[15,19,26];
+            for(let date=1;date<=numberOfDaysInMonth;date++)
+            {
+                let currentDay=new Date(today.getFullYear(),today.getMonth(),date).getDay();
+                if(today.getDate()==date)
+                {
+                    // for highlight today date
+                    dates += "<p class=\"date today\">"+date+"</p>";
+                }
+                else if(holidays.includes(date) || currentDay==0)
+                {
+                    dates += "<p class=\"date holidays\">"+date+"</p>";
+                }
+                else
+                {
+                    dates += "<p class=\"date\">"+date+"</p>";
+                }
+            }
+            // for empty dates after last day
+            let daysInWeek=6;
+            if(lastDayOfMonth<daysInWeek)
+            {
+                for(let i=lastDayOfMonth;i<daysInWeek;i++)
+                {
+                   dates += "<p class=\"date\">"+"</p>"; 
+                }
+            }
+            console.log("Dates of This month:",dates);
+            monthDates.innerHTML=dates;
+        })
+    </script>
+</body>
+</html>

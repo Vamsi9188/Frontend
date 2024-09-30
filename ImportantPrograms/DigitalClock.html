@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        .container
+        {
+            height: 270px;
+            width: 270px;
+            border: 1px solid;
+            margin: 25% auto;
+            background-color: lightpink;
+            /* box-shadow: 5px 5px 15px 6px; */
+            border-radius:25%;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+        .time-headings,.time-values
+        {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+          
+        }
+        .time-headings>.hours
+        {
+            position: absolute;
+            font-size: 1.2em;
+            padding:10px;
+            top:75px;
+            left:10px;
+        }
+        .time-headings>.minutes
+        {
+            position: absolute;
+            font-size: 1.2em;
+            padding:10px;
+            top:75px;
+            left:80px;
+        }
+        .time-headings>.seconds
+        {
+            position: absolute;
+            font-size: 1.2em;
+            padding:10px;
+            top:75px;
+            left:160px;
+        }
+        .time-values>#hours
+        {
+            position:absolute;
+            font-size: 1.3em;
+            top:50%;
+            left:30px;
+            padding:10px;
+        }
+        .time-values>#minutes
+        {
+            position:absolute;
+            font-size: 1.3em;
+            top:50%;
+            left:100px;
+            padding:10px;
+        }
+        .time-values>#seconds
+        {
+            position:absolute;
+            font-size: 1.3em;
+            top:50%;
+            left:180px;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function setTime()
+            {
+                let time=new Date();
+                const digitalHours=document.getElementById('hours').textContent=time.getHours();
+                const digitalMinues=document.getElementById('minutes').textContent=time.getMinutes();
+                const digitalSeconds=document.getElementById('seconds').textContent=time.getSeconds();
+                setInterval(setTime,1000);
+            }
+            setTime();
+           
+        })
+    </script>
+    <main class="container">
+       <section class="time-headings">
+        <span class="hours">Hours</span>
+        <span class="minutes">Minutes</span>
+        <span class="seconds">Seconds</span>
+       </section> 
+       <section class="time-values">
+        <span id="hours">8</span>
+        <span id="minutes">34</span>
+        <span id="seconds">52</span>
+       </section>
+    </main>
+</body>
+</html>

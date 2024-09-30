@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        .container
+        {
+            width:400px;
+            height: 400px;
+            border:1px solid;
+            margin:100px auto;
+            background-color: lightblue;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        .container>h2
+        {
+            text-align: center;
+        }
+        label,input[type="number"]
+        {
+            margin-left:20%;
+            padding:5px;
+            width:50%;
+        }
+        #calculate
+        {
+            margin-left:35%;
+            padding:8px;
+            background-color: blue;
+            color:white;
+            border-radius: 5px;
+        }
+        p
+        {
+            margin-left: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tip Calculator</h2>
+        <label for="billAmount">Bill Amount:</label><br>
+        <input type="number" name="billAmount" id="bill-amount"><br><br>
+        <label for="tipPercentage">Tip Percentage:</label><br>
+        <input type="number" name="tipPercentage" id="tip-percentage"><br><br>
+        <button id="calculate">Calculate</button><br><br>
+        <p id="tip-amount"></p>
+        <p id="total-amount"></p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const calculateBtn=document.getElementById('calculate');
+            calculateBtn.addEventListener("click",function()
+            {
+                const billAmount=document.getElementById('bill-amount').valueAsNumber;
+                const tipPercentage=document.getElementById('tip-percentage').valueAsNumber;
+                if(billAmount && tipPercentage)
+                {
+                    const percentageAmount=(billAmount*tipPercentage)/100;
+                    const tipAmount=document.getElementById('tip-amount');
+                    tipAmount.textContent="Tip Amount: Rs "+(percentageAmount);
+                    const totalAmount=document.getElementById('total-amount');
+                    totalAmount.textContent="Total Amount: Rs. "+(billAmount+percentageAmount);
+                }
+                else
+                {
+                    alert("Please enter all fields.");
+                }
+            })
+        })
+    </script>
+</body>
+</html>

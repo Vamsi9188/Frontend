@@ -1,0 +1,21 @@
+Promises in JavaScript
+A Promise in JavaScript is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. It allows developers to handle asynchronous code (like network requests, file reading, or timeouts) more cleanly and avoid "callback hell" that occurs with nested callbacks.
+
+A promise has three states:
+
+Pending: The initial state when the asynchronous operation hasn't completed yet.
+Fulfilled: The state when the operation has completed successfully, and the promise has a result.
+Rejected: The state when the operation has failed, and the promise has an error or reason for the failure.
+Key Methods for Promises
+.then(): This method is used to handle the success (or fulfillment) of the promise. It takes two optional arguments:
+
+The first is a function that gets called when the promise is fulfilled, receiving the result.
+The second (optional) is a function that handles rejection, though .catch() is usually used for that purpose.
+.catch(): This method is used to handle errors or rejections from the promise. It’s a shortcut for handling errors, making the code cleaner when you only need to handle rejections.
+
+.finally(): This method runs after the promise has settled (whether it was fulfilled or rejected). It's useful for cleanup tasks, like hiding loading spinners, regardless of whether the promise was successful or failed.
+
+Benefits of Promises:
+Chaining: Promises can be chained, allowing for clean sequential execution of asynchronous operations.
+Error Handling: Promises provide a unified way to handle both success and failure.
+Readability: Promises improve code readability compared to nested callbacks, especially in complex workflows.

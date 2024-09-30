@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Convertor</title>
+    <style>
+        *
+        {
+            box-sizing: border-box;
+            margin: 0;
+        }
+        .container
+        {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            height: 100vh;
+            gap: 16px;
+        }
+        header,footer
+        {
+            text-align: center;
+            padding:14px 16px;
+        }
+        .content
+        {
+            display: flex;
+            flex-direction: column;
+            margin:0 auto;
+            background-color: darkslateblue;
+            width:400px;
+            box-shadow: 5px 5px 9px 9px palevioletred;
+            color: white;
+            padding: 14px 16px;
+            border-radius: 15px;
+        }
+        .content .input-fields
+        {
+            display: flex;
+            flex-direction: column;
+            padding:10px 15px;
+            gap:14px;
+            justify-content: center;
+            align-items: start;
+        }
+        .input-fields input,
+        .input-fields select
+        {
+            width: 100%;
+            padding:10px;
+            border-radius: 5px;
+        }
+        .button
+        {
+            display: grid;
+            place-content: center;
+            padding:10px 20px;
+        }
+        .button>button
+        {
+            padding:10px;
+            width: 100px;
+            height: 50px;
+            font-size: 1.1em;
+            cursor:pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h2>Currency Converter</h2>
+        </header>
+        <article class="content">
+            <section class="input-fields">
+                <label for="fromCurrency">From</label>
+                <select name="fromCurrency" id="fromCurrency">
+                    <option>Select type of amout you convert from</option>
+                </select>
+                <label for="toCurrency">To</label>
+                <select name="toCurrency" id="toCurrency">
+                    <option>Select which type of amount you convert to</option>
+                </select>
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" value="1">
+                 
+                <label for="result">Ressult</label>
+                <input type="text" name="result" id="result" readonly>
+            </section>
+            <section class="button">
+                <button id="convert">Convert</button>
+            </section>
+        </article>
+        <footer>Created By Vamsi &copy; 2024</footer>
+    </main>
+    <script>
+        let url1="https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json"
+        let url2="https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/eur.json"
+        document.addEventListener("DOMContentLoaded",()=>
+        {
+            const convertBtn=document.getElementById('convert');
+            convertBtn.addEventListener("click",convertCurrency);
+            let currencyInfo;
+            function getListOfCurrencies()
+            {
+                return fetch(url1).then(res=>res.json());
+            }
+            function buildCurrencyOptions()
+            {
+                let listOfCurrencies;
+                getListOfCurrencies().then(result=>
+                {
+                    listOfCurrencies=result;
+                    console.log(listOfCurrencies);
+
+                    let fromCurrency=document.getElementById('fromCurrency');
+                    let toCurrency=document.getElementById('toCurrency');
+                    for(let key in listOfCurrencies)
+                    {
+                        let fromCurrencyOptions=document.createElement('option');
+                        fromCurrencyOptions.id=`${key}_from`;
+                        fromCurrencyOptions.value=key;
+                        fromCurrencyOptions.textContent=listOfCurrencies[key];
+                        fromCurrency.appendChild(fromCurrencyOptions);
+                        let toCurrencyOptions=document.createElement('option');
+                        toCurrencyOptions.id=`${key}_to`;
+                        toCurrencyOptions.value=key;
+                        toCurrencyOptions.textContent=listOfCurrencies[key];
+                        toCurrency.appendChild(toCurrencyOptions);
+                    }
+                    console.log(listOfCurrencies);
+                })
+            }
+            function loadCurrencyValues()
+            {
+                fetch(url2).then(res=>res.json()).then(data=>currencyInfo=data);
+            }
+            function convertCurrency()
+            {
+                let fromCurrency=document.getElementById('fromCurrency');
+                let toCurrency=document.getElementById('toCurrency');
+                let selectFromCurrency=fromCurrency.value;
+                let selectToCurrency=toCurrency.value;
+                if(selectFromCurrency && selectToCurrency)
+                {
+                    let {eur}= currencyInfo;
+                    let amountToCovert=eur[selectToCurrency]/eur[selectFromCurrency];
+                    let result=document.getElementById('result');
+                    let convertedAmount=document.getElementById('amount').valueAsNumber;
+                    result.value=(amountToCovert*convertedAmount).toFixed(2);
+                    console.log(currencyInfo,selectFromCurrency,selectToCurrency)
+                }     
+            }
+            buildCurrencyOptions();
+            loadCurrencyValues();
+        })
+    </script>
+</body>
+</html>

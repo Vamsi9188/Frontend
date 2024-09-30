@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Version 16</title>
+</head>
+<body>
+    <!--  
+    <script type="text/javascript">
+
+        // normal javascript method
+        const rootElement=document.createElement("div");
+        rootElement.id='rootElement';
+        rootElement.className='container';
+        rootElement.textContent="The Root.";
+
+        const childElement=document.createElement("span");
+        childElement.id='childElement';
+        childElement.textContent="Hello Students.";
+
+        document.body.appendChild(rootElement);
+        rootElement.appendChild(childElement);
+
+    </script>
+    -->
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+    <!-- <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom16.7.0/umd/react-dom.development.js"></script> -->
+    <div id="rootElement">Vamsi</div>
+    <p id="para">How are you Vamsi?</p>
+    <script type="text/javascript">
+        const rootElement=document.getElementById('rootElement');
+        const element = React.createElement('div',{
+            className: 'container',
+            children :["Hello, Students!"]
+        });
+        ReactDOM.render(element,rootElement);
+
+        const para=document.getElementById('para');
+        const message = React.createElement('span',{
+            className:'firstPara',
+            children:["Let us discuss about ReactJS."]
+        })
+        ReactDOM.render(message,para);
+    </script>
+</body>
+</html>

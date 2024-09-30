@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Card</title>
+    <style>
+        .container
+        {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: lightskyblue;
+        }
+        .pokercard
+        {
+            height: 450px;
+            width: 300px;
+            border:2px solid black;
+            position: absolute;
+            margin:200px;
+            font-size: 1.5em;
+            color:red;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+        .top-left
+        {
+            position: absolute;
+            top:10px;
+            left:10px;
+        }
+        .top-right
+        {
+            position: absolute;
+            top:10px;
+            right:10px;
+        }
+        .bottom-left
+        {
+            position: absolute;
+            bottom:10px;
+            left:10px;
+            transform: rotate(180deg);
+        }
+        .bottom-right
+        {
+            position: absolute;
+            bottom:10px;
+            right:10px;
+            transform: rotate(180deg);
+        }
+        .middle
+        {
+            position: absolute;
+            left:50%;
+            top:45%;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="pokercard">
+            <span class="top-left">A</span>
+            <span class="top-right">A</span>
+            <span class="middle">&hearts;</span>
+            <span class="bottom-left">A</span>
+            <span class="bottom-right">A</span>
+        </div>
+    </main>
+</body>
+</html>

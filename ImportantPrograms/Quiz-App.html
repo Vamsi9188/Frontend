@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz-App</title>
+    <style>
+        .container
+        {
+            height:100vh;
+        }
+        .quiz-container
+        {
+            height: 400px;
+            width: 500px;
+            border:1px solid;
+            margin:100px auto;
+            background-color: lightsalmon;
+        }
+        .quiz-container>header
+        {
+            background-color: royalblue;
+            color:white;
+            text-align: center;
+            padding:5px;
+
+        }
+        .quiz-container .question>h2,
+        .quiz-container .answers,
+        .quiz-container .buttons,p
+        {
+            margin-left:50px;
+        }
+        .buttons
+        {
+            display: grid;
+            grid-template-columns: repeat(2,75px);
+            grid-template-rows: repeat(2,30px);
+            gap:6px;
+            margin-top: 15px;
+            padding:10px 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <main class="container">
+       
+        <section class="quiz-container">
+             <header>
+            Quiz-App
+        </header>
+            <section class="question">
+                <h2>This is Simple Question</h2>
+            </section>
+            <section class="answers">
+                <label for="options">
+                    <input type="radio" value="A" name="options" id="a">
+                    <label for="option-a">This is Option A</label><br>
+                    <input type="radio" value="B" name="options" id="b">
+                    <label for="option-b">This is Option B</label><br>
+                    <input type="radio" value="C" name="options" id="c">
+                    <label for="option-c">This is Option C</label>
+                </label>
+            </section>
+            <section class="buttons">
+                <button id="prev-btn">Previous</button>
+                <button id="next-btn">Next</button>
+                <button id="reset-btn">Reset</button>
+                <button id="submit-btn">Submit</button>
+            </section>
+            <p id="result"></p>
+        </section>
+    </main>
+    <script>
+       const quizData = [
+    {
+        question: "What is the capital of France?",
+        options: {
+            a: "Berlin",
+            b: "Madrid",
+            c: "Paris"
+        },
+        correct: "c"
+    },
+    {
+        question: "Who wrote 'Hamlet'?",
+        options: {
+            a: "William Shakespeare",
+            b: "Charles Dickens",
+            c: "Jane Austen"
+        },
+        correct: "a"
+    },
+    {
+        question: "Which planet is known as the Red Planet?",
+        options: {
+            a: "Earth",
+            b: "Mars",
+            c: "Jupiter"
+        },
+        correct: "b"
+    }
+];
+
+let currentQuestionIndex = 0;
+let selectedAnswers = {};
+
+const questionElement = document.querySelector('.question h2');
+const optionAElement = document.querySelector('label[for="option-a"]');
+const optionBElement = document.querySelector('label[for="option-b"]');
+const optionCElement = document.querySelector('label[for="option-c"]');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const resetBtn = document.getElementById('reset-btn');
+const submitBtn = document.getElementById('submit-btn');
+
+function loadQuestion()
+{
+    const currentQuestion = quizData[currentQuestionIndex];
+    questionElement.textContent = currentQuestion.question;
+    optionAElement.textContent = currentQuestion.options.a;
+    optionBElement.textContent = currentQuestion.options.b;
+    optionCElement.textContent = currentQuestion.options.c;
+
+    // Uncheck all radio buttons
+    document.querySelectorAll('input[name="options"]').forEach(input =>
+    {
+        input.checked = false;
+    });
+
+    // Check the selected answer if exists
+    if (selectedAnswers[currentQuestionIndex])
+    {
+        document.getElementById(selectedAnswers[currentQuestionIndex]).checked = true;
+    }
+
+    prevBtn.disabled = currentQuestionIndex == 0;
+    nextBtn.disabled = currentQuestionIndex == quizData.length - 1;
+    submitBtn.disabled = Object.keys(selectedAnswers).length !== quizData.length;
+}
+
+document.querySelectorAll('input[name="options"]').forEach(input =>
+{
+    input.addEventListener('change', (e) => {
+        selectedAnswers[currentQuestionIndex] = e.target.id;
+        submitBtn.disabled = Object.keys(selectedAnswers).length !== quizData.length;
+    });
+});
+
+prevBtn.addEventListener('click', () =>
+{
+    if (currentQuestionIndex > 0)
+    {
+        currentQuestionIndex--;
+        loadQuestion();
+    }
+});
+
+nextBtn.addEventListener('click', () =>
+{
+    if (currentQuestionIndex < quizData.length - 1)
+    {
+        currentQuestionIndex++;
+        loadQuestion();
+    }
+});
+
+resetBtn.addEventListener('click', () =>
+{
+    const resultText=document.getElementById('result');
+    resultText.textContent='';
+    currentQuestionIndex = 0;
+    selectedAnswers = {};
+    loadQuestion();
+    
+});
+
+submitBtn.addEventListener('click', () =>
+{
+    let score = 0;
+    quizData.forEach((question, index) =>
+    {
+        if (selectedAnswers[index] && selectedAnswers[index].slice(-1) == question.correct)
+        {
+            score++;
+        }
+    });
+    // alert(`You scored ${score} out of ${quizData.length}`);
+    const resultText=document.getElementById('result');
+    resultText.textContent=`Your answers are ${score} out ot ${quizData.length} are Correct!`;
+
+});
+
+loadQuestion();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+    <!-- 
+    Purpose of z-index in CSS
+    The z-index property in CSS controls the stacking order of elements that overlap. It only works on elements that have a position value other than static (e.g., absolute, relative, fixed, or sticky). The z-index value determines which element appears "on top" when elements overlap:
+
+    Elements with a higher z-index value will appear in front of elements with a lower z-index.
+    If two elements have the same z-index, their stacking order is determined by their order in the HTML document.
+    -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z-index Example</title>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+        }
+
+        #box1 {
+            background-color: lightblue;
+            top: 50px;
+            left: 50px;
+            z-index: 1; /* Lower z-index */
+        }
+
+        #box2 {
+            background-color: lightcoral;
+            top: 100px;
+            left: 100px;
+            z-index: 2; /* Higher z-index */
+        }
+
+        #box3 {
+            background-color: lightgreen;
+            top: 150px;
+            left: 150px;
+            z-index: 0; /* Lowest z-index */
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" class="box">Box 1 (z-index: 1)</div>
+    <div id="box2" class="box">Box 2 (z-index: 2)</div>
+    <div id="box3" class="box">Box 3 (z-index: 0)</div>
+</body>
+</html>
+<!-- 
+Explanation:
+Box 1 (z-index: 1): This box is placed at coordinates (50px, 50px) and has a z-index of 1. It will be partially overlapped by Box 2 and Box 3.
+
+Box 2 (z-index: 2): This box is placed at coordinates (100px, 100px) and has the highest z-index (2), so it appears on top of both Box 1 and Box 3.
+
+Box 3 (z-index: 0): This box is placed at coordinates (150px, 150px) and has the lowest z-index (0), so it will be behind both Box 1 and Box 2.
+
+How z-index Affects Layering:
+In this example, the z-index values control how the boxes stack when they overlap:
+
+Box 2 appears on top because it has the highest z-index value.
+Box 1 is in the middle with a z-index of 1.
+Box 3 is at the bottom because it has the lowest z-index.
+Without z-index, the default stacking order is determined by the position of the elements in the HTML structure (later elements would typically appear on top of earlier ones if they overlap). Using z-index allows you to control this order explicitly.
+-->
+

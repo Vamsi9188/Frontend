@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 30 Revision</title>
+</head>
+<body>
+    <h3>Revision on Private Fields, Static methods and other Class concepts </h3>
+    <script>
+        console.log("Private Fields")
+        class person
+        {
+            #ThisIsAPrivateField="Every Person is a Human-Being";
+            static useGender=true;
+            constructor(name,age,address,id)
+            {
+                this.name=name;
+                this.age=age;
+                this.address=address;
+                this.id=id;
+            }
+            id;
+            getPrivateField(name,age,address)
+            {
+                return this.#ThisIsAPrivateField;
+                // return `My Name is ${this.name}, age is ${this.age} and address is ${this.address}`;
+                
+            }
+                getSpecificField=function()
+            {
+                console.log("My name is",this.name,"age is",this.age,"and address",this.address);
+            }
+            static getGender()
+            {
+                return `This Person has gender=${person.useGender}`;
+            }
+        }
+        let obj1=new person("Vamsi",22,"PGR",27644);
+        console.log(obj1);
+        // console.log(obj1.#ThisIsAPrivateField);// Error
+        console.log(obj1.getPrivateField());
+        obj1.getSpecificField();
+
+        let obj2=new person("Mahesh",23,"MPL",2323);
+        console.log(obj2);
+        console.log(obj2.name);
+        console.log(obj2.age);
+        console.log(obj2.address);
+        console.log(obj2.id);
+
+        let obj3=new person("Suresh",22,"PGR",34523);
+        console.log(obj3);
+
+        person.prototype.eat=function ()
+        {
+            console.log(`${this.name} is eating`);
+        }
+    </script>
+
+    <h2>Source Example</h2>
+    <script>
+        class MyClass {
+  // Constructor
+  constructor(subject,marks) {
+    // Constructor body
+    this.subject=subject;
+    this.marks=marks;
+  }
+  // Instance field
+  myField = "foo";
+
+  // Instance method
+  myMethod() {
+    // myMethod body
+    return `${this.subject} marks are:${this.marks}`;
+  }
+
+  // Static field
+  static myStaticField = "bar";
+
+  // Static method
+  static myStaticMethod() {
+    // myStaticMethod body
+    console.log("I am Static Method")
+  }
+
+  // Static block
+  static {
+    // Static initialization code
+  }
+  // Fields, methods, static fields, and static methods all have
+  // "private" forms
+  #myPrivateField = "bar";
+  myPrivateField()
+  {
+    return this.#myPrivateField;
+  }
+}
+let sourceObj=new MyClass("JavaScript",20);
+console.log(sourceObj);
+    </script>
+
+
+    <h2>Async-Await & Event Loop</h2>
+    <script type="module">
+        let moneyBorrowed=10000;
+        function giveMoney()
+        {
+            return new Promise((resolve,reject) =>
+            {
+                setTimeout(() =>
+                {
+                    resolve(5000);
+                    // reject(new Error("Oh I'm not gave you money"));
+                },3000)
+            })
+        }
+        function checkMoney()
+        {
+            let moneyGave;
+            giveMoney().then((data)=>
+            {
+                moneyGave=data;
+                console.log(moneyGave);
+            })
+            return giveMoney().then((result) => console.log(result));
+
+        }
+        checkMoney();
+
+        async function checkMoneyAsync()
+        {
+            let result=await giveMoney();
+            if(result>moneyBorrowed)
+            {
+                console.log("You are borrowed extra money");
+            }
+            else if (result<moneyBorrowed)
+            {
+                throw new Error("Please contact your bank");
+
+            }
+            else
+            {
+                console.log("You are still not gave complete money");
+            }
+        }
+        try
+        {
+            await checkMoneyAsync()
+        }
+        catch(error)
+        {
+            console.error(error);
+        }
+        checkMoneyAsync();
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!-- 
+ In JavaScript, the rest and spread operators both use the same syntax (...), but they serve different purposes depending on how and where they are used.
+
+1. Rest Operator (...)
+The rest operator is used to collect multiple arguments or elements into an array or an object. It is primarily used in function parameter lists or in destructuring assignments to gather the "rest" of the items that are not explicitly named.
+
+Key Points:
+Gathers remaining elements into an array.
+Typically used in function arguments or destructuring.
+Must be the last element when used in parameter lists or array destructuring.
+
+2. Spread Operator (...)
+The spread operator is used to "spread" elements of an array, object, or iterable into individual elements. It is commonly used when copying arrays/objects or when passing array elements as function arguments.
+
+Key Points:
+Expands elements from an array, object, or iterable into individual elements.
+Typically used in function calls, array/object literals, or when combining arrays/objects.
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Rest Operator</h3>
+    <script>
+        // Example 1: Using Rest in Function Arguments
+        // The rest operator is used to collect all remaining arguments into an array.
+        function sumAll(...numbers) {
+    return numbers.reduce((sum, num) => sum + num, 0);
+}
+
+console.log(sumAll(1, 2, 3, 4)); // Output: 10
+
+// Example 2: Using Rest in Destructuring
+// The rest operator gathers the remaining elements in an array.
+const [first, second, ...rest] = [10, 20, 30, 40, 50];
+console.log(first); // Output: 10
+console.log(second); // Output: 20
+console.log(rest);   // Output: [30, 40, 50]
+    </script>
+    <h3>Spread Operator</h3>
+    <script>
+    // Example 1: Using Spread with Arrays
+    // The spread operator expands the elements of an array into individual elements.
+    const arr1 = [1, 2, 3];
+    const arr2 = [...arr1, 4, 5];
+    console.log(arr2); // Output: [1, 2, 3, 4, 5]
+
+    // Example 2: Using Spread in Function Calls
+    // The spread operator can be used to pass the elements of an array as individual arguments to a function.
+    const numbers = [5, 6, 7];
+    console.log(Math.max(...numbers)); // Output: 7
+
+    // Example 3: Using Spread with Objects
+    // The spread operator can also be used to copy or merge objects.
+    const person = { name: 'Alice', age: 25 };
+    const updatedPerson = { ...person, location: 'NYC' };
+    console.log(updatedPerson); // Output: { name: 'Alice', age: 25, location: 'NYC' }
+
+    </script>
+</body>
+</html>
+
+<!-- 
+Summary of Differences:
+Rest Operator (...): Collects multiple elements into an array (or object) and is typically used in function parameters or destructuring.
+Spread Operator (...): Spreads elements of an array (or object) into individual elements and is typically used when copying, merging, or passing arguments to functions.
+Visual Representation:
+Rest: Gathers elements → [1, 2, 3] → function(...args)
+Spread: Spreads elements → [1, 2, 3] → function(...args) becomes function(1, 2, 3)
+-->

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Quiz App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #quiz-container {
+      width: 300px;
+      margin: auto;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #question {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn:disabled {
+      background-color: #ddd;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="quiz-container">
+    <div id="question">Loading question...</div>
+    <button id="prevButton" class="btn" disabled>Previous</button>
+    <button id="nextButton" class="btn">Next</button>
+  </div>
+
+  <script>
+    const quizQuestions = [
+      "What is the capital of France?",
+      "What is 2 + 2?",
+      "What is the capital of Japan?",
+      "What is the square root of 16?",
+      "Who wrote 'To Kill a Mockingbird'?"
+    ];
+
+    let currentQuestionIndex = 0;
+
+    function updateQuestion() {
+      const questionElement = document.getElementById("question");
+      questionElement.textContent = quizQuestions[currentQuestionIndex];
+
+      document.getElementById("prevButton").disabled = currentQuestionIndex === 0;
+      document.getElementById("nextButton").disabled = currentQuestionIndex === quizQuestions.length - 1;
+    }
+
+    document.getElementById("prevButton").addEventListener("click", function() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        updateQuestion();
+      }
+    });
+
+    document.getElementById("nextButton").addEventListener("click", function() {
+      if (currentQuestionIndex < quizQuestions.length - 1) {
+        currentQuestionIndex++;
+        updateQuestion();
+      }
+    });
+
+    // Initialize the first question
+    updateQuestion();
+  </script>
+
+</body>
+</html>

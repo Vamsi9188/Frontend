@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dropdown Navbar</title>
+    <style>
+        .navbar
+        {
+            display: flex;
+            padding:10px 14px;
+            background-color: #333;
+            overflow: hidden;
+            font-size: 18px;
+        }
+        .navbar a
+        {
+            color:white;
+            text-decoration: none;
+            padding:10px 12px;
+            display: block;
+        }
+        .navbar a:hover, .navbar .side-nav a:hover
+        {
+            background-color: grey;
+            border-radius:5px;
+        }
+        .navbar .menu-icon
+        {
+            color:white;
+            font-size: 25px;
+            cursor:pointer;
+            display: none;
+        }
+        .navbar .side-nav
+        {
+            position:fixed;
+            display: none;
+            left:0;
+            top:0;
+            height:100%;
+            width:200px;
+            background-color: #333;
+            padding-top:70px;
+        }
+        .navbar .side-nav.active
+        {
+            display: block;
+        }
+        .navbar .side-nav a
+        {
+            color:white;
+            text-decoration: none;
+            padding:10px 12px;
+            display: block;
+        }
+        .navbar .side-nav .close-btn
+        {
+            position:absolute;
+            color:white;
+            font-size: 25px;
+            cursor:pointer;
+            top:20px;
+            right:20px;
+        }
+        @media (max-width:800px)
+        {
+            .navbar a
+            {
+                display: none;
+            }    
+            .navbar .menu-icon
+            {
+                display: block;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Feedback</a>
+        <a href="#">Questions</a>
+
+        <div class="side-nav" id="side-nav">
+            <a href="#" class="close-btn" onclick="toggleMenu()">&times;</a>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Feedback</a>
+            <a href="#">Questions</a>
+        </div>
+    </div>
+    <script>
+        function toggleMenu()
+        {
+            var sideNav = document.getElementById('side-nav');
+            sideNav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

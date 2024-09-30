@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Fields and Private Fields</title>
+</head>
+<body>
+    <h2>Welcome to Static and Private Fields</h2>
+    <script>
+        class Car
+        {
+            // fields (data)
+            // methods (functions)
+            #thisIsAPrivateField = "Has four wheels";
+            static hasGearbox = true;
+            constructor(brandName,engineCapacity)
+            {
+                
+            }
+            static someDefaultFunctionality()
+            {
+                return `This car has a hearbox = ${Car.hasGearbox}`;
+            }
+            get accessPrivateField()
+            {
+                return this.#thisIsAPrivateField;
+            }
+        }
+        Car.someDefaultFunctionality();  // use strict 
+        const carObj=new Car("Mahindra","1.SL");
+
+        // carObj.#thisIsAPrivateField;
+
+    </script>
+    <h2>Welcome to Object.keys</h2>
+    <script>
+        const person = 
+            {
+                firstName: "Vamsi",
+                lastName: "Damalcheruvu",
+                occupation: "Student"
+            };
+            const personProperties = Object.keys(person);
+            personProperties.forEach((key,index) =>
+            {
+                console.log(key,person[key]);
+            });
+
+            // Object.entries()
+            Object.entries(person);
+            console.log(Object.entries(person));
+
+            // Object.values()
+            console.log(Object.values(person));
+
+            // person.phoneNumber =7995918175;
+
+            // Object.defineProperty()
+            Object.defineProperty(person,"phoneNumber", {enumerable:false,value:7995918175,writable:false});
+
+
+            // maps
+            const map1=new Map();
+            map1.set(1,"Vamsi");
+            map1.set(2,"22");
+            map1.set(3,"MCA");
+            map1.set(true,true);
+            // console.log(map1);
+            console.log(map1.get(2,22));
+            console.log(map1);
+            
+            // map1 properties
+            // clear(), delete(), entries(), forEach(), get(), has(), keys(), set(), size(), values()
+
+    </script>
+</body>
+</html>

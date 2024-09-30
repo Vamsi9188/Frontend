@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <h3>Example: Using Promises in Asynchronous Programming
+    </h3>
+    <script>
+        // Simulating an API call using a Promise
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const success = Math.random() > 0.5; // Simulate success or failure randomly
+      if (success) {
+        resolve("Data fetched successfully!");
+      } else {
+        reject("Failed to fetch data.");
+      }
+    }, 2000); // Simulates a 2-second delay
+  });
+}
+
+// Using the Promise
+fetchData()
+  .then((data) => {
+    console.log(data); // Logs if the promise is resolved (success)
+  })
+  .catch((error) => {
+    console.error(error); // Logs if the promise is rejected (failure)
+  })
+  .finally(() => {
+    console.log("Fetch operation completed."); // Always runs regardless of success or failure
+  });
+
+    </script>
+    <!-- 
+     Explanation:
+The fetchData() function simulates an asynchronous operation (like fetching data from a server). It returns a Promise.
+Inside the promise, setTimeout is used to mimic a delay (2 seconds), after which the promise is either resolved (simulating a successful fetch) or rejected (simulating a failure), based on a random condition (Math.random()).
+.then() is called when the promise resolves successfully, and the returned data is logged.
+.catch() is called if the promise is rejected, and the error is logged.
+.finally() runs after the promise settles (either success or failure), and it logs that the operation is complete.
+
+      -->
+    <H3>Example with chaining</H3>
+    <script>
+        function getUser() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve({ userId: 1, name: "John" }), 1000);
+  });
+}
+
+function getUserPosts(userId) {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(["Post 1", "Post 2", "Post 3"]), 1000);
+  });
+}
+
+getUser()
+  .then((user) => {
+    console.log("User:", user);
+    return getUserPosts(user.userId); // Returning another promise
+  })
+  .then((posts) => {
+    console.log("User's posts:", posts);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  })
+  .finally(() => {
+    console.log("Process completed.");
+  });
+
+    </script>
+</body>
+</html>

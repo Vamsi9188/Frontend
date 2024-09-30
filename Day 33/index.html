@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 33</title>
+    <!-- <script src="script.js"></script> -->
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const visitorNameTextbox = document.getElementById("visitorName");
+            const btnEnterExpo = document.querySelector('#btnEnterExpo');
+            const btnLeaveExpo = document.querySelector('#btnLeaveExpo');
+            const btnMahindraShop = document.querySelector('#btnMahindraShop');
+            const lblMahindraShop = document.querySelector('#lblMahindraShop');
+            const btnTataShop = document.querySelector('#btnTataShop');
+            const lblTataShop = document.querySelector('#lblTataShop');
+            const btnSuzukiShop = document.querySelector('#btnSuzukiShop');
+            const lblSuzukiShop = document.querySelector('#lblSuzukiShop');
+        
+            const visitorName = localStorage.getItem('visitorName');
+            if(visitorName){
+                visitorNameTextbox.value = visitorName;
+                enableShops();
+                btnLeaveExpo.removeAttribute('disabled');
+            } else {
+                visitorNameTextbox.value = '';
+            }
+        
+            btnEnterExpo.addEventListener('click', (event) => {
+                resetLabels();
+                localStorage.setItem("visitorName", visitorNameTextbox.value);
+                enableShops();
+                btnLeaveExpo.removeAttribute('disabled');
+                btnEnterExpo.setAttribute('disabled', true);
+            });
+        
+            btnLeaveExpo.addEventListener('click', (event) => {
+                // Clear localStorage and reset
+                localStorage.removeItem("visitorName");
+                visitorNameTextbox.value = '';
+                resetLabels();
+                disableShops();
+                btnLeaveExpo.setAttribute('disabled', true);
+                btnEnterExpo.removeAttribute('disabled');
+            });
+        
+            btnMahindraShop.addEventListener('click', (event) => {
+                const visitorName = localStorage.getItem("visitorName");
+                if(visitorName){
+                    lblMahindraShop.innerText = `Hi ${visitorName}, welcome to Mahindra Shop!`;
+                } else {
+                    lblMahindraShop.innerText = 'Welcome! unknown.';
+                }
+            });
+        
+            btnTataShop.addEventListener('click', (event) => {
+                const visitorName = localStorage.getItem("visitorName");
+                if(visitorName){
+                    lblTataShop.innerText = `Hi ${visitorName}, welcome to Tata Shop!`;
+                } else {
+                    lblTataShop.innerText = 'Welcome! unknown.';
+                }
+            });
+        
+            btnSuzukiShop.addEventListener('click', (event) => {
+                const visitorName = localStorage.getItem("visitorName");
+                if(visitorName){
+                    lblSuzukiShop.innerText = `Hi ${visitorName}, welcome to Suzuki Shop!`;
+                } else {
+                    lblSuzukiShop.innerText = 'Welcome! unknown.';
+                }
+            });
+        
+            function resetLabels(){
+                lblMahindraShop.innerText = '';
+                lblTataShop.innerText = '';
+                lblSuzukiShop.innerText = '';
+            }
+        
+            function enableShops(){
+                btnMahindraShop.removeAttribute('disabled');
+                btnTataShop.removeAttribute('disabled');
+                btnSuzukiShop.removeAttribute('disabled');
+            }
+        
+            function disableShops(){
+                btnMahindraShop.setAttribute('disabled', true);
+                btnTataShop.setAttribute('disabled', true);
+                btnSuzukiShop.setAttribute('disabled', true);
+            }
+        });
+        </script>
+    <div>
+        <h2>The Auto Expo!!</h2>
+        <label for="visitor">Visitor</label>
+        <input type="text" id="visitorName">
+        <button id="btnEnterExpo">Enter Expo</button>
+        <button id="btnLeaveExpo" disabled>Leave Expo</button>
+        
+    </div>
+    <hr>
+    <div>
+        <div>
+            <button disabled="disabled" id="btnMahindraShop" name="shop">Mahindra Shop</button>
+            <label style="margin-left: 2rem;" for="mahindraShop" id="lblMahindraShop"></label>
+        </div> <br>
+        <div>
+            <button disabled="disabled" id="btnTataShop" name="shop">Tata Shop</button>
+            <label style="margin-left: 2rem;" for="tataShop" id="lblTataShop"></label>
+        </div> <br>
+        <div>
+            <button disabled="disabled" id="btnSuzukiShop" name="shop">Suzuki Shop</button>
+            <label style="margin-left: 2rem;" for="suzukiShop" id="lblSuzukiShop"></label>
+        </div> <br>
+    </div>
+</body>
+</html>

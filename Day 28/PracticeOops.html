@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oops Concepts in JavaScript</title>
+</head>
+<body>
+    <h2>Constructor functions</h2>
+    <h2>Oops Concepts</h2>
+    <b>
+        <ul>
+            <li>Encapsulation</li>
+            <li>Abstraction</li>
+            <li>Polymorphism</li>
+            <li>Inheritance</li>
+        </ul>
+    </b>
+    <script>
+        // Constructor Functions
+        function programmer(name,language)
+        {
+            console.log(this);
+            this.name=name;
+            this.language=language;
+            console.log(this);
+            programmer.localFuc=function()
+            {
+                return 'Hello! Vamsi, How are You?';
+            }
+        }
+        const vamsiProgrammer=new programmer("Vamsi","JavaScript");
+
+        // prototype
+        programmer.prototype.doCoding= function()
+        { 
+            return `${this.name}is coding in ${this.language}`;
+        }
+
+        // ES6 Classes
+        class Programmer1
+        {
+            constructor(name,language)
+            {
+             this.name=name;
+             this.language=language;   
+            }
+            doCoding()
+            {
+                return `${this.name} is coding in ${this.language}`;
+    
+            }
+            specificFunctionality()
+            {
+                return 'Some specific Functionality';
+            }
+            log()
+            {
+                // const result=super.log();
+                // console.log(result);
+                return "Logging from Programmer1";
+            }
+        }
+        const vamsiProgrammer1 = new Programmer1("Vamsi","Java");
+
+        class JavaProgrammer extends Programmer1
+        {
+            constructor(name,version)
+            {
+                const language="Java";
+                super(name,language)
+                this.name=name;
+                this.version=version;
+                this.language=language;
+            }
+            specificFunctionality()
+            {
+                return 'Some specific Functionality';
+            }
+            log()
+            {
+                const result=super.log();
+                console.log(result);
+                return "Logging from JavaProgrammer";
+            }
+        }
+        const vamsiJavaProgrammer =new JavaProgrammer("Vamsi","Advanced Version");
+        vamsiJavaProgrammer.log();
+    </script>
+</body>
+</html>

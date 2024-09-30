@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+:root {
+  --spacing-medium: 8px;
+  --spacing-regular: 16px;
+
+  --font-small: 0.5rem;
+  --font-regular: 1rem;
+  --font-large: 2rem;
+  --font-xl: 4rem;
+
+  --font-semibold: 600;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* mobile first approach for writing the css rules */
+
+.icon {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+
+.container {
+  width: 400px;
+  margin: auto;
+  border: 1px solid;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "current current"
+    "hourly hourly"
+    "fiveday fiveday"
+    "feelslike humidity";
+  gap: var(--spacing-regular);
+  padding: var(--spacing-regular);
+  border-radius: var(--spacing-medium);
+}
+
+.container > article {
+  border: 1px solid;
+  border-radius: var(--spacing-medium);
+  padding: var(--spacing-regular);
+}
+
+#current-forecast {
+  text-align: center;
+  grid-area: current;
+  display: grid;
+  place-content: center;
+  gap: var(--spacing-medium);
+}
+
+#current-forecast .temp {
+  font-size: var(--font-xl);
+}
+
+#current-forecast .description {
+  text-transform: capitalize;
+}
+#current-forecast .min-max-temp {
+  font-size: var(--font-regular);
+  font-weight: var(--font-semibold);
+}
+
+#current-forecast .description-container {
+  display: grid;
+  gap: var(--spacing-medium);
+  grid-auto-flow: column;
+  place-items: center;
+}
+
+/* styles related to hourly forecast */
+
+#hourly-forecast {
+  grid-area: hourly;
+  text-align: center;
+}
+
+#hourly-forecast .hourly-forecast-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-auto-columns: minmax(100px, 1fr);
+  overflow-x: auto;
+  margin-top: var(--spacing-regular);
+}
+
+#hourly-forecast .hourly-forecast-container > .hour-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#hourly-forecast .hourly-forecast-container .hourly-temp {
+  font-size: var(--font-regular);
+  font-weight: var(--font-semibold);
+}
+
+#five-day-forecast {
+  grid-area: fiveday;
+}
+
+#feels-like {
+  grid-area: feelslike;
+}
+#humidity {
+  grid-area: humidity;
+}
+
+     </style>
+
+</head>
+
+<body>
+    <script>
+        const API_KEY = "3540ed5323b3e51df96ad6cf38f42cba";
+
+
+const ENDPOINTS = {
+    CURRENT_FORECAST: "https://api.openweathermap.org/data/2.5/weather",
+    FIVE_DAY_FORECAST: "https://api.openweathermap.org/data/2.5/forecast"
+}
+
+const formatTemperature = (value) => `${value.toFixed(1)} ℃`
+
+const getIcon = (iconCode) => `https://openweathermap.org/img/wn/${iconCode}@2x.png`
+
+const formatTime = (time) => {
+    let [hours, minutes,] = time.split(":");
+    return `${hours}:${minutes}`
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loadCurrentForecast = async () => {
+        const cityName = "Chittoor";
+        const response = await fetch(`${ENDPOINTS.CURRENT_FORECAST}?q=${cityName}&appid=${API_KEY}&units=metric`);
+        return response.json();
+
+    }
+
+    const getHourlyForecast = async (city) => {
+
+        const response = await fetch(`${ENDPOINTS.FIVE_DAY_FORECAST}?q=${city}&appid=${API_KEY}&units=metric`);
+        const data = await response.json();
+        return data.list.map(forecast => {
+            let { main: { temp, temp_max, temp_min }, dt, dt_txt, weather: [{ description, icon }] } = forecast;
+            return { temp, temp_max, temp_min, dt, dt_txt, description, icon }
+        })
+    }
+
+
+
+    const createCurrentForecast = ({ name, main: { temp, temp_min, temp_max }, weather: [{ description, icon }] }) => {
+    
+        const container = document.getElementById("current-forecast");
+
+        const heading = document.createElement("h1");
+        heading.textContent = name;
+        const temperature = document.createElement("p");
+        temperature.classList.add("temp");
+        temperature.textContent = formatTemperature(temp);
+
+        const descriptionContainer = document.createElement("section");
+        descriptionContainer.classList.add("description-container");
+
+
+
+        const iconElement = document.createElement("img");
+        iconElement.src = getIcon(icon);
+        iconElement.classList.add("icon");
+
+        const descriptionElement = document.createElement("p");
+        descriptionElement.classList.add("description");
+        descriptionElement.textContent = description;
+
+        descriptionContainer.append(iconElement, descriptionElement);
+
+        const minMaxTemp = document.createElement("p");
+        minMaxTemp.classList.add("min-max-temp")
+        minMaxTemp.textContent = `H: ${formatTemperature(temp_max)} L: ${formatTemperature(temp_min)}`
+
+        container.append(heading, temperature, descriptionContainer, minMaxTemp)
+
+    }
+
+    const createHourlyForecast = (hourlyForecast) => {
+        let dataFor12Entries = hourlyForecast.slice(1, 13);
+      
+        const hourlyContainerElement = document.querySelector(".hourly-forecast-container");
+
+        for (let { temp, icon, dt_txt } of dataFor12Entries) {
+            const container = document.createElement("article");
+            container.classList.add("hour-info");
+
+            const time = document.createElement("h3");
+            time.textContent = formatTime(dt_txt.split(" ")[1]);
+            time.classList.add("time");
+
+            const iconImage = document.createElement("img");
+            iconImage.classList.add("icon")
+            iconImage.src = getIcon(icon);
+
+            const temperature = document.createElement("p");
+            temperature.classList.add("hourly-temp");
+            temperature.textContent = formatTemperature(temp);
+
+            container.append(time, iconImage, temperature);
+
+            hourlyContainerElement.appendChild(container);
+        }
+
+    }
+
+    const loadData = async () => {
+        const currentForecast = await loadCurrentForecast();
+        createCurrentForecast(currentForecast)
+        const hourlyForecast = await getHourlyForecast(currentForecast.name);
+        createHourlyForecast(hourlyForecast);
+
+    }
+
+
+
+    loadData();
+})
+
+
+    </script>
+    <!-- <script src="main.js"></script> -->
+    <main class="container">
+        <article id="current-forecast">
+        </article>
+        <article id="hourly-forecast">
+            <h1>Hourly Forecast</h1>
+            <section class="hourly-forecast-container">
+            </section>
+
+        </article>
+        <article id="five-day-forecast">
+            <h1>5 day forecast</h1>
+            <article>
+                <h2>Today</h2>
+                <p>icon</p>
+                <p>low temp</p>
+                <p>high temp</p>
+            </article>
+        </article>
+        <article id="feels-like">
+            <h1>Feels like</h1>
+            <p>temp</p>
+        </article>
+        <article id="humidity">
+            <h1>humidity</h1>
+            <p>value %</p>
+        </article>
+    </main>
+</body>
+
+</html>

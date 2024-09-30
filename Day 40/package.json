@@ -1,0 +1,22 @@
+{
+  "name": "day-40",
+  "version": "1.0.0",
+  "description": "NPM Introduction",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "learn",
+    "about",
+    "npm",
+    "and",
+    "implementation"
+  ],
+  "author": "vamsi",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "prettier": "^3.3.3"
+  }
+}

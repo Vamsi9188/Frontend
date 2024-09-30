@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <style>
+        .clock
+        {
+            height: 300px;
+            width: 300px;
+            background-color:#333;
+            border-radius: 50%;
+            position: relative;
+            margin: 100px auto;
+            border: 8px solid coral;
+        }
+        .numbers>span
+        {
+            position: absolute;
+            color: white;
+            /* font-size: 24px; */
+        }
+        .twelve
+        {
+            left:50%;
+            top:8px;
+            transform: translateX(-50%);
+        }
+        .six
+        {
+            left:50%;
+            bottom:8px;
+            transform: translateX(-50%);
+        }
+        .nine
+        {
+            top:50%;
+            left:8px;
+            transform: translateY(-50%);
+        }
+        .three
+        {
+            top:50%;
+            right:8px;
+            transform: translateY(-50%);
+        }
+        .hands
+        {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .dot
+        {
+            height: 10px;
+            width: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+        }
+        .hours
+        {
+            height: 40px;
+            width: 5px;
+            border: 1px solid;
+            position: absolute;
+            bottom:50%;
+            background-color: #fff;
+            border-radius: 8px 8px 0 0;
+            transform-origin: bottom;
+        }
+        .minutes
+        {
+            height: 75px;
+            width: 5px;
+            border: 1px solid;
+            position: absolute;
+            bottom:50%;
+            background-color: #fff;
+            border-radius: 8px 8px 0 0;
+            transform-origin: bottom;
+        }
+        .seconds
+        {
+            height: 95px;
+            width: 5px;
+            position: absolute;
+            bottom:50%;
+            background-color: #fff;
+            border-radius: 8px 8px 0 0;
+            transform-origin: bottom;
+            background-color: mediumseagreen;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="clock">
+            <section class="numbers">
+                <span class="twelve">12</span>
+                <span class="three">3</span>
+                <span class="six">6</span>
+                <span class="nine">9</span>
+            </section>
+            <section class="hands">
+                <span class="dot"></span>
+                <span class="hours"></span>
+                <span class="minutes"></span>
+                <span class="seconds"></span>
+            </section>
+        </section>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () =>
+        {
+            const hoursHand=document.querySelector('.hours');
+            const minutesHand=document.querySelector('.minutes');
+            const secondsHand=document.querySelector('.seconds');
+
+            function setTime()
+            {
+                const now=new Date();
+                const hours=now.getHours();
+                const minutes=now.getMinutes();
+                const seconds=now.getSeconds();
+
+                const hoursInDegree=(hours/12)*360;
+                const minutesInDegree=(minutes/60)*360;
+                const secondsInDegree=(seconds/60)*360;
+                
+                hoursHand.style.transform="rotate("+hoursInDegree+"deg)";
+                minutesHand.style.transform="rotate("+minutesInDegree+"deg)";
+                secondsHand.style.transform="rotate("+secondsInDegree+"deg)";
+            }
+            setInterval(setTime,1000);
+            
+        })
+    </script>
+</body>
+</html>

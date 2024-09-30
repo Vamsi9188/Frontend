@@ -1,0 +1,27 @@
+
+
+2. Differnce between == and === operator
+
+== is equals operator for comparing values it performs type coersion which means before comparison javascript converts the same type for compare.
+
+ex. console.log(5=='5'); // true
+    console.log(true==5);  // true
+
+=== is strictyly equals operator for comparing valus it doesn't perform type coersion which mean it does not convert the values directly compare both values.
+
+ex. console.log(5==='5'); // false
+    console.log(true===5); // false
+
+
+3. Differnce between var,let and const in javascript:
+
+var:
+var is used to define a variable which is gloabal scope mean if we declare a variable with var key word the we can access any time and any place in our code. var supports function scope. Once we declare a variable as var then we can redeclare and reassign.
+
+ex. var a=10;
+    var a="Vamsi";
+
+let:
+let is used to define a variable which is block scope format. Once we declare a variable as let keyword then redeclare is not support in this format and reassignment is possible.
+
+const 

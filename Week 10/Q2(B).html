@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Question</title>
+</head>
+<body>
+    <h3>Find Minimum from Arrays</h3>
+    <script>
+        const obj = {
+   arr1: [3, 5, 1, 8],
+   arr2: [7, 9, 4, 6],
+   arr3: [10, 15, 2, 5],
+   arr4: [1, 11, 7, 3],
+   arr5: [14, 3, 5, 12]
+};
+
+function findMinimums(obj) {
+  // Map through the values (arrays) of the object, find the minimum of each array, and return an array of the minimums
+  return Object.values(obj).map(arr => Math.min(...arr));
+}
+
+const result = findMinimums(obj);
+console.log(result); // Output: [1, 4, 2, 1, 3]
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Prototype Methods</title>
+</head>
+<body>
+    <h2>Array Protoype Methods</h2>
+    <script>
+        const arr=[1,2,3,4,5];
+        const result=arr.reduce((accumulator,currentValue) => 
+        {
+            return accumulator + currentValue;
+        })
+
+        // or
+        const arr1=[1,2,3,4,5,15];
+        const initialValue=0;
+        const result1=arr1.reduce((element,value) => element + value , initialValue);
+
+        // or
+        var names=['vamsi','mahesh','dhoni','rohit','king'];
+        
+        // toString() Method
+        let toStringMethod=names.toString();
+        console.log("toString()");
+        console.log(toStringMethod);
+
+        // join() Method
+        let joinMethod=names.join('&');
+        console.log("join()")
+        console.log(joinMethod);
+
+        // concat() Method
+        let names2=['rama','lakshman','anji','ravan'];
+        let names3=['sita','lakshmi','ganga','yamuna'];
+        let concatMethod=names.concat(names2,names3);
+        console.log("concat()");
+        console.log(concatMethod);
+
+        // splice() Method
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        let spliceMethod=fruits.splice(1,2);
+        console.log("spolice()");
+        console.log(spliceMethod);
+        fruits.splice(3,2, "Lemon", "Kiwi");
+        console.log(fruits);
+
+        // slice() Method
+        let sliceMethod=names.slice(1,3);
+        console.log("slice()");
+        console.log(sliceMethod);
+
+        // indexOf() Method :- return first occurance of the substring
+        let indexOfMethod=names.indexOf('rohit');
+        console.log("indexOf()");
+        console.log(indexOfMethod);
+        
+        // lastIndexOf() Method :- returns the last occurance of the substring
+        var names=['vamsi','dhoni','mahesh','rohit','vamsi','yogesh','vamsi'];
+        let lastIndexOfMethod=names.lastIndexOf('vamsi');
+        console.log("lastIndexOf()");
+        console.log(lastIndexOfMethod);
+
+        // flat() Method :- default it takes no aruguments in numbers
+        var nums=[1,2,3,4,5,[6,7,[8,9],],10]
+        var ages=[12,21,33,[4,5],33,45];
+        console.log("flat()");
+        let flatMethod=nums.flat();
+        console.log(flatMethod);
+        console.log(ages.flat());
+
+        // Higher Order Functions HOF: 
+        // ForEach() Method
+        console.log("forEach()");
+        let count=0;
+        fruits.forEach((name) =>
+        {
+            console.log(name);
+            count++;
+        })
+        console.log("Total Fruits Count:",count);
+        
+        // using same by for loop
+        let namesCount=0;
+        for(let name=0;name<names2.length;name++)
+        {
+            console.log(names2[name]);
+            namesCount++;
+        }
+        console.log("Total Names Count:",namesCount);
+
+        // map() Method:- 
+        var nums=[1,2,3,4,5];
+        let mapMethod=nums.map((product) => product.toString());
+        console.log("map()");
+        console.log(nums.map((n) => n*10));
+        console.log(nums.map((n) => n+=10));
+        console.log(mapMethod);
+
+        // filter() Method
+        var persons = [{name:"vamsi",age:22},{name:"suresh",age:22},{name:"sumanth",age:24}];
+        console.log(persons)
+        console.log("filter()");
+        let filterMethod=persons.filter((users) => users.age==22);
+        console.log(filterMethod);
+        let numsFilter=nums.filter((n) => n%2==0 );
+        console.log(numsFilter);
+
+        // reduce() Method
+        console.log("reduce()");
+        let reduceMethod=nums.reduce((sum,value) => sum+value);
+        console.log(reduceMethod);
+        var res1=nums.reduce((sum,total) => sum+total,10);
+        console.log(res1);
+        var find=nums.reduce((a,b) => Math.max(a,b));
+        console.log(find);
+
+        // some() Method
+        console.log("some()");
+        var someMethod=nums.some((n) => n>5);
+        console.log(someMethod);
+        var findAge=ages.some((num)=> 
+        {
+            // for(let n)
+            if(num>=18)
+            {
+                console.log(num);
+            }
+        })
+        console.log(findAge);
+
+        // every() Method
+        console.log("every()");
+        var everyMethod=ages.every((check) => check%2==0 );
+        console.log(everyMethod);
+        var checkNums=nums.every((n) => n>0);
+        console.log(checkNums);
+
+        // find() Method:-
+        console.log("find()");
+        let findMethod=nums.find((n) =>  
+        {
+            if(n<5)
+            {
+                console.log(n);
+            }
+        });
+        console.log(findMethod);
+        var ageFind=ages.find((checkAge) => checkAge==21);
+        console.log(ageFind);
+
+        // findIndex() Method:-
+        console.log("findIndex()");
+       var findIndexMethod=ages.findIndex(checkAge);
+       function checkAge(age)
+       {
+        return age>21
+       }
+       checkAge(21);
+       console.log(findIndexMethod);
+
+    </script>    
+</body>
+</html>

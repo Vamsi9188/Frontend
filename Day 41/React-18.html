@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 18 Version</title>
+</head>
+<body>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <div id="rootElement"></div>
+    <script type="text/babel">
+        const rootElement=document.getElementById('rootElement');
+
+        const reactRoot=ReactDOM.createRoot(rootElement);
+    
+        const element1 = React.createElement('div',{
+            className:"container",
+        },
+            // children:["How are you students?"]
+            React.createElement('h2',null,"Vamsi"),
+            React.createElement('u',null,'vamsi'),
+            "Welcome To React",
+            "World!",
+            "What Ever"
+        )
+
+        const element2=React.createElement('div',{
+            className:'container'
+            },
+            "Hello Students",
+            "Another Child",
+            "One More Child of Span",
+            "Welcome to The React",
+            "World",
+            "Whatever"
+        );
+
+        let greeting="good afternoon"
+        let message=null;
+        const element3 = (<div className="container">
+            <span>Hello, Students.<br />
+            <span>Another Child</span> <br />
+            One More Child of
+            </span>
+            <br />
+            {greeting?greeting:"I don't know you."}
+            <br />
+            {message??"Hello, Vamsi!"}
+            </div> );
+
+        const element4 = (<div className='container'>
+            <h4>heading 4</h4>
+            <span>Vamsi -
+                MCA
+                </span>
+            Join The Dots Foundation
+        </div>);
+        
+        // <React.Fragment><>...</>
+        let greet=null;
+        function greeter()
+        {
+            alert("Mother Theresa");
+        }
+        const element5 = (
+            <>
+            <span>Hello Vamsi</span><br />
+            {greet??"I don't know you."}
+            <span onClick={greeter}>{greet?? "How are You"}</span>
+            </>
+        );
+
+        const Welcome = (props) => {
+            return (<span>{props.message} </span>)
+        }
+
+        const element6 = (
+            <>
+            <Welcome message="Hello"></Welcome>
+            <Welcome message="Hi"></Welcome>
+            <Welcome message="Namasthe"></Welcome>
+            </>
+        );
+
+        reactRoot.render(element1);
+        reactRoot.render(element2);
+        reactRoot.render(element3);
+        reactRoot.render(element4);
+        reactRoot.render(element5);
+        reactRoot.render(element6);
+    </script>
+</body>
+</html>
